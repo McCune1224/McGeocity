@@ -1,13 +1,17 @@
-import forms from '@tailwindcss/forms';
-import typography from '@tailwindcss/typography';
-import type { Config } from 'tailwindcss';
+import forms from "@tailwindcss/forms";
+import typography from "@tailwindcss/typography";
+import type { Config } from "tailwindcss";
 
 export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ["./src/**/*.{html,js,svelte,ts}"],
 
   theme: {
-    extend: {}
+    extend: {
+      fontSize: {
+        smol: ["0.7rem", "0.8rem"],
+      },
+    },
   },
 
-  plugins: [typography, forms]
+  plugins: [typography, forms],
 } satisfies Config;

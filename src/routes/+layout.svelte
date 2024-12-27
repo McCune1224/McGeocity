@@ -14,10 +14,14 @@
 	let paths = $derived(data.props.url.split("/") || "");
 </script>
 
-<main class="text-xs bg-gray-800 h-screen text-white">
-	<div class="sm:mx-8 bg-black border-green-400 border-8 h-screen static">
+<main class="text-sm bg-black text-white">
+	<div
+		class="sm:mx-8 bg-black border-green-400 border-8 flex flex-col h-screen"
+	>
 		<div class="bg-green-400 sm:p-2">
-			<nav class="flex gap-8 sm:text-4xl text-xl justify-between items-center">
+			<nav
+				class="text-black flex gap-8 sm:text-4xl text-xl justify-between items-center"
+			>
 				<p class="text-md sm:text-3xl font-mono text-black">
 					DIR:
 					{#each paths as path, i}
@@ -47,4 +51,5 @@
 			{@render children()}
 		</div>
 	</div>
+	<div class="sm:py-2"></div>
 </main>

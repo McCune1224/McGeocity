@@ -7,6 +7,7 @@
 	import retro_music from "$lib/assets/retro_music.png";
 	import retro_music_hover from "$lib/assets/retro_music_hover.png";
 	import RetroButtonLink from "$lib/components/RetroButtonLink.svelte";
+	import TerminalLine from "$lib/components/TerminalLine.svelte";
 	const statements: string[] = [
 		"VISITOR DETECTED...",
 		"LOG 26 LOADED",
@@ -32,12 +33,20 @@
 
 <!-- The following page will be styled in a retro 90's/hacker website -->
 <!-- <Scrollbar {statements} /> -->
-<div class="text-xs sm:text-3xl font-mono text-green-400">
-	{#each nameGrid as line}
-		<p>{line}</p>
-	{/each}
+<div class="text-center sm:text-3xl font-mono text-green-400">
+	<TerminalLine />
+	<div class="text-smol sm:text-2xl">
+		<p class="text-start">$> neocityfetch</p>
+		{#each nameGrid as line}
+			<p>{line}</p>
+		{/each}
+	</div>
+	<p>
+		Thanks for visiting my website! I love all things tech and software. Have
+		fun exploring the site :)
+	</p>
 	<div
-		class="py-20 flex flex-col sm:flex-row sm:justify-evenly items-center gap-8"
+		class="py-2 flex flex-col sm:flex-row sm:justify-evenly items-center gap-8"
 	>
 		<RetroButtonLink
 			title="WHO AM I"
@@ -61,4 +70,29 @@
 			alt="ascii art wrench"
 		/>
 	</div>
+	<TerminalLine />
+	<p class="text-start">$> socials</p>
+	<ul class="flex flex-row justify-evenly py-8">
+		<li>
+			<a
+				class="hover:text-red-500"
+				target="_blank"
+				href="https://bsky.app/profile/mckusa.bsky.social">{"> Bluesky"}</a
+			>
+		</li>
+		<li>
+			<a
+				class="hover:text-red-500"
+				href="https://github.com/mccune1224"
+				target="_blank">{"> Github"}</a
+			>
+		</li>
+		<li>
+			<a
+				class="hover:text-red-500"
+				href="https://mccune1224.substack.com/"
+				target="_blank">{"> Substack"}</a
+			>
+		</li>
+	</ul>
 </div>
