@@ -33,7 +33,7 @@
 
 <!-- The following page will be styled in a retro 90's/hacker website -->
 <!-- <Scrollbar {statements} /> -->
-<div class="text-center sm:text-3xl font-mono text-green-400">
+<div class="text-center sm:text-3xl text-green-400">
 	<TerminalLine />
 	<p class="text-start">$> neocityfetch</p>
 	<div class="text-smol sm:text-2xl">

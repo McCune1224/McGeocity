@@ -12,7 +12,6 @@
     hoverSrc: string;
     alt: string;
   } = $props();
-  console.log(url);
 </script>
 
 <button>

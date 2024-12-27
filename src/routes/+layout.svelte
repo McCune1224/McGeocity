@@ -20,7 +20,7 @@
 	>
 		<div class="bg-green-400">
 			<nav
-				class="text-black flex gap-8 sm:text-4xl text-xl justify-between items-center"
+				class="text-black flex gap-8 sm:text-4xl text-xl justify-between items-center mx-4"
 			>
 				<p class="text-md sm:text-3xl font-mono text-black">
 					DIR:
