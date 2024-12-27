@@ -35,8 +35,8 @@
 <!-- <Scrollbar {statements} /> -->
 <div class="text-center sm:text-3xl font-mono text-green-400">
 	<TerminalLine />
+	<p class="text-start">$> neocityfetch</p>
 	<div class="text-smol sm:text-2xl">
-		<p class="text-start">$> neocityfetch</p>
 		{#each nameGrid as line}
 			<p>{line}</p>
 		{/each}
@@ -72,7 +72,7 @@
 	</div>
 	<TerminalLine />
 	<p class="text-start">$> socials</p>
-	<ul class="flex flex-row justify-evenly py-8">
+	<ul class="flex flex-row justify-evenly py-4">
 		<li>
 			<a
 				class="hover:text-red-500"

@@ -16,9 +16,9 @@
 
 <main class="text-sm bg-black text-white">
 	<div
-		class="sm:mx-8 bg-black border-green-400 border-8 flex flex-col h-screen"
+		class="sm:mx-8 bg-black border-green-400 border-4 flex flex-col h-screen"
 	>
-		<div class="bg-green-400 sm:p-2">
+		<div class="bg-green-400">
 			<nav
 				class="text-black flex gap-8 sm:text-4xl text-xl justify-between items-center"
 			>
@@ -47,7 +47,9 @@
 				</div>
 			</nav>
 		</div>
-		<div class="m-4 sm:m-8">
+		<div
+			class="m-4 sm:m-8 sm:text-3xl font-mono text-green-400 overflow-scroll"
+		>
 			{@render children()}
 		</div>
 	</div>
