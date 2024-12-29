@@ -22,7 +22,7 @@
 			<nav
 				class="text-black flex gap-8 sm:text-4xl text-xl justify-between items-center mx-4"
 			>
-				<p class="text-md sm:text-3xl font-mono text-black">
+				<p class="text-smol sm:text-3xl font-mono text-black">
 					DIR:
 					{#each paths as path, i}
 						{#if i == 0}
