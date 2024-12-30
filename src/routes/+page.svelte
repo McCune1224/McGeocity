@@ -33,7 +33,11 @@
 
 <!-- The following page will be styled in a retro 90's/hacker website -->
 <!-- <Scrollbar {statements} /> -->
-<div class="text-center sm:text-3xl text-green-400">
+<section class="text-center sm:text-3xl text-green-400">
+	<p class="text-smol">
+		* CAUTION: For best viewing experience please use a desktop browser. Sorry
+		in advanced mobile users!
+	</p>
 	<TerminalLine />
 	<p class="text-start">$> neocityfetch</p>
 	<div class="text-smol sm:text-2xl">
@@ -41,9 +45,11 @@
 			<p>{line}</p>
 		{/each}
 	</div>
-	<p>
-		Thanks for visiting my website! I love all things tech and software. Have
-		fun exploring the site :)
+	<p class="text-base sm:mx-auto">
+		Welcome to my little digital corner of the web! Below are some links to
+		learn more about me and my interests. (For example if you're feeling
+		adventurous, you can also check out my music and maybe scoop some for your
+		own playlists!)
 	</p>
 	<div
 		class="py-2 flex flex-col sm:flex-row sm:justify-evenly items-center gap-8"
@@ -71,7 +77,10 @@
 		/>
 	</div>
 	<TerminalLine />
-	<p class="text-start">$> socials</p>
+</section>
+
+<section>
+	<p class="text-start text-2xl">$> socials</p>
 	<ul class="flex flex-row justify-evenly py-4">
 		<li>
 			<a
@@ -95,4 +104,4 @@
 			>
 		</li>
 	</ul>
-</div>
+</section>

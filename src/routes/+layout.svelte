@@ -47,9 +47,7 @@
 				</div>
 			</nav>
 		</div>
-		<div
-			class="m-4 sm:m-8 sm:text-3xl font-mono text-green-400 overflow-scroll"
-		>
+		<div class="m-4 sm:m-8 font-mono text-base text-green-400 overflow-scroll">
 			{@render children()}
 		</div>
 	</div>
