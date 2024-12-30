@@ -41,35 +41,41 @@
 	<TerminalLine />
 	<p class="text-start">$> neocityfetch</p>
 	<div class="text-smol sm:text-2xl">
-		{#each nameGrid as line}
-			<p>{line}</p>
+		{#each nameGrid as line, i}
+			{#if i == 3}
+				<a class="hover:text-red-500 hover:text-8xl" href="/layarteb"
+					>[{line}]</a
+				>
+			{:else}
+				<p>{line}</p>
+			{/if}
 		{/each}
 	</div>
 	<p class="text-base sm:mx-auto">
 		Welcome to my little digital corner of the web! Below are some links to
-		learn more about me and my interests. (For example if you're feeling
-		adventurous, you can also check out my music and maybe scoop some for your
-		own playlists!)
+		learn more about me and my interests (all links are indicated with a [ ] ).
+		(For example if you're feeling adventurous, you can also check out my music
+		and maybe scoop some for your own playlists!)
 	</p>
 	<div
 		class="py-2 flex flex-col sm:flex-row sm:justify-evenly items-center gap-8"
 	>
 		<RetroButtonLink
-			title="WHO AM I"
+			title="[WHO AM I]"
 			url="/about"
 			src={retro_about}
 			hoverSrc={retro_about_hover}
 			alt="ascii art person"
 		/>
 		<RetroButtonLink
-			title="PROJECTS"
+			title="[ WORKS ]"
 			url="/projects"
 			src={retro_projects}
 			hoverSrc={retro_projects_hover}
 			alt="ascii art wrench"
 		/>
 		<RetroButtonLink
-			title="MUSIC"
+			title="[ MUSIC ]"
 			url="/music"
 			src={retro_music}
 			hoverSrc={retro_music_hover}
@@ -81,26 +87,26 @@
 
 <section>
 	<p class="text-start text-2xl">$> socials</p>
-	<ul class="flex flex-row justify-evenly py-4">
+	<ul class="flex flex-row justify-center py-4">
 		<li>
 			<a
 				class="hover:text-red-500"
 				target="_blank"
-				href="https://bsky.app/profile/mckusa.bsky.social">{"@Bluesky"}</a
+				href="https://bsky.app/profile/mckusa.bsky.social">{"[ @Bluesky ]"}</a
 			>
 		</li>
 		<li>
 			<a
 				class="hover:text-red-500"
 				href="https://github.com/mccune1224"
-				target="_blank">{"@Github"}</a
+				target="_blank">{"[ @Github ]"}</a
 			>
 		</li>
 		<li>
 			<a
 				class="hover:text-red-500"
 				href="https://mccune1224.substack.com/"
-				target="_blank">{"@Substack"}</a
+				target="_blank">{" [ @Substack ]"}</a
 			>
 		</li>
 	</ul>
