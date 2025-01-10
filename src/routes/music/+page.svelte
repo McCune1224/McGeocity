@@ -6,7 +6,7 @@
 </script>
 
 <section>
-	<p class="text-2xl">$> ls /music -r</p>
+	<p class="text-3xl">$> ls /music -r</p>
 	<p class="py-4">
 		Below is a list of my Spotify Playlists, all of varying degrees of generes
 		and moods. But to quickly summarize: I am a <b> HUGE </b> Math Rock /
@@ -58,6 +58,6 @@
 			{/each}
 		</div>
 	{:else}
-		<p>{data.error}</p>
+		<p>FAILED TO LOAD SPOTIFY DATA: {data.error}</p>
 	{/if}
 </section>

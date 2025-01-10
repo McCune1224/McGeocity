@@ -50,7 +50,7 @@
 			{/each}
 		</div>
 
-		<form on:submit={handleSubmit} class="mt-4">
+		<form onsubmit={handleSubmit} class="mt-4">
 			<input
 				type="text"
 				bind:value={input}

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import TerminalLine from "$lib/components/TerminalLine.svelte";
 	import "../app.css";
 	import type { LayoutServerData } from "./$types";
 	import type { Snippet } from "svelte";

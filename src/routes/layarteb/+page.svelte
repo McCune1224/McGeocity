@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Socials from "$lib/components/Socials.svelte";
 	import type { PageServerData } from "./$types";
 	import Terminal from "./Terminal.svelte";
 	const { data }: { data: PageServerData } = $props();
@@ -13,7 +14,7 @@
 			href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher"
 			target="_blank"
 			class="hover:text-red-500">[ Vigenere Ceasar ]</a
-		> Salad.
+		> Salad... yes that's a thing.
 	</p>
 	<p>
 		Actually...I'm so confident that I'll even give you the encrypted phrase:
@@ -23,3 +24,7 @@
 </section>
 
 <Terminal access_granted={data.access_granted === "true"} />
+
+<Socials />
+
+amoebalover scienceRULES

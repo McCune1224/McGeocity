@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Scrollbar from "./Scrollbar.svelte";
 	import retro_about from "$lib/assets/retro_about.png";
 	import retro_about_hover from "$lib/assets/retro_about_hover.png";
 	import retro_projects from "$lib/assets/retro_projects.png";
@@ -8,11 +7,6 @@
 	import retro_music_hover from "$lib/assets/retro_music_hover.png";
 	import RetroButtonLink from "$lib/components/RetroButtonLink.svelte";
 	import TerminalLine from "$lib/components/TerminalLine.svelte";
-	const statements: string[] = [
-		"VISITOR DETECTED...",
-		"LOG 26 LOADED",
-		"ACCESS_GRANTED = TRUE;",
-	];
 
 	const nameGrid = [
 		".█████╗.██╗.....███████╗██╗..██╗......................",
@@ -82,32 +76,4 @@
 			alt="ascii art wrench"
 		/>
 	</div>
-	<TerminalLine />
-</section>
-
-<section>
-	<p class="text-start text-2xl">$> socials</p>
-	<ul class="flex flex-row justify-center py-4">
-		<li>
-			<a
-				class="hover:text-red-500"
-				target="_blank"
-				href="https://bsky.app/profile/mckusa.bsky.social">{"[ @Bluesky ]"}</a
-			>
-		</li>
-		<li>
-			<a
-				class="hover:text-red-500"
-				href="https://github.com/mccune1224"
-				target="_blank">{"[ @Github ]"}</a
-			>
-		</li>
-		<li>
-			<a
-				class="hover:text-red-500"
-				href="https://mccune1224.substack.com/"
-				target="_blank">{" [ @Substack ]"}</a
-			>
-		</li>
-	</ul>
 </section>
