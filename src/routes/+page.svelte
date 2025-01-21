@@ -7,6 +7,7 @@
 	import retro_music_hover from "$lib/assets/retro_music_hover.png";
 	import RetroButtonLink from "$lib/components/RetroButtonLink.svelte";
 	import TerminalLine from "$lib/components/TerminalLine.svelte";
+	import Socials from "$lib/components/Socials.svelte";
 
 	const nameGrid = [
 		".█████╗.██╗.....███████╗██╗..██╗......................",
@@ -36,13 +37,11 @@
 	<p class="text-start">$> neocityfetch</p>
 	<div class="text-smol sm:text-2xl">
 		{#each nameGrid as line, i}
-			{#if i == 3}
-				<a class="hover:text-red-500 hover:text-8xl" href="/layarteb"
-					>[{line}]</a
-				>
-			{:else}
-				<p>{line}</p>
-			{/if}
+		{#if i == 3}
+		<a class="hover:text-red-500 hover:text-8xl" href="/layarteb">[{line}]</a>
+		{:else}
+		<p>{line}</p>
+		{/if}
 		{/each}
 	</div>
 	<p class="text-base sm:mx-auto">
@@ -51,29 +50,14 @@
 		(For example if you're feeling adventurous, you can also check out my music
 		and maybe scoop some for your own playlists!)
 	</p>
-	<div
-		class="py-2 flex flex-col sm:flex-row sm:justify-evenly items-center gap-8"
-	>
-		<RetroButtonLink
-			title="[WHO AM I]"
-			url="/about"
-			src={retro_about}
-			hoverSrc={retro_about_hover}
-			alt="ascii art person"
-		/>
-		<RetroButtonLink
-			title="[ WORKS ]"
-			url="/projects"
-			src={retro_projects}
-			hoverSrc={retro_projects_hover}
-			alt="ascii art wrench"
-		/>
-		<RetroButtonLink
-			title="[ MUSIC ]"
-			url="/music"
-			src={retro_music}
-			hoverSrc={retro_music_hover}
-			alt="ascii art wrench"
-		/>
+	<div class="py-2 flex flex-col sm:flex-row sm:justify-evenly items-center gap-8">
+		<RetroButtonLink title="[WHO AM I]" url="/about" src={retro_about} hoverSrc={retro_about_hover}
+			alt="ascii art person" />
+		<RetroButtonLink title="[ WORKS ]" url="/projects" src={retro_projects} hoverSrc={retro_projects_hover}
+			alt="ascii art wrench" />
+		<RetroButtonLink title="[ MUSIC ]" url="/music" src={retro_music} hoverSrc={retro_music_hover}
+			alt="ascii art wrench" />
 	</div>
+
+	<Socials />
 </section>
