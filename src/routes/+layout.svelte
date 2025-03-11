@@ -1,9 +1,9 @@
 <script lang="ts">
 	import TerminalLine from "$lib/components/TerminalLine.svelte";
 	import "../app.css";
-	import type { LayoutServerData } from "./$types";
-	import type { Snippet } from "svelte";
-	let { data, children }: { data: LayoutServerData; children: Snippet } =
+	import type {LayoutServerData} from "./$types";
+	import type {Snippet} from "svelte";
+	let {data, children}: {data: LayoutServerData; children: Snippet} =
 		$props();
 	const fullScreenTogglePress = () => {
 		if (document.fullscreenElement) {
@@ -16,34 +16,24 @@
 </script>
 
 <main class="text-sm bg-black text-white">
-	<div
-		class="sm:mx-8 bg-black border-green-400 border-4 flex flex-col h-screen"
-	>
+	<div class="sm:mx-8 bg-black border-green-400 border-4 flex flex-col h-screen">
 		<div class="bg-green-400">
-			<nav
-				class="text-black flex gap-8 sm:text-4xl text-xl justify-between items-center mx-4"
-			>
+			<nav class="text-black flex gap-8 sm:text-4xl text-xl justify-between items-center mx-4">
 				<p class="text-smol sm:text-3xl font-mono text-black">
 					DIR:
 					{#each paths as path, i}
-						{#if i == 0}
-							<a class="hover:text-red-600" href="/">root</a>
-						{:else}
-							<a class="hover:text-red-600" href={path}>{" " + path}</a>
+					{#if i == 0}
+					<a class="hover:text-red-600" href="/">root</a>
+					{:else}
+					<a class="hover:text-red-600" href={path}>{" " + path}</a>
+					{/if}
+					{#if i < paths.length - 1} <span>/</span>
 						{/if}
-						{#if i < paths.length - 1}
-							<span>/</span>
-						{/if}
-					{/each}
+						{/each}
 				</p>
 				<div class="flex flex-row items-center gap-8">
-					<a
-						class="hover:text-red-600 sm:text-6xl text-4xl align-text-bottom"
-						href={"/"}>-</a
-					>
-					<button class="hover:text-red-600" onclick={fullScreenTogglePress}
-						>[ ]</button
-					>
+					<a class="hover:text-red-600 sm:text-6xl text-4xl align-text-bottom" href={"/"}>-</a>
+					<button class="hover:text-red-600" onclick={fullScreenTogglePress}>[ ]</button>
 					<a class="hover:text-red-600" href="/">X</a>
 				</div>
 			</nav>
@@ -68,6 +58,7 @@
 			1.3rem Inconsolata,
 			monospace;
 		text-shadow: 0 0 5px #c8c8c8;
+
 		&::after {
 			content: "";
 			position: absolute;
@@ -75,21 +66,37 @@
 			left: 0;
 			width: 100vw;
 			height: 100vh;
-			background: repeating-linear-gradient(
-				0deg,
-				rgba(black, 0.15),
-				rgba(black, 0.15) 1px,
-				transparent 1px,
-				transparent 2px
-			);
+			background: repeating-linear-gradient(0deg,
+					rgba(black, 0.15),
+					rgba(black, 0.15) 1px,
+					transparent 1px,
+					transparent 2px);
 			pointer-events: none;
 		}
+
+		/* width */
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+			background: #000000;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+			background: #b2ffa9;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+			background: #b2ffc9;
+		}
 	}
+
 	::selection {
 		background: #0080ff;
 		text-shadow: none;
-	}
-	pre {
-		margin: 0;
 	}
 </style>

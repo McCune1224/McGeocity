@@ -7,11 +7,11 @@
 
 <section class="flex flex-col gap-2">
 	<p>
-		How did you stumble upon this page? You're not supposed to be here. Meh, not
-		a concern for me though. Access to the terminal tied to an phrase that needs
-		to be decrypted so you won't be able to do much here. Anyways, I'll be over
-		here eating my <a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher" target="_blank"
-			class="hover:text-red-500">[ Vigenere Ceasar ]</a> Salad... yes that's a thing.
+		Ah I see you were able to stumble upon this page. Thought it would be fun to
+		have a little easter egg / capture the flag hunt on the site. Good luck
+		finding out how to move forward from here! Anyways, I'll be over here eating
+		my <a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher" target="_blank"
+			class="hover:text-red-500 underline">[ Vigenere Ceasar ]</a> Salad... yes that's a thing.
 	</p>
 	<p>
 		Actually...I'm so confident that I'll even give you the encrypted phrase:
