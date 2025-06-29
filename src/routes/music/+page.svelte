@@ -38,24 +38,28 @@
 	</p>
 </section>
 <section class="">
-	{#if !data.error}
-		<div class="sm:grid sm:grid-cols-2 flex flex-col justify-end text-sm gap-2">
-			{#each data.playlistData.items as playlist}
-				{#if playlist.owner.id == "mccune1224"}
-					<div class="">
-						<p class="">TITLE: {playlist.name}</p>
-						<p class="">DESCRIPTION: ({playlist.description})</p>
-						<a
-							class="hover:text-red-500"
-							href={playlist.external_urls.spotify}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							[SPOTIFY_LINK]
-						</a>
-					</div>
-				{/if}
-			{/each}
+	{#if !data.error || data.playlistData}
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+			{#if data.playlistData && data.playlistData.items.length > 0}
+				{#each data.playlistData.items as playlist}
+					{#if playlist.owner.id == "mccune1224"}
+						<div class="rounded-lg shadow-lg p-6 flex flex-col h-full">
+							<p class="text-xl font-bold mb-2">{playlist.name}</p>
+							<p class="text-base text-gray-300 mb-4">
+								{playlist.description || "[NULL_DESCRIPTION]"}
+							</p>
+							<a
+								class="hover:text-red-500 text-blue-400 font-semibold mt-auto"
+								href={playlist.external_urls.spotify}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								[SPOTIFY LINK]
+							</a>
+						</div>
+					{/if}
+				{/each}
+			{/if}
 		</div>
 	{:else}
 		<p>FAILED TO LOAD SPOTIFY DATA: {data.error}</p>
