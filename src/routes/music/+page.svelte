@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageServerData } from "./$types";
-	import type { SpotifyPlaylistResponse } from "./+page.server";
 
 	let { data }: { data: PageServerData } = $props();
 </script>
@@ -37,31 +36,72 @@
 		>.
 	</p>
 </section>
-<section class="">
-	{#if !data.error || data.playlistData}
-		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-			{#if data.playlistData && data.playlistData.items.length > 0}
-				{#each data.playlistData.items as playlist}
-					{#if playlist.owner.id == "mccune1224"}
-						<div class="rounded-lg shadow-lg p-6 flex flex-col h-full">
-							<p class="text-xl font-bold mb-2">{playlist.name}</p>
-							<p class="text-base text-gray-300 mb-4">
-								{playlist.description || "[NULL_DESCRIPTION]"}
-							</p>
+<section class="font-mono">
+	{#if !data.error && data.playlistData}
+		<!-- Mobile view -->
+		<div class="flex flex-col gap-4 sm:hidden">
+			{#each data.playlistData.items as playlist, i}
+				{#if playlist.owner.id == "mccune1224"}
+					<div>
+						<p class="border-b-2 border-green-500">-[ Playlist {i + 1} ]-</p>
+						<div
+							class="grid grid-cols-[max-content,max-content,1fr] gap-x-4 p-2 text-sm"
+						>
+							<span class="font-bold text-right">TITLE</span>
+							<span>|</span>
+							<span>{playlist.name}</span>
+
+							<span class="font-bold text-right">DESCRIPTION</span>
+							<span>|</span>
+							<span>{playlist.description || "N/A"}</span>
+
+							<span class="font-bold text-right">LINK</span>
+							<span>|</span>
 							<a
-								class="hover:text-red-500 text-blue-400 font-semibold mt-auto"
+								class="hover:text-red-500"
 								href={playlist.external_urls.spotify}
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								[SPOTIFY LINK]
+								[SPOTIFY]
 							</a>
 						</div>
+					</div>
+				{/if}
+			{/each}
+		</div>
+
+		<!-- Desktop view -->
+		<table class="hidden w-full text-sm sm:table">
+			<thead>
+				<tr class="border-b-2 border-green-500">
+					<th class="p-2 text-left">TITLE</th>
+					<th class="p-2 text-left">DESCRIPTION</th>
+					<th class="p-2 text-left">LINK</th>
+				</tr>
+			</thead>
+			<tbody>
+				{#each data.playlistData.items as playlist}
+					{#if playlist.owner.id == "mccune1224"}
+						<tr class="border-b border-dashed border-green-700">
+							<td class="p-2 align-top">{playlist.name}</td>
+							<td class="p-2 align-top">{playlist.description || "N/A"}</td>
+							<td class="p-2 align-top">
+								<a
+									class="hover:text-red-500"
+									href={playlist.external_urls.spotify}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									[SPOTIFY]
+								</a>
+							</td>
+						</tr>
 					{/if}
 				{/each}
-			{/if}
-		</div>
-	{:else}
+			</tbody>
+		</table>
+	{:else if data.error}
 		<p>FAILED TO LOAD SPOTIFY DATA: {data.error}</p>
 	{/if}
 </section>

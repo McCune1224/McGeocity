@@ -37,11 +37,11 @@
 	<p class="text-start">$> neocityfetch</p>
 	<div class="text-smol sm:text-2xl">
 		{#each nameGrid as line, i}
-		{#if i == 3}
-		<a class="hover:text-red-500" href="/layarteb">[{line}]!!!</a>
-		{:else}
-		<p>{line}</p>
-		{/if}
+			{#if i == 3}
+				<a class="hover:text-red-500" href="/layarteb">[{line}]!!!</a>
+			{:else}
+				<p>{line}</p>
+			{/if}
 		{/each}
 	</div>
 	<div class="flex flex-col gap-8">
@@ -51,19 +51,38 @@
 			currently working as an application/system admin. I love to program in my free
 			time, but when not working or coding you can normally find me playing board
 			games, video games, rock climbing or running.
-			<i class="text-sm">(A lot more of the gaming during the pure gray and snowy winters we
-				have here...)</i>
+			<i class="text-sm"
+				>(A lot more of the gaming during the pure gray and snowy winters we
+				have here...)</i
+			>
 			Feel free to check out some of the links below to learn more if interested
 			:)
 		</p>
 	</div>
-	<div class="py-2 flex flex-col sm:flex-row sm:justify-evenly items-center gap-8">
-		<RetroButtonLink title="[WHO AM I]" url="/about" src={retro_about} hoverSrc={retro_about_hover}
-			alt="ascii art person" />
-		<RetroButtonLink title="[ WORKS ]" url="/projects" src={retro_projects} hoverSrc={retro_projects_hover}
-			alt="ascii art wrench" />
-		<RetroButtonLink title="[ MUSIC ]" url="/music" src={retro_music} hoverSrc={retro_music_hover}
-			alt="ascii art wrench" />
+	<div
+		class="py-2 flex flex-col sm:flex-row sm:justify-evenly items-center gap-8"
+	>
+		<RetroButtonLink
+			title="[WHO AM I]"
+			url="/about"
+			src={retro_about}
+			hoverSrc={retro_about_hover}
+			alt="ascii art person"
+		/>
+		<RetroButtonLink
+			title="[ WORKS ]"
+			url="/projects"
+			src={retro_projects}
+			hoverSrc={retro_projects_hover}
+			alt="ascii art wrench"
+		/>
+		<RetroButtonLink
+			title="[ MUSIC ]"
+			url="/music"
+			src={retro_music}
+			hoverSrc={retro_music_hover}
+			alt="ascii art wrench"
+		/>
 	</div>
 
 	<Socials />
