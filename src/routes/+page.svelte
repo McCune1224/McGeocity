@@ -24,18 +24,23 @@
 		"██║.╚═╝.██║╚██████╗╚██████╗╚██████╔╝██║.╚████║███████╗",
 		"╚═╝.....╚═╝.╚═════╝.╚═════╝.╚═════╝.╚═╝..╚═══╝╚══════╝",
 	];
+
+	const mobileNameGrid = [
+		"███╗...███╗.██████╗",
+		"████╗.████║██╔════╝",
+		"██╔████╔██║██║.....",
+		"██║╚██╔╝██║██║.....",
+		"██║.╚═╝.██║╚██████╗",
+		"╚═╝.....╚═╝.╚═════╝",
+	];
 </script>
 
 <!-- The following page will be styled in a retro 90's/hacker website -->
 <!-- <Scrollbar {statements} /> -->
 <section class="text-center sm:text-2xl text-green-400">
-	<p class="text-sm">
-		* CAUTION: For best viewing experience please use a desktop browser as the
-		website was designed for that in mind. Sorry in advanced mobile users!
-	</p>
 	<TerminalLine />
-	<p class="text-start">$> neocityfetch</p>
-	<div class="text-smol sm:text-2xl">
+	<p class="text-start text-lg sm:text-2xl">$> neocityfetch</p>
+	<div class="hidden sm:block text-smol sm:text-2xl">
 		{#each nameGrid as line, i}
 			{#if i == 3}
 				<a class="hover:text-red-500" href="/layarteb">[{line}]!!!</a>
@@ -44,7 +49,12 @@
 			{/if}
 		{/each}
 	</div>
-	<div class="flex flex-col gap-8">
+	<div class="sm:hidden text-smol">
+		{#each mobileNameGrid as line}
+			<p>{line}</p>
+		{/each}
+	</div>
+	<div class="flex flex-col gap-8 p-4">
 		<p class="text-md sm:mx-auto">
 			Welcome to my little digital corner of the web! I'm <b>Alex McCune</b>, in
 			case the giant sign above was ignored. I live in <b>Rochester NY</b>
