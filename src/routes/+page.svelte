@@ -5,6 +5,8 @@
 	import retro_projects_hover from "$lib/assets/retro_projects_hover.png";
 	import retro_music from "$lib/assets/retro_music.png";
 	import retro_music_hover from "$lib/assets/retro_music_hover.png";
+	import retro_heartbeat from "$lib/assets/retro_heartbeat.png";
+	import retro_heartbeat_hover from "$lib/assets/retro_heartbeat_hover.png";
 	import RetroButtonLink from "$lib/components/RetroButtonLink.svelte";
 	import TerminalLine from "$lib/components/TerminalLine.svelte";
 	import Socials from "$lib/components/Socials.svelte";
@@ -91,7 +93,14 @@
 			url="/music"
 			src={retro_music}
 			hoverSrc={retro_music_hover}
-			alt="ascii art wrench"
+			alt="ascii art music note"
+		/>
+		<RetroButtonLink
+			title="[ HEALTH ]"
+			url="/healthcheck"
+			src={retro_heartbeat}
+			hoverSrc={retro_heartbeat_hover}
+			alt="ascii art heartbeat"
 		/>
 	</div>
 

@@ -1,6 +1,20 @@
 <script lang="ts">
 	const projects = [
 		{
+			title: "Matrix Miles",
+			body: "An IoT project that bridges fitness data with embedded hardware. Features a Go backend server handling Strava OAuth 2.0 authentication with automatic token refresh, PostgreSQL database, and REST API with API key authentication. The embedded client runs on a MatrixPortal M4 with CircuitPython, displaying running stats like calendar views, weekly/monthly totals, and best performances on an LED matrix. Deployed on Railway with Docker.",
+			tags: "GO, CIRCUITPYTHON, POSTGRESQL, DOCKER, IOT, STRAVA_API, RAILWAY",
+			demo: "https://matrix-miles-production.up.railway.app",
+			url: "https://github.com/McCune1224/matrix-miles",
+		},
+		{
+			title: "Betrayal Discord Bot",
+			body: "A comprehensive Discord bot for managing Betrayal, a battle royale social deduction game where players have unique roles and abilities. Built with Go and featuring production-grade structured logging with zerolog, async PostgreSQL batch writes, command audit trails, and automatic 90-day log retention with CSV archival. Handles game events like inventory management, alliance creation, timed events, and dynamic channel management.",
+			tags: "GO, POSTGRESQL, DOCKER, DISCORD_API, ZEROLOG, TEMPL",
+			demo: "https://github.com/McCune1224/betrayal",
+			url: "https://github.com/McCune1224/betrayal",
+		},
+		{
 			title: "Eggbert",
 			body: "Eggbert is a RPG game made in the Godot Game Engine where you are an egg named Eggbert who is falsely accused of a crime you did not commit. You journey through the prison system as you attempt to escape and uncover the secrets within the prison along the way",
 			tags: "GODOT, C#, PIXEL_ART, RPG, TOP-DOWN_SHOOTER",
@@ -13,13 +27,6 @@
 			tags: "PYTHON, AWS, MONGO_DB, MACHINE LEARNING, TWITTER_REST_API",
 			demo: "https://x.com/little_t_bot",
 			url: "https://github.com/McCune1224/little-t",
-		},
-		{
-			title: "Betrayal Discord Bot",
-			body: "Masque Royale is a battle royale social deduction game where everyone has unique roles and abilities to help them in their interactions. The game is hosted interchangebly between Discord as well as a standalone Web App. Both utilize Golang and share a PostgreSQL Database to ensure syncronized game data. Both the discord and web app are deployed via docker images.",
-			tags: "GO, POSTGRESQL, DOCKER, DISCORD_REST_API",
-			demo: "https://github.com/McCune1224/betrayal",
-			url: "https://github.com/McCune1224/betrayal",
 		},
 		{
 			title: "Kusa Data",
