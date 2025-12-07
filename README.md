@@ -1,38 +1,19 @@
-# sv
+# McGeocity
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+My personal portfolio website with a retro terminal / 90s hacker aesthetic. Green-on-black CRT vibes with scanlines, ASCII art, and typewriter effects.
 
-## Creating a project
+## Check it out
 
-If you're seeing this, you've probably already done this step. Congrats!
+Visit the live site at [mcgeocity.vercel.app](https://mcgeocity.vercel.app)
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Features
 
-# create a new project in my-app
-npx sv create my-app
-```
+- **Retro Terminal UI** - Green monospace text, dashed borders, CRT scanline effects
+- **About** - Personal blog about me
+- **Projects** - Showcase of my projects and repos
+- **Music** - My Spotify playlists
+- **Healthcheck** - My Strava running/activity stats
 
-## Developing
+## Tech Stack
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+SvelteKit 2, Svelte 5, TypeScript, TailwindCSS, SCSS, Vercel
