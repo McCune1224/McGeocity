@@ -1,6 +1,7 @@
+// @ts-ignore - node:buffer is valid in Node.js/SSR context
+import { Buffer } from "node:buffer";
 import type { PageServerLoad } from "./$types";
 import { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } from "$env/static/private";
-import { Buffer } from "node:buffer";
 
 export type SpotifyPlaylistResponse = {
   href: string;

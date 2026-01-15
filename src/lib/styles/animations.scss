@@ -74,39 +74,84 @@
 /* Utility animation classes */
 .animate-portal-entry {
 	animation: portalEntry 0.3s ease-out;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+		opacity: 1;
+	}
 }
 
 .animate-portal-exit {
 	animation: portalExit 0.3s ease-out;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+		opacity: 0;
+	}
 }
 
 .animate-panel-glow {
 	animation: panelGlow 2s ease-in-out infinite;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+		box-shadow: 0 0 0 1px rgba(74, 144, 226, 0.1);
+	}
 }
 
 .animate-slide-in-left {
 	animation: slideInLeft 0.4s ease-out;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
 .animate-slide-in-right {
 	animation: slideInRight 0.4s ease-out;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
 .animate-fade-in {
 	animation: fadeIn 0.3s ease-out;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+		opacity: 1;
+	}
 }
 
 .animate-button-pulse {
 	animation: buttonPulse 2s ease-in-out infinite;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+		border-color: rgba(0, 0, 0, 0.2);
+	}
 }
 
 /* Transition utilities */
 .transition-smooth {
 	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
 }
 
 .transition-slow {
 	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
 }
 
 /* Portal blue accent color transition */
@@ -125,4 +170,15 @@
 /* Disabled state */
 .disabled {
 	@apply opacity-50 cursor-not-allowed;
+}
+
+/* Global reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
 }
