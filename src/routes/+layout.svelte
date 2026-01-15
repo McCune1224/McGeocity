@@ -8,13 +8,20 @@
 
 	const navItems = [
 		{ label: "HOME", href: "/" },
-		{ label: "ABOUT", href: "/about" },
 		{ label: "WORKS", href: "/projects" },
 		{ label: "MUSIC", href: "/music" },
 		{ label: "HEALTH", href: "/healthcheck" }
 	];
 
+	const socialLinks = [
+		{ label: "GITHUB", href: "https://github.com/mccune1224" },
+		{ label: "LINKEDIN", href: "https://linkedin.com/in/mccune1224" },
+		{ label: "BLUESKY", href: "https://bsky.app/profile/mckusa.bsky.social" },
+		{ label: "SUBSTACK", href: "https://mccune1224.substack.com/" }
+	];
+
 	let currentPath = $derived(data?.props?.url ?? "/");
+	let isSubpage = $derived(currentPath !== "/");
 
 	function handleFullscreen() {
 		if (document.fullscreenElement) {
@@ -28,8 +35,9 @@
 <div class="industrial-app">
 	<!-- Industrial Menu Bar -->
 	<IndustrialMenuBar
-		title="MCGEOCITY"
+		title="alexmccune.dev"
 		items={navItems}
+		socials={socialLinks}
 		{currentPath}
 		onFullscreen={handleFullscreen}
 	/>
@@ -37,6 +45,11 @@
 	<!-- Main Content Area -->
 	<main class="main-content">
 		<div class="content-container">
+			{#if isSubpage}
+				<a href="/" class="back-button">
+					<span class="back-arrow">&lt;</span> BACK TO HOME
+				</a>
+			{/if}
 			{@render children()}
 		</div>
 	</main>
@@ -44,7 +57,9 @@
 	<!-- Industrial Footer -->
 	<footer class="industrial-footer">
 		<div class="footer-content">
-			<span class="footer-text">MCGEOCITY // HALF-LIFE AESTHETIC // 2026</span>
+			<a href="/layarteb" class="easter-egg-link">
+				[ ? ]
+			</a>
 		</div>
 	</footer>
 </div>
@@ -67,6 +82,47 @@
 		margin: 0 auto;
 	}
 
+	.back-button {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1.5rem;
+		padding: 0.5rem 1rem;
+		font-family: var(--font-mono, "Courier New", monospace);
+		font-weight: bold;
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		text-decoration: none;
+		color: #c9c9c9;
+		border: 2px solid;
+		border-color: #4a4a4a #1a1a1a #1a1a1a #4a4a4a;
+		background: linear-gradient(180deg, #3a3a3a 0%, #2d2d2d 100%);
+		transition: all 0.1s ease;
+
+		&:hover {
+			border-color: #5a5a5a #2a2a2a #2a2a2a #5a5a5a;
+			background: linear-gradient(180deg, #454545 0%, #3a3a3a 100%);
+			color: #8b9a5b;
+		}
+
+		&:active {
+			border-color: #1a1a1a #4a4a4a #4a4a4a #1a1a1a;
+			background: #252525;
+			transform: translateY(1px);
+		}
+
+		&:focus-visible {
+			outline: 2px solid #8b9a5b;
+			outline-offset: 2px;
+		}
+	}
+
+	.back-arrow {
+		font-size: 1rem;
+		color: #8b9a5b;
+	}
+
 	.industrial-footer {
 		margin-top: auto;
 		padding: 1rem;
@@ -80,13 +136,22 @@
 		margin: 0 auto;
 	}
 
-	.footer-text {
+	.easter-egg-link {
 		font-family: var(--font-mono, "Courier New", monospace);
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		font-weight: bold;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: #8b9a5b;
+		color: #555555;
+		text-decoration: none;
+		transition: color 0.1s ease;
+
+		&:hover {
+			color: #8b9a5b;
+		}
+
+		&:focus-visible {
+			outline: 2px solid #8b9a5b;
+			outline-offset: 2px;
+		}
 	}
 
 	@media (max-width: 640px) {

@@ -2,7 +2,6 @@
 	import IndustrialPanel from "$lib/components/industrial/IndustrialPanel.svelte";
 	import IndustrialButton from "$lib/components/industrial/IndustrialButton.svelte";
 	import IndustrialDivider from "$lib/components/industrial/IndustrialDivider.svelte";
-	import Socials from "$lib/components/Socials.svelte";
 
 	const blogEntries = [
 		{
@@ -102,12 +101,6 @@
 			</div>
 		</div>
 	</IndustrialPanel>
-
-	<IndustrialDivider />
-
-	<div class="socials-section">
-		<Socials />
-	</div>
 </div>
 
 <style lang="scss">
@@ -174,11 +167,5 @@
 
 	.stat-value {
 		color: #8b9a5b;
-	}
-
-	.socials-section {
-		display: flex;
-		justify-content: center;
-		padding: 1rem 0;
 	}
 </style>

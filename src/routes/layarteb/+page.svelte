@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Socials from "$lib/components/Socials.svelte";
 	import type {PageServerData} from "./$types";
 	import Terminal from "./Terminal.svelte";
 	const {data}: {data: PageServerData} = $props();
@@ -21,5 +20,3 @@
 </section>
 
 <Terminal access_granted={data.access_granted==="true" } />
-
-<Socials />

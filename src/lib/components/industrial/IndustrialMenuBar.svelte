@@ -4,14 +4,20 @@
 		href: string;
 	}
 
+	interface SocialLink {
+		label: string;
+		href: string;
+	}
+
 	interface Props {
 		title: string;
 		items: NavItem[];
+		socials?: SocialLink[];
 		currentPath?: string;
 		onFullscreen?: () => void;
 	}
 
-	const { title, items, currentPath = "/", onFullscreen }: Props = $props();
+	const { title, items, socials = [], currentPath = "/", onFullscreen }: Props = $props();
 
 	function isActive(href: string): boolean {
 		if (href === "/") {
@@ -23,10 +29,10 @@
 
 <header class="industrial-menubar">
 	<div class="menubar-inner">
-		<!-- Title Section -->
-		<div class="menubar-title">
+		<!-- Title Section (links to home) -->
+		<a href="/" class="menubar-title">
 			<span class="title-text">{title}</span>
-		</div>
+		</a>
 
 		<!-- Navigation Tabs -->
 		<nav class="menubar-nav">
@@ -42,6 +48,24 @@
 
 		<!-- Controls -->
 		<div class="menubar-controls">
+			<!-- Social Links -->
+			{#if socials.length > 0}
+				<nav class="social-links">
+					{#each socials as social, i}
+						<a
+							href={social.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="social-link"
+						>
+							{social.label}
+						</a>
+						{#if i < socials.length - 1}
+							<span class="social-divider">//</span>
+						{/if}
+					{/each}
+				</nav>
+			{/if}
 			{#if onFullscreen}
 				<button
 					class="control-btn"
@@ -77,6 +101,17 @@
 		align-items: center;
 		padding: 0.75rem 1.5rem 0.75rem 0;
 		border-right: 2px solid #1a1a1a;
+		text-decoration: none;
+		transition: opacity 0.1s ease;
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		&:focus-visible {
+			outline: 2px solid #8b9a5b;
+			outline-offset: 2px;
+		}
 	}
 
 	.title-text {
@@ -136,6 +171,39 @@
 		align-items: center;
 		margin-left: auto;
 		padding-left: 1rem;
+		gap: 0.5rem;
+	}
+
+	.social-links {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding-right: 0.75rem;
+		border-right: 1px solid #4a4a4a;
+	}
+
+	.social-link {
+		font-size: 0.75rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-decoration: none;
+		color: #c9c9c9;
+		transition: color 0.1s ease;
+
+		&:hover {
+			color: #8b9a5b;
+		}
+
+		&:focus-visible {
+			outline: 2px solid #8b9a5b;
+			outline-offset: 2px;
+		}
+	}
+
+	.social-divider {
+		font-size: 0.75rem;
+		color: #888888;
 	}
 
 	.control-btn {
@@ -192,6 +260,18 @@
 		}
 
 		.menubar-controls {
+			width: 100%;
+			justify-content: center;
+			padding: 0.5rem 0;
+			border-top: 1px solid #1a1a1a;
+		}
+
+		.social-links {
+			border-right: none;
+			padding-right: 0;
+		}
+
+		.control-btn {
 			display: none;
 		}
 	}

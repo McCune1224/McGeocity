@@ -3,40 +3,46 @@
 	import IndustrialTable from "$lib/components/industrial/IndustrialTable.svelte";
 	import IndustrialButton from "$lib/components/industrial/IndustrialButton.svelte";
 	import IndustrialDivider from "$lib/components/industrial/IndustrialDivider.svelte";
-	import Socials from "$lib/components/Socials.svelte";
 
 	const projects = [
 		{
-			name: "Gather",
-			description: "All in one productivity app for scheduling, todos, and note taking",
-			tech: "Go, HTMX, SQLite, TailwindCSS",
-			demo: "https://github.com/mccune1224/Gather",
-			code: "https://github.com/mccune1224/Gather"
+			name: "Matrix Miles",
+			description: "IoT project bridging fitness data with embedded hardware. Go backend with Strava OAuth, PostgreSQL, and REST API. Embedded client on MatrixPortal M4 with CircuitPython displaying running stats on LED matrix.",
+			tech: "Go, CircuitPython, PostgreSQL, Docker, Strava API",
+			demo: "https://matrix-miles-production.up.railway.app",
+			code: "https://github.com/McCune1224/matrix-miles"
 		},
 		{
-			name: "Betrayal",
-			description: "Discord bot for Mafia-style game with complex role management",
-			tech: "Go, PostgreSQL, Discord API",
-			demo: "https://github.com/mccune1224/betrayal",
-			code: "https://github.com/mccune1224/betrayal"
+			name: "Betrayal Discord Bot",
+			description: "Comprehensive Discord bot for managing Betrayal, a battle royale social deduction game. Features structured logging, async PostgreSQL batch writes, command audit trails, and dynamic channel management.",
+			tech: "Go, PostgreSQL, Docker, Discord API",
+			demo: "https://github.com/McCune1224/betrayal",
+			code: "https://github.com/McCune1224/betrayal"
 		},
 		{
-			name: "Gamba",
-			description: "Twitch stream viewer points gambling system",
-			tech: "TypeScript, Node.js, Twitch API",
-			demo: "https://github.com/mccune1224/gamba",
-			code: "https://github.com/mccune1224/gamba"
+			name: "Eggbert",
+			description: "RPG game in Godot where you play as Eggbert, an egg falsely accused of a crime. Journey through a prison system to escape and uncover secrets.",
+			tech: "Godot, C#, Pixel Art",
+			demo: "https://github.com/McCune1224/eggbert",
+			code: "https://github.com/McCune1224/eggbert"
 		},
 		{
-			name: "Resume Tailor",
-			description: "AI-powered resume customization tool for job applications",
-			tech: "Python, OpenAI API, FastAPI",
-			demo: "https://github.com/mccune1224/resume-tailor",
-			code: "https://github.com/mccune1224/resume-tailor"
+			name: "Little_T Twitter Bot",
+			description: "Machine Learning bot using Markov Chains, deployed via AWS Lambda. Real-time Twitter interaction using Twitter Account Activity API and Tweepy.",
+			tech: "Python, AWS Lambda, MongoDB, Twitter API",
+			demo: "https://x.com/little_t_bot",
+			code: "https://github.com/McCune1224/little-t"
+		},
+		{
+			name: "Kusa Data",
+			description: "Web app using Start.gg GraphQL API to find Smash Bros Ultimate tournaments. Redis caching for optimal response times, player profile viewing with tournament history.",
+			tech: "TypeScript, Redis, GraphQL, Start.gg API",
+			demo: "https://kusa-data.vercel.app/",
+			code: "https://github.com/McCune1224/kusa-data"
 		},
 		{
 			name: "McGeocity",
-			description: "This website! Personal portfolio with Half-Life industrial aesthetic",
+			description: "This website! Personal portfolio built with SvelteKit.",
 			tech: "SvelteKit, TypeScript, TailwindCSS",
 			demo: "https://mcgeocity.vercel.app",
 			code: "https://github.com/mccune1224/McGeocity"
@@ -90,12 +96,6 @@
 			{/each}
 		</div>
 	</IndustrialPanel>
-
-	<IndustrialDivider />
-
-	<div class="socials-section">
-		<Socials />
-	</div>
 </div>
 
 <style lang="scss">
@@ -167,11 +167,5 @@
 	.project-links {
 		display: flex;
 		gap: 0.5rem;
-	}
-
-	.socials-section {
-		display: flex;
-		justify-content: center;
-		padding: 1rem 0;
 	}
 </style>
