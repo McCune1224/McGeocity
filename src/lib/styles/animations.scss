@@ -1,0 +1,128 @@
+/* Portal-inspired animations and transitions */
+
+@keyframes portalEntry {
+	0% {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes portalExit {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+}
+
+@keyframes panelGlow {
+	0%, 100% {
+		box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.3);
+	}
+	50% {
+		box-shadow: 0 0 8px 2px rgba(74, 144, 226, 0.1);
+	}
+}
+
+@keyframes slideInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes buttonPulse {
+	0%, 100% {
+		border-color: rgba(0, 0, 0, 0.2);
+	}
+	50% {
+		border-color: rgba(74, 144, 226, 0.4);
+	}
+}
+
+/* Utility animation classes */
+.animate-portal-entry {
+	animation: portalEntry 0.3s ease-out;
+}
+
+.animate-portal-exit {
+	animation: portalExit 0.3s ease-out;
+}
+
+.animate-panel-glow {
+	animation: panelGlow 2s ease-in-out infinite;
+}
+
+.animate-slide-in-left {
+	animation: slideInLeft 0.4s ease-out;
+}
+
+.animate-slide-in-right {
+	animation: slideInRight 0.4s ease-out;
+}
+
+.animate-fade-in {
+	animation: fadeIn 0.3s ease-out;
+}
+
+.animate-button-pulse {
+	animation: buttonPulse 2s ease-in-out infinite;
+}
+
+/* Transition utilities */
+.transition-smooth {
+	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-slow {
+	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Portal blue accent color transition */
+.hover-accent {
+	@apply transition-smooth;
+
+	&:hover {
+		@apply border-blue-500 shadow-lg;
+	}
+
+	&:focus-visible {
+		@apply outline-none ring-2 ring-blue-500 ring-offset-2;
+	}
+}
+
+/* Disabled state */
+.disabled {
+	@apply opacity-50 cursor-not-allowed;
+}

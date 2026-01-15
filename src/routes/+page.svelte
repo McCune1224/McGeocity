@@ -1,108 +1,78 @@
 <script lang="ts">
-	import retro_about from "$lib/assets/retro_about.png";
-	import retro_about_hover from "$lib/assets/retro_about_hover.png";
-	import retro_projects from "$lib/assets/retro_projects.png";
-	import retro_projects_hover from "$lib/assets/retro_projects_hover.png";
-	import retro_music from "$lib/assets/retro_music.png";
-	import retro_music_hover from "$lib/assets/retro_music_hover.png";
-	import retro_heartbeat from "$lib/assets/retro_heartbeat.png";
-	import retro_heartbeat_hover from "$lib/assets/retro_heartbeat_hover.png";
-	import RetroButtonLink from "$lib/components/RetroButtonLink.svelte";
-	import TerminalLine from "$lib/components/TerminalLine.svelte";
+	import PanelBox from "$lib/components/portal/PanelBox.svelte";
+	import PanelButton from "$lib/components/portal/PanelButton.svelte";
+	import PanelContainer from "$lib/components/portal/PanelContainer.svelte";
+	import PortalTransition from "$lib/components/portal/PortalTransition.svelte";
 	import Socials from "$lib/components/Socials.svelte";
-
-	const nameGrid = [
-		".█████╗.██╗.....███████╗██╗..██╗......................",
-		"██╔══██╗██║.....██╔════╝╚██╗██╔╝......................",
-		"███████║██║.....█████╗...╚███╔╝.......................",
-		"██╔══██║██║.....██╔══╝...██╔██╗.......................",
-		"██║..██║███████╗███████╗██╔╝.██╗......................",
-		"╚═╝..╚═╝╚══════╝╚══════╝╚═╝..╚═╝......................",
-		"																											 ",
-		"███╗...███╗.██████╗.██████╗██╗...██╗███╗...██╗███████╗",
-		"████╗.████║██╔════╝██╔════╝██║...██║████╗..██║██╔════╝",
-		"██╔████╔██║██║.....██║.....██║...██║██╔██╗.██║█████╗..",
-		"██║╚██╔╝██║██║.....██║.....██║...██║██║╚██╗██║██╔══╝..",
-		"██║.╚═╝.██║╚██████╗╚██████╗╚██████╔╝██║.╚████║███████╗",
-		"╚═╝.....╚═╝.╚═════╝.╚═════╝.╚═════╝.╚═╝..╚═══╝╚══════╝",
-	];
-
-	const mobileNameGrid = [
-		"███╗...███╗.██████╗",
-		"████╗.████║██╔════╝",
-		"██╔████╔██║██║.....",
-		"██║╚██╔╝██║██║.....",
-		"██║.╚═╝.██║╚██████╗",
-		"╚═╝.....╚═╝.╚═════╝",
-	];
 </script>
 
-<!-- The following page will be styled in a retro 90's/hacker website -->
-<!-- <Scrollbar {statements} /> -->
-<section class="text-center sm:text-2xl text-green-400">
-	<TerminalLine />
-	<p class="text-start text-lg sm:text-2xl">$> neocityfetch</p>
-	<div class="hidden sm:block text-smol sm:text-2xl">
-		{#each nameGrid as line, i}
-			{#if i == 3}
-				<a class="hover:text-red-500" href="/layarteb">[{line}]!!!</a>
-			{:else}
-				<p>{line}</p>
-			{/if}
-		{/each}
-	</div>
-	<div class="sm:hidden text-smol">
-		{#each mobileNameGrid as line}
-			<p>{line}</p>
-		{/each}
-	</div>
-	<div class="flex flex-col gap-8 p-4">
-		<p class="text-md sm:mx-auto">
-			Welcome to my little digital corner of the web! I'm <b>Alex McCune</b>, in
-			case the giant sign above was ignored. I live in <b>Rochester NY</b>
-			currently working as an application/system admin. I love to program in my free
-			time, but when not working or coding you can normally find me playing board
-			games, video games, rock climbing or running.
-			<i class="text-sm"
-				>(A lot more of the gaming during the pure gray and snowy winters we
-				have here...)</i
-			>
-			Feel free to check out some of the links below to learn more if interested
-			:)
-		</p>
-	</div>
-	<div
-		class="py-2 flex flex-col sm:flex-row sm:justify-evenly items-center gap-8"
-	>
-		<RetroButtonLink
-			title="[WHO AM I]"
-			url="/about"
-			src={retro_about}
-			hoverSrc={retro_about_hover}
-			alt="ascii art person"
-		/>
-		<RetroButtonLink
-			title="[ WORKS ]"
-			url="/projects"
-			src={retro_projects}
-			hoverSrc={retro_projects_hover}
-			alt="ascii art wrench"
-		/>
-		<RetroButtonLink
-			title="[ MUSIC ]"
-			url="/music"
-			src={retro_music}
-			hoverSrc={retro_music_hover}
-			alt="ascii art music note"
-		/>
-		<RetroButtonLink
-			title="[ HEALTH ]"
-			url="/healthcheck"
-			src={retro_heartbeat}
-			hoverSrc={retro_heartbeat_hover}
-			alt="ascii art heartbeat"
-		/>
-	</div>
+<PortalTransition>
+	<div class="space-y-8">
+		<!-- Hero Section -->
+		<PanelBox title="WELCOME" variant="interactive">
+			<div class="space-y-4">
+				<h1 class="text-4xl font-mono font-bold text-black">
+					McGeocity Portal
+				</h1>
+				<p class="text-gray-700 leading-relaxed">
+					Welcome to my personal portfolio and test chamber of projects! I'm <span class="font-bold">Alex McCune</span>, 
+					currently based in <span class="font-bold">Rochester, NY</span> working as an 
+					application/system administrator. When not administering systems, I enjoy 
+					programming, board games, video games, rock climbing, and running.
+				</p>
+				<p class="text-sm text-gray-600 italic">
+					(Pro tip: The winters here are great for indoor gaming...)
+				</p>
+			</div>
+		</PanelBox>
 
-	<Socials />
-</section>
+		<!-- Navigation Section -->
+		<div>
+			<h2 class="text-sm font-mono font-bold text-gray-600 mb-4 uppercase tracking-wider">
+				Portal Chambers
+			</h2>
+			<PanelContainer columns={2} gap="md">
+				<PanelButton label="[WHO AM I]" href="/about" variant="primary" />
+				<PanelButton label="[ WORKS ]" href="/projects" variant="primary" />
+				<PanelButton label="[ MUSIC ]" href="/music" variant="primary" />
+				<PanelButton label="[ HEALTH ]" href="/healthcheck" variant="primary" />
+			</PanelContainer>
+		</div>
+
+		<!-- About Section Preview -->
+		<PanelBox variant="default">
+			<div class="space-y-3">
+				<h3 class="font-mono font-bold text-lg text-black">Quick Facts</h3>
+				<ul class="font-mono text-sm space-y-2 text-gray-700">
+					<li class="flex items-start gap-2">
+						<span class="text-blue-500 font-bold">→</span>
+						<span>Full Stack System & Application Administrator</span>
+					</li>
+					<li class="flex items-start gap-2">
+						<span class="text-blue-500 font-bold">→</span>
+						<span>Passionate about automation and open source</span>
+					</li>
+					<li class="flex items-start gap-2">
+						<span class="text-blue-500 font-bold">→</span>
+						<span>Avid rock climber and runner tracking activities via Strava</span>
+					</li>
+					<li class="flex items-start gap-2">
+						<span class="text-blue-500 font-bold">→</span>
+						<span>Board game enthusiast with eclectic music taste</span>
+					</li>
+				</ul>
+			</div>
+		</PanelBox>
+
+		<!-- Socials -->
+		<div class="flex justify-center pt-4">
+			<Socials />
+		</div>
+	</div>
+</PortalTransition>
+
+<style lang="scss">
+	:global(body) {
+		background-color: #ffffff;
+	}
+</style>
