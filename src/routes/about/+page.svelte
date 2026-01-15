@@ -1,8 +1,7 @@
 <script lang="ts">
-	import PanelBox from "$lib/components/portal/PanelBox.svelte";
-	import PanelContainer from "$lib/components/portal/PanelContainer.svelte";
-	import PanelButton from "$lib/components/portal/PanelButton.svelte";
-	import PortalTransition from "$lib/components/portal/PortalTransition.svelte";
+	import IndustrialPanel from "$lib/components/industrial/IndustrialPanel.svelte";
+	import IndustrialButton from "$lib/components/industrial/IndustrialButton.svelte";
+	import IndustrialDivider from "$lib/components/industrial/IndustrialDivider.svelte";
 	import Socials from "$lib/components/Socials.svelte";
 
 	const blogEntries = [
@@ -43,69 +42,143 @@
 	}
 </script>
 
-<PortalTransition>
-	<div class="space-y-8">
-		<!-- Header Panel -->
-		<PanelBox title="About Me">
-			<p class="text-base leading-relaxed text-gray-800">
-				My journey from California to Rochester, and the lessons I've learned along the way. Below
-				you'll find a series of personal reflections on moving, challenges, and finding my way forward.
-			</p>
-		</PanelBox>
+<div class="about-page">
+	<!-- Header Panel -->
+	<IndustrialPanel title="ABOUT ME">
+		<p class="intro-text">
+			My journey from California to Rochester, and the lessons I've learned along the way.
+			Select a log entry below to read more.
+		</p>
+	</IndustrialPanel>
 
-		<!-- Table of Contents Navigation -->
-		<PanelBox title="Blog Entries">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-				{#each blogEntries as entry}
-					<PanelButton
-						label={entry.title}
-						onClick={() => toggleEntry(entry.id)}
-						variant={expandedEntry === entry.id ? "primary" : "secondary"}
-					/>
-				{/each}
-			</div>
-		</PanelBox>
+	<IndustrialDivider />
 
-		<!-- Blog Entries -->
-		<div class="space-y-6">
+	<!-- Log Entry Navigation -->
+	<IndustrialPanel title="LOG ENTRIES">
+		<div class="entry-grid">
 			{#each blogEntries as entry}
-				{#if expandedEntry === entry.id}
-					<PanelBox title={entry.title} variant="interactive">
-						<div class="space-y-3">
-							<div class="text-sm text-gray-600 font-mono">
-								{entry.date}
-							</div>
-							<p class="text-base leading-relaxed text-gray-800 whitespace-pre-line">
-								{entry.content}
-							</p>
-						</div>
-					</PanelBox>
-				{/if}
+				<IndustrialButton
+					label="[{entry.date}] {entry.title}"
+					onClick={() => toggleEntry(entry.id)}
+					variant={expandedEntry === entry.id ? "active" : "default"}
+				/>
 			{/each}
 		</div>
+	</IndustrialPanel>
 
-		<!-- Info Panel -->
-		<PanelBox title="Quick Facts">
-			<div class="space-y-4">
-				<div class="border-l-4 border-blue-500 pl-4">
-					<p class="font-mono text-sm text-gray-600">Current Location</p>
-					<p class="text-base text-gray-800">Rochester, NY</p>
+	<!-- Expanded Entry Content -->
+	{#each blogEntries as entry}
+		{#if expandedEntry === entry.id}
+			<IndustrialDivider />
+			<IndustrialPanel title={entry.title}>
+				<div class="entry-content">
+					<div class="entry-date">{entry.date}</div>
+					<p class="entry-text">{entry.content}</p>
 				</div>
-				<div class="border-l-4 border-orange-500 pl-4">
-					<p class="font-mono text-sm text-gray-600">From</p>
-					<p class="text-base text-gray-800">Carlsbad, California</p>
-				</div>
-				<div class="border-l-4 border-cyan-400 pl-4">
-					<p class="font-mono text-sm text-gray-600">Moved</p>
-					<p class="text-base text-gray-800">May 2023</p>
-				</div>
-				<div class="border-l-4 border-green-500 pl-4">
-					<p class="font-mono text-sm text-gray-600">Interests</p>
-					<p class="text-base text-gray-800">Running, Music, Software Engineering, Exploring</p>
-				</div>
+			</IndustrialPanel>
+		{/if}
+	{/each}
+
+	<IndustrialDivider />
+
+	<!-- Quick Stats -->
+	<IndustrialPanel title="PERSONNEL FILE">
+		<div class="stats-grid">
+			<div class="stat-row">
+				<span class="stat-label">CURRENT LOCATION:</span>
+				<span class="stat-value">Rochester, NY</span>
 			</div>
-		</PanelBox>
-	</div>
-</PortalTransition>
+			<div class="stat-row">
+				<span class="stat-label">ORIGIN:</span>
+				<span class="stat-value">Carlsbad, California</span>
+			</div>
+			<div class="stat-row">
+				<span class="stat-label">RELOCATED:</span>
+				<span class="stat-value">May 2023</span>
+			</div>
+			<div class="stat-row">
+				<span class="stat-label">INTERESTS:</span>
+				<span class="stat-value">Running, Music, Software Engineering, Exploring</span>
+			</div>
+		</div>
+	</IndustrialPanel>
 
-<Socials />
+	<IndustrialDivider />
+
+	<div class="socials-section">
+		<Socials />
+	</div>
+</div>
+
+<style lang="scss">
+	.about-page {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.intro-text {
+		color: #c9c9c9;
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.entry-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.entry-content {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.entry-date {
+		font-size: 0.75rem;
+		color: #888888;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.entry-text {
+		color: #c9c9c9;
+		line-height: 1.8;
+		margin: 0;
+		white-space: pre-line;
+	}
+
+	.stats-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.stat-row {
+		display: flex;
+		gap: 1rem;
+		font-size: 0.875rem;
+
+		@media (max-width: 640px) {
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+	}
+
+	.stat-label {
+		color: #888888;
+		min-width: 160px;
+		flex-shrink: 0;
+	}
+
+	.stat-value {
+		color: #8b9a5b;
+	}
+
+	.socials-section {
+		display: flex;
+		justify-content: center;
+		padding: 1rem 0;
+	}
+</style>

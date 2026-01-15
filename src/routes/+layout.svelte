@@ -2,98 +2,96 @@
 	import "../app.css";
 	import type { LayoutServerData } from "./$types";
 	import type { Snippet } from "svelte";
+	import IndustrialMenuBar from "$lib/components/industrial/IndustrialMenuBar.svelte";
 
 	let { data, children }: { data: LayoutServerData; children: Snippet } = $props();
 
-	const fullScreenTogglePress = () => {
+	const navItems = [
+		{ label: "HOME", href: "/" },
+		{ label: "ABOUT", href: "/about" },
+		{ label: "WORKS", href: "/projects" },
+		{ label: "MUSIC", href: "/music" },
+		{ label: "HEALTH", href: "/healthcheck" }
+	];
+
+	let currentPath = $derived(data?.props?.url ?? "/");
+
+	function handleFullscreen() {
 		if (document.fullscreenElement) {
 			document.exitFullscreen();
 		} else {
 			document.documentElement.requestFullscreen();
 		}
-	};
-
-	let paths = $derived(
-		data?.props?.url ? data.props.url.split("/").filter(Boolean) : []
-	);
+	}
 </script>
 
-<main class="min-h-screen bg-white">
-	<!-- Header Navigation -->
-	<header class="border-b-2 border-black bg-white sticky top-0 z-50">
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-			<!-- Breadcrumb Navigation -->
-			<nav class="flex items-center gap-2 font-mono text-sm">
-				<a
-					href="/"
-					class="text-black hover:text-blue-500 transition-smooth font-bold"
-				>
-					mcgeocity
-				</a>
-
-				{#each paths as path}
-					<span class="text-gray-400">/</span>
-					<a
-						href="/{path}"
-						class="text-black hover:text-blue-500 transition-smooth capitalize"
-					>
-						{path}
-					</a>
-				{/each}
-			</nav>
-
-			<!-- Header Controls -->
-			<div class="flex items-center gap-3">
-				<button
-					onclick={fullScreenTogglePress}
-					class="px-3 py-2 border-2 border-black bg-white hover:bg-blue-500 hover:border-blue-500 hover:text-white transition-smooth font-mono font-bold text-sm"
-					title="Toggle fullscreen"
-				>
-					[ ]
-				</button>
-			</div>
-		</div>
-	</header>
+<div class="industrial-app">
+	<!-- Industrial Menu Bar -->
+	<IndustrialMenuBar
+		title="MCGEOCITY"
+		items={navItems}
+		{currentPath}
+		onFullscreen={handleFullscreen}
+	/>
 
 	<!-- Main Content Area -->
-	<div class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-		{@render children()}
-	</div>
+	<main class="main-content">
+		<div class="content-container">
+			{@render children()}
+		</div>
+	</main>
 
-	<!-- Footer -->
-	<footer class="border-t-2 border-black bg-gray-50 mt-16 py-8">
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 text-center font-mono text-sm text-gray-600">
-			<p>Portal-inspired Portfolio © 2026</p>
+	<!-- Industrial Footer -->
+	<footer class="industrial-footer">
+		<div class="footer-content">
+			<span class="footer-text">MCGEOCITY // HALF-LIFE AESTHETIC // 2026</span>
 		</div>
 	</footer>
-</main>
+</div>
 
 <style lang="scss">
-	main {
-		background-color: #ffffff;
-		color: #000000;
+	.industrial-app {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		background-color: #1a1a1a;
 	}
 
-	/* Scrollbar styling */
-	::-webkit-scrollbar {
-		width: 12px;
+	.main-content {
+		flex: 1;
+		padding: 1.5rem;
 	}
 
-	::-webkit-scrollbar-track {
-		background: #f0f0f0;
+	.content-container {
+		max-width: 1280px;
+		margin: 0 auto;
 	}
 
-	::-webkit-scrollbar-thumb {
-		background: #999999;
-		border-radius: 6px;
+	.industrial-footer {
+		margin-top: auto;
+		padding: 1rem;
+		background: linear-gradient(180deg, #2d2d2d 0%, #252525 100%);
+		border-top: 2px solid #4a4a4a;
+		text-align: center;
+	}
 
-		&:hover {
-			background: #666666;
+	.footer-content {
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+
+	.footer-text {
+		font-family: var(--font-mono, "Courier New", monospace);
+		font-size: 0.75rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: #8b9a5b;
+	}
+
+	@media (max-width: 640px) {
+		.main-content {
+			padding: 1rem;
 		}
-	}
-
-	::selection {
-		background: rgba(74, 144, 226, 0.2);
-		color: #000000;
 	}
 </style>

@@ -8,7 +8,7 @@
 	const { children }: Props = $props();
 </script>
 
-<div class="animate-portal-entry">
+<div class="animate-portal-entry portal-transition-wrapper">
 	{@render children()}
 </div>
 
@@ -24,7 +24,9 @@
 		}
 	}
 
-	div {
+	.portal-transition-wrapper {
 		animation: portalEntry 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+		position: relative;
+		z-index: 0;
 	}
 </style>

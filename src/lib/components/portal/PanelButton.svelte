@@ -27,7 +27,7 @@
 {#if href}
 	<a
 		{href}
-		class="{baseClass} {primaryClass} {disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} inline-block"
+		class="{baseClass} {primaryClass} {disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} block text-center no-underline"
 		aria-disabled={disabled}
 	>
 		{label}
@@ -46,6 +46,13 @@
 <style lang="scss">
 	button,
 	a {
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		pointer-events: auto;
+		position: relative;
+		z-index: 1;
+
 		&:active {
 			transform: translateY(1px);
 		}

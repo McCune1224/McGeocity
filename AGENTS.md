@@ -1,24 +1,42 @@
-# AGENTS.md - McGeocity Portal UI Portfolio
+# AGENTS.md - McGeocity Industrial UI Portfolio
+
+---
+
+## !!!! IMPORTANT: DO NOT PUSH TO PRODUCTION !!!!
+
+**All changes MUST be reviewed and approved by the user before deploying to production.**
+
+- Run `npm run dev` to test locally
+- Get explicit user approval before running `git push`
+- Never force push or deploy without confirmation
+
+---
 
 ## Overview
-McGeocity is a personal portfolio website featuring a Portal-inspired hybrid UI design. The site showcases projects, music playlists, running activities, and includes interactive elements inspired by Portal test chambers with portal transition effects and modern, clean aesthetics.
 
-**Live Site:** https://mcgeocity.vercel.app
+McGeocity is a personal portfolio website featuring a **Half-Life 1 / Counter-Strike 1.6 industrial UI aesthetic**. The site showcases projects, music playlists, running activities, and includes interactive elements inspired by classic Valve game menus with beveled panels, dark backgrounds, and olive green accents.
 
-**Design Era:** Portal-inspired hybrid aesthetic (white backgrounds, black monospace, geometric borders, accent colors)
+**Live Site:** https://mcgeocity.vercel.app (DO NOT PUSH without approval)
+
+**Design Era:** Half-Life 1 / CS 1.6 industrial aesthetic (dark panels, beveled edges, monospace fonts, olive green accents)
 
 ---
 
 ## Build & Development Commands
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build for production (Vercel adapter)
-- `npm run check` - Run TypeScript/Svelte type checking (strict mode)
-- `npm run check:watch` - Continuous type checking during development
-- No test framework configured
+
+```bash
+npm run dev          # Start development server with hot reload
+npm run build        # Build for production (Vercel adapter)
+npm run check        # Run TypeScript/Svelte type checking (strict mode)
+npm run check:watch  # Continuous type checking during development
+```
+
+**No test framework configured**
 
 ---
 
 ## Tech Stack
+
 - **Framework:** SvelteKit 2 + Svelte 5 (latest runes API)
 - **Language:** TypeScript 5 (strict mode enabled)
 - **Styling:** TailwindCSS 3 + SCSS (via sass-embedded)
@@ -32,6 +50,7 @@ McGeocity is a personal portfolio website featuring a Portal-inspired hybrid UI 
 ## Code Style Guidelines
 
 ### TypeScript & Svelte
+
 - Use `lang="ts"` in all `<script>` blocks
 - Enable strict mode TypeScript (strictNullChecks, noImplicitAny)
 - Use Svelte 5 runes exclusively:
@@ -41,172 +60,311 @@ McGeocity is a personal portfolio website featuring a Portal-inspired hybrid UI 
   - `$effect()` for side effects and lifecycle
 
 ### Imports & Structure
-- Import components from `$lib/` alias (e.g., `import PanelBox from "$lib/components/PanelBox.svelte"`)
+
+- Import components from `$lib/` alias (e.g., `import IndustrialPanel from "$lib/components/industrial/IndustrialPanel.svelte"`)
 - Use double quotes for all imports and string literals in TS/JS
-- Organize imports: Svelte → external libs → internal modules → types
+- Organize imports: Svelte -> external libs -> internal modules -> types
 - Prefer named exports for components
 
 ### Indentation & Formatting
+
 - Use **tabs** (not spaces) for indentation throughout
-- Component props: destructure with `$props()` on single line
+- Component props: destructure with `$props()` on single line when possible
 - Maintain semantic HTML with accessibility in mind
 
 ### Component Naming
-- **Components:** PascalCase (e.g., `PanelBox.svelte`, `ProjectCard.svelte`)
+
+- **Components:** PascalCase (e.g., `IndustrialPanel.svelte`, `IndustrialButton.svelte`)
 - **Routes:** Use +page.svelte, +layout.svelte, +page.server.ts conventions
 - **Types:** PascalCase (e.g., `Project`, `SpotifyPlaylist`)
 - **Variables:** camelCase (e.g., `isLoading`, `panelHeight`)
 
 ### Styling Approach
+
 - **Tailwind:** Primary styling with utility classes
 - **Responsive:** Use Tailwind breakpoints (sm:, md:, lg:) for mobile-first design
-- **SCSS:** Use `<style lang="scss">` for complex animations, effects, and non-utility styles
+- **SCSS:** Use `<style lang="scss">` for complex effects (bevels, gradients)
 - **No CSS Modules:** Global styles via app.css, scoped styles in components
 
 ---
 
-## Design System
+## Design System: Half-Life 1 / CS 1.6 Industrial
 
 ### Color Palette
 
-#### Primary Colors
-- **White (bg):** `#ffffff` / `bg-white` - Main background for panels
-- **Black (text):** `#000000` / `text-black` - Primary text and borders
-- **Gray (neutral):** `#f0f0f0`, `#e5e5e5`, `#999999` - Subtle depth and dividers
+#### Background Colors
+| Name | Hex | Usage |
+|------|-----|-------|
+| Main Background | `#1a1a1a` | Page background (near-black) |
+| Panel Background | `#2d2d2d` | Panel/card backgrounds |
+| Sunken Background | `#252525` | Pressed buttons, inputs |
+| Raised Highlight | `#3a3a3a` | Raised panel gradient top |
 
-#### Accent Colors (Portal-Inspired)
-- **Portal Blue:** `#4a90e2` / `bg-blue-500` - Interactive elements, hover states
-- **Portal Orange:** `#ff8c42` / `bg-orange-500` - Secondary accent, warnings
-- **Cyan/Light Blue:** `#00d4ff` / `bg-cyan-400` - Highlights, important data
-- **Success Green:** `#22c55e` / `bg-green-500` - Positive feedback, confirmations
+#### Border Colors (3D Bevel Effect)
+| Name | Hex | Usage |
+|------|-----|-------|
+| Light Edge | `#4a4a4a` | Top/left border (raised) |
+| Dark Edge | `#1a1a1a` | Bottom/right border (raised) |
 
-#### Semantic States
-- **Hover:** Panels and buttons use Portal Blue accent
-- **Active:** Increased opacity/saturation of accent colors
-- **Disabled:** Gray text with reduced opacity
-- **Loading:** Cyan accent with animation
+#### Accent Colors
+| Name | Hex | Usage |
+|------|-----|-------|
+| HL1 Olive Green | `#8b9a5b` | Primary accent, active states |
+| Amber/Orange | `#d4a55b` | Warnings, highlights |
+| Danger Red | `#aa5555` | Errors, destructive actions |
+
+#### Text Colors
+| Name | Hex | Usage |
+|------|-----|-------|
+| Primary Text | `#c9c9c9` | Main body text |
+| Secondary Text | `#888888` | Muted/helper text |
+| Accent Text | `#8b9a5b` | Highlighted text (olive) |
+
+### CSS Custom Properties
+
+```css
+:root {
+  /* Backgrounds */
+  --bg-main: #1a1a1a;
+  --bg-panel: #2d2d2d;
+  --bg-sunken: #252525;
+  --bg-raised: #3a3a3a;
+  
+  /* Borders */
+  --border-light: #4a4a4a;
+  --border-dark: #1a1a1a;
+  
+  /* Accents */
+  --accent-green: #8b9a5b;
+  --accent-orange: #d4a55b;
+  --accent-red: #aa5555;
+  
+  /* Text */
+  --text-primary: #c9c9c9;
+  --text-secondary: #888888;
+  --text-accent: #8b9a5b;
+}
+```
 
 ### Typography
 
 #### Font Stack
-- **Monospace (code/labels):** `Inconsolata, "Courier New", monospace`
-  - Used for: Technical labels, command-like headings, code snippets
-- **Sans-serif (body):** System stack `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`
-  - Used for: Main body text, descriptions, readable content
+- **Monospace (primary):** `"Courier New", Consolas, "Liberation Mono", monospace`
+  - Used for: All text (industrial/terminal feel)
+- **System fallback:** `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`
+  - Used for: Fallback only
 
 #### Font Sizes
-- **Extra Large:** 2.25rem (36px) - Main titles
-- **Large:** 1.875rem (30px) - Page headers
-- **Medium:** 1.125rem (18px) - Section titles
-- **Regular:** 1rem (16px) - Body text
-- **Small:** 0.875rem (14px) - Secondary text, labels
-- **Extra Small:** 0.75rem (12px) - Captions, metadata
+| Name | Size | Usage |
+|------|------|-------|
+| XL | 1.5rem (24px) | Page titles |
+| LG | 1.25rem (20px) | Section headers |
+| MD | 1rem (16px) | Body text |
+| SM | 0.875rem (14px) | Secondary text |
+| XS | 0.75rem (12px) | Captions, metadata |
 
-#### Line Heights
-- **Headings:** 1.2 (tight)
-- **Body:** 1.6 (relaxed)
-- **Small text:** 1.5 (balanced)
+#### Text Styles
+- **Headers:** Uppercase, bold, letter-spacing: 0.05em
+- **Body:** Regular weight, line-height: 1.6
+- **Labels:** Uppercase, small, muted color
 
-### Border & Spacing
+### Border & Bevel Effects
 
-#### Borders
-- **Panel borders:** 2px solid black (`border-2 border-black`)
-- **Accent borders:** 2px solid with accent color for interactive elements
-- **Dividers:** 1px dotted gray (`border-dotted border-gray-400`)
-- **Radius:** Minimal (0px) for sharp, geometric aesthetic; occasional `rounded-sm` (2px) for softness
+#### Raised Panel (Default State)
+```scss
+.industrial-raised {
+  border: 2px solid;
+  border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
+  background: linear-gradient(180deg, var(--bg-raised) 0%, var(--bg-panel) 100%);
+}
+```
 
-#### Spacing Scale (Tailwind)
-- **xs:** 0.25rem (4px) - Micro spacing within components
-- **sm:** 0.5rem (8px) - Tight grouping
-- **md:** 1rem (16px) - Standard spacing
-- **lg:** 1.5rem (24px) - Section spacing
-- **xl:** 2rem (32px) - Major section gaps
-- **2xl:** 3rem (48px) - Page-level spacing
+#### Sunken Panel (Pressed/Input State)
+```scss
+.industrial-sunken {
+  border: 2px solid;
+  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
+  background: var(--bg-sunken);
+}
+```
 
-#### Responsive Design
-- **Mobile-first:** Default styles for mobile, enhance with breakpoints
+#### Button States
+```scss
+.btn-industrial {
+  // Default: raised
+  @extend .industrial-raised;
+  
+  &:hover {
+    border-color: #5a5a5a #2a2a2a #2a2a2a #5a5a5a;
+    background: linear-gradient(180deg, #454545 0%, #3a3a3a 100%);
+  }
+  
+  &:active {
+    // Pressed: sunken
+    @extend .industrial-sunken;
+    transform: translateY(1px);
+  }
+}
+```
+
+### Spacing Scale
+
+| Name | Size | Tailwind | Usage |
+|------|------|----------|-------|
+| xs | 0.25rem (4px) | `p-1` | Micro spacing |
+| sm | 0.5rem (8px) | `p-2` | Tight grouping |
+| md | 1rem (16px) | `p-4` | Standard spacing |
+| lg | 1.5rem (24px) | `p-6` | Section spacing |
+| xl | 2rem (32px) | `p-8` | Major section gaps |
+
+### Responsive Breakpoints
+
+- **Mobile first:** Default styles for mobile
 - **sm:** 640px - Tablets
 - **md:** 768px - Small desktops
 - **lg:** 1024px - Standard desktops
 - **xl:** 1280px - Large displays
 
-### Component Library
+---
 
-#### Core Components
+## Component Library: Industrial
 
-**1. PanelBox.svelte**
-- Main container for content sections
-- Props: `title`, `children`, `variant` (default/interactive)
-- Features: 2px black border, white background, drop shadow on interactive
-- Used for: All major sections (projects, music, healthcheck, etc.)
+### Directory Structure
 
-**2. PanelContainer.svelte**
-- Grid layout wrapper for multiple panels
-- Props: `columns` (responsive), `gap`
-- Auto-arranges child panels with Portal-style spacing
-
-**3. PanelButton.svelte**
-- Interactive button styled as Portal chamber button
-- Props: `label`, `onClick`, `variant` (primary/secondary), `disabled`
-- Features: Border highlight on hover, Portal Blue accent
-- Replaces: Old RetroButtonLink component
-
-**4. PanelNav.svelte**
-- Navigation component with Portal-style buttons
-- Horizontal or vertical layout
-- Used for: Main navigation, section filters
-
-**5. StatCard.svelte**
-- Displays key metrics (music, healthcheck data)
-- Props: `label`, `value`, `unit`, `accent`
-- Features: Monospace values, bordered container
-
-**6. TablePanel.svelte**
-- Portal-styled table wrapper
-- Props: `headers`, `rows`, `data`
-- Features: Black borders between rows, hover highlights
-- Used for: Projects table, playlists, activities
-
-**7. LoadingPanel.svelte**
-- Portal transition loading state
-- Props: `message`, `progress`
-- Features: Animated elements with accent colors, typewriter effect
-
-#### Utility Components
-- **TerminalLine.svelte** - Horizontal separator (preserved, updated styling)
-- **Socials.svelte** - Social media links (updated with Portal styling)
-- **PortalTransition.svelte** - Portal-inspired page transitions (new)
-
-### Animations & Effects
-
-#### Portal Transitions
-```scss
-@keyframes portalEntry {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes portalExit {
-  0% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(0.95); }
-}
-
-@keyframes panelGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.3); }
-  50% { box-shadow: 0 0 8px 2px rgba(74, 144, 226, 0.1); }
-}
+```
+src/lib/components/industrial/
+├── IndustrialPanel.svelte      # Main content container
+├── IndustrialButton.svelte     # Interactive button with bevel
+├── IndustrialMenuBar.svelte    # CS1.6 style navigation header
+├── IndustrialTable.svelte      # Data table with grid lines
+├── IndustrialStatCard.svelte   # Metric display card
+├── IndustrialLoader.svelte     # Loading state with progress
+└── IndustrialDivider.svelte    # Horizontal separator
 ```
 
-#### Interactive Effects
-- **Button Hover:** Color shift to Portal Blue with subtle scale (1.02)
-- **Panel Hover:** Slight lift with drop shadow, border accent color
-- **Loading:** Rotating elements, pulsing opacity, typewriter text animation
-- **Focus States:** 2px Portal Blue focus ring on interactive elements
+### Component Documentation
 
-#### Disabled States
-- **Opacity:** 0.5 for disabled elements
-- **Cursor:** not-allowed pointer
-- **Color:** Gray text instead of black
+#### IndustrialPanel
+
+Main container for content sections with beveled edges.
+
+```svelte
+<IndustrialPanel title="Section Title" variant="default">
+  <p>Content goes here</p>
+</IndustrialPanel>
+```
+
+**Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| title | string | undefined | Optional header title |
+| variant | "default" \| "sunken" | "default" | Panel style |
+| children | Snippet | required | Panel content |
+
+#### IndustrialButton
+
+Interactive button with 3D bevel effect.
+
+```svelte
+<IndustrialButton label="Click Me" onClick={handleClick} />
+<IndustrialButton label="Go to Page" href="/page" />
+```
+
+**Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| label | string | required | Button text |
+| onClick | () => void | undefined | Click handler |
+| href | string | undefined | Link destination |
+| variant | "default" \| "active" | "default" | Button style |
+| disabled | boolean | false | Disabled state |
+
+#### IndustrialMenuBar
+
+CS1.6 style horizontal navigation with tabs.
+
+```svelte
+<IndustrialMenuBar 
+  title="MCGEOCITY" 
+  items={[
+    { label: "HOME", href: "/" },
+    { label: "ABOUT", href: "/about" }
+  ]}
+  currentPath={$page.url.pathname}
+/>
+```
+
+**Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| title | string | required | Site title/logo text |
+| items | NavItem[] | required | Navigation items |
+| currentPath | string | "/" | Current route path |
+| onFullscreen | () => void | undefined | Fullscreen toggle |
+
+#### IndustrialTable
+
+Console-style data table.
+
+```svelte
+<IndustrialTable 
+  headers={["Name", "Value"]}
+  rows={[
+    ["Item 1", "100"],
+    ["Item 2", "200"]
+  ]}
+/>
+```
+
+**Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| headers | string[] | required | Column headers |
+| rows | string[][] | required | Table data rows |
+
+#### IndustrialStatCard
+
+Metric display with industrial styling.
+
+```svelte
+<IndustrialStatCard 
+  label="DISTANCE"
+  value="42.5"
+  unit="km"
+  accent="green"
+/>
+```
+
+**Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| label | string | required | Stat label |
+| value | string \| number | required | Stat value |
+| unit | string | undefined | Unit suffix |
+| accent | "green" \| "orange" \| "red" | "green" | Accent color |
+
+#### IndustrialLoader
+
+Loading state with Half-Life style progress bar.
+
+```svelte
+<IndustrialLoader message="Loading data..." />
+```
+
+**Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| message | string | "Loading..." | Loading message |
+
+#### IndustrialDivider
+
+Horizontal separator with industrial styling.
+
+```svelte
+<IndustrialDivider />
+```
+
+No props required.
 
 ---
 
@@ -215,71 +373,59 @@ McGeocity is a personal portfolio website featuring a Portal-inspired hybrid UI 
 ```
 /home/mckusa/Code/McGeocity/
 ├── src/
-│   ├── routes/                          # SvelteKit page routes
-│   │   ├── +page.svelte                # Home page (landing)
-│   │   ├── +layout.svelte              # Root layout with Portal styling
-│   │   ├── +layout.server.ts           # Layout server logic (breadcrumbs)
+│   ├── routes/
+│   │   ├── +page.svelte              # Home page
+│   │   ├── +layout.svelte            # Root layout with menu bar
+│   │   ├── +layout.server.ts         # Layout server logic
 │   │   ├── about/
-│   │   │   └── +page.svelte            # About/blog section (future redesign)
+│   │   │   └── +page.svelte          # About/blog section
 │   │   ├── projects/
-│   │   │   └── +page.svelte            # Projects showcase (Portal table)
+│   │   │   └── +page.svelte          # Projects showcase
 │   │   ├── music/
-│   │   │   ├── +page.svelte            # Spotify playlists (Portal panels)
-│   │   │   └── +page.server.ts         # Spotify API integration
+│   │   │   ├── +page.svelte          # Spotify playlists
+│   │   │   └── +page.server.ts       # Spotify API integration
 │   │   ├── healthcheck/
-│   │   │   ├── +page.svelte            # Strava stats (Portal panels)
-│   │   │   └── +page.server.ts         # Strava API integration
-│   │   ├── layarteb/                   # Easter egg route
-│   │   │   ├── +page.svelte            # Easter egg page
-│   │   │   ├── +page.server.ts         # Form validation
-│   │   │   └── Terminal.svelte         # Interactive terminal simulator
-│   │   └── Scrollbar.svelte            # (Unused, deprecated)
+│   │   │   ├── +page.svelte          # Strava stats
+│   │   │   └── +page.server.ts       # Strava API integration
+│   │   └── layarteb/                 # Easter egg (keep retro style)
+│   │       ├── +page.svelte
+│   │       ├── +page.server.ts
+│   │       └── Terminal.svelte
 │   │
 │   ├── lib/
 │   │   ├── components/
-│   │   │   ├── portal/                 # NEW: Portal design system components
-│   │   │   │   ├── PanelBox.svelte     # Main panel container
-│   │   │   │   ├── PanelContainer.svelte
-│   │   │   │   ├── PanelButton.svelte  # Interactive button
-│   │   │   │   ├── PanelNav.svelte     # Navigation
-│   │   │   │   ├── StatCard.svelte     # Metric display
-│   │   │   │   ├── TablePanel.svelte   # Table wrapper
-│   │   │   │   ├── LoadingPanel.svelte # Loading state
-│   │   │   │   └── PortalTransition.svelte
-│   │   │   │
-│   │   │   ├── RetroButtonLink.svelte  # (Deprecated, replaced by PanelButton)
-│   │   │   ├── TerminalLine.svelte     # Updated for Portal style
-│   │   │   ├── TerminalBox.svelte      # (Deprecated, replaced by PanelBox)
-│   │   │   └── Socials.svelte          # Updated styling
+│   │   │   ├── industrial/           # Industrial design components
+│   │   │   │   ├── IndustrialPanel.svelte
+│   │   │   │   ├── IndustrialButton.svelte
+│   │   │   │   ├── IndustrialMenuBar.svelte
+│   │   │   │   ├── IndustrialTable.svelte
+│   │   │   │   ├── IndustrialStatCard.svelte
+│   │   │   │   ├── IndustrialLoader.svelte
+│   │   │   │   └── IndustrialDivider.svelte
+│   │   │   ├── portal/               # OLD: Portal components (deprecated)
+│   │   │   ├── Socials.svelte        # Social media links
+│   │   │   └── TerminalLine.svelte   # Deprecated
 │   │   │
-│   │   ├── assets/
-│   │   │   ├── retro_*.png             # (Old assets, being phased out)
-│   │   │   └── portal/                 # NEW: Portal-themed assets (if needed)
+│   │   ├── styles/
+│   │   │   ├── industrial.scss       # Industrial design tokens
+│   │   │   └── animations.scss       # Animations & transitions
 │   │   │
-│   │   ├── styles/                     # NEW: Shared styles
-│   │   │   ├── portal.scss             # Portal design tokens and utilities
-│   │   │   ├── animations.scss         # Transition and effect animations
-│   │   │   └── theme.scss              # Color and spacing utilities
-│   │   │
-│   │   ├── types/                      # NEW: Shared TypeScript types
-│   │   │   ├── index.ts
-│   │   │   └── components.ts           # Component prop types
-│   │   │
-│   │   └── index.ts                    # Library exports
+│   │   └── types/
+│   │       └── index.ts              # Shared TypeScript types
 │   │
-│   ├── app.css                          # Global Tailwind imports + Portal CSS
-│   └── app.d.ts                         # TypeScript declarations
+│   ├── app.css                       # Global Tailwind + Industrial styles
+│   └── app.d.ts                      # TypeScript declarations
 │
 ├── static/
-│   └── favicon.png                      # (Update with Portal aesthetic)
+│   └── favicon.png
 │
-├── tailwind.config.ts                   # Extended with Portal theme
-├── svelte.config.js                     # SvelteKit configuration
-├── tsconfig.json                        # TypeScript config (strict mode)
-├── vite.config.ts                       # Vite configuration
-├── postcss.config.js                    # PostCSS setup
-├── package.json                         # Dependencies
-├── AGENTS.md                            # This file
+├── tailwind.config.ts
+├── svelte.config.js
+├── tsconfig.json
+├── vite.config.ts
+├── postcss.config.js
+├── package.json
+├── AGENTS.md                         # This file
 └── README.md
 ```
 
@@ -288,13 +434,14 @@ McGeocity is a personal portfolio website featuring a Portal-inspired hybrid UI 
 ## API Integrations
 
 ### Spotify Integration (`/music`)
+
 - **Auth:** Client credentials flow (stored securely in env)
 - **Endpoint:** `/playlists` from Spotify API
 - **Data Loading:** Server-side in `+page.server.ts`
 - **Functionality:** Fetches user's playlists, paginated display
-- **Portal UI Adaptation:** Playlist table with Portal-styled cells and hover effects
 
 ### Strava Integration (`/healthcheck`)
+
 - **Auth:** OAuth token with refresh mechanism
 - **Endpoints:** `/athlete/stats`, `/activities`
 - **Data Processing:**
@@ -305,9 +452,9 @@ McGeocity is a personal portfolio website featuring a Portal-inspired hybrid UI 
   - Unit conversion (miles/km) toggle
   - Pace calculations
   - Time-based activity filtering
-- **Portal UI Adaptation:** Stat cards with accent colors, interactive tables
 
 ### Environment Variables Required
+
 ```
 SPOTIFY_CLIENT_ID
 SPOTIFY_CLIENT_SECRET
@@ -318,206 +465,182 @@ STRAVA_REFRESH_TOKEN
 
 ---
 
-## Key Implementation Details
+## Animations & Effects
 
-### Layout Architecture
-- **Root Layout (+layout.svelte):** Portal-themed wrapper with navigation
-- **Breadcrumb Navigation:** Dynamic based on current route
-- **Content Container:** Centered max-width with Portal panel styling
-- **Responsive Behavior:** Mobile-first with graceful breakpoints
+### Reduced Motion Support
 
-### Component Communication
-- **Props:** Primary method for passing data
-- **Events:** Used for user interactions (clicks, form submissions)
-- **Context API:** Consider for theme/dark mode (future enhancement)
-- **Stores:** Could be added for global state if needed (currently minimal state)
+All animations respect `prefers-reduced-motion`:
 
-### Data Flow
-- **Server-side loading:** Spotify/Strava data fetched in +page.server.ts
-- **Props to components:** Data passed down through component hierarchy
-- **Reactive updates:** $state() for client-side mutations
-- **Derived values:** $derived() for computed properties
-
-### Accessibility
-- Semantic HTML (button, nav, section, article elements)
-- ARIA labels for interactive components
-- Keyboard navigation support (focus rings with Portal Blue accent)
-- Color contrast: Black on white ≥ 21:1 ratio (WCAG AAA)
-- Focus visible outlines on all interactive elements
-
----
-
-## Performance Considerations
-
-### Code Splitting
-- SvelteKit automatically code-splits at route boundaries
-- Dynamic imports for heavy components if needed
-- API data fetched server-side to avoid client-side waterfall
-
-### Image Optimization
-- PNG assets kept small
-- Consider SVG for UI elements (Portal lines, buttons)
-- Lazy loading for non-critical images
-
-### Animations
-- Use CSS transitions/animations (GPU-accelerated)
-- Avoid heavy JS animations during interactions
-- Prefers-reduced-motion support for accessibility
-
-### Bundle Size
-- TailwindCSS purges unused styles in production
-- Keep component size small and focused
-- Evaluate third-party dependencies before adding
-
----
-
-## Deployment
-
-### Vercel Configuration
-- **Adapter:** @sveltejs/adapter-vercel
-- **Build Command:** `npm run build`
-- **Environment:** Production builds use Vercel optimization
-- **Env Variables:** Set in Vercel dashboard (Spotify/Strava credentials)
-
-### Pre-deployment Checklist
-1. Run `npm run check` - Ensure no TypeScript errors
-2. Run `npm run build` - Verify production build succeeds
-3. Test locally with `npm run dev`
-4. Check all integrations (music, healthcheck)
-5. Verify Portal transitions work smoothly
-6. Test responsive design on mobile/tablet
-
----
-
-## Svelte 5 Runes Usage
-
-### Component Props
-```typescript
-const { title, data, variant = "default" }: {
-  title: string;
-  data: DataType;
-  variant?: "default" | "interactive";
-} = $props();
+```scss
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 ```
 
-### Reactive State
-```typescript
-let isLoading = $state(true);
-let selectedFilter = $state("all");
+### Button Interactions
+
+```scss
+// Press effect
+.btn-industrial:active {
+  transform: translateY(1px);
+  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
+}
 ```
 
-### Derived Values
-```typescript
-let filteredProjects = $derived(projects.filter(p => p.category === selectedFilter));
-```
+### Focus States
 
-### Effects & Lifecycle
-```typescript
-$effect(() => {
-  // Side effect
-  console.log("Component mounted/updated");
-  
-  return () => {
-    // Cleanup on component destroy or effect re-run
-  };
-});
+All interactive elements have visible focus:
+
+```scss
+.focus-industrial:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 2px;
+}
 ```
 
 ---
 
-## Migration Notes (Retro → Portal)
+## Accessibility
 
-### What's Changing
-1. **Color Scheme:** Green-on-black → White with black text and accent colors
-2. **Borders:** Dashed green → Solid black (2px), accent on interactive
-3. **Typography:** Maintained monospace for labels, added sans-serif for body
-4. **Components:** Image-based buttons → Interactive Portal buttons
-5. **Animations:** Scanlines and glow effects → Portal transitions and hover effects
-6. **Layout:** Full-width terminals → Centered panel grid
+### Color Contrast
 
-### What's Preserved
-- All functionality (Spotify, Strava integrations)
-- Route structure and navigation
-- TypeScript strict mode
-- SvelteKit framework
-- Server-side data loading
-- Easter egg route (/layarteb)
+- Primary text (#c9c9c9) on dark bg (#1a1a1a): 11.5:1 (AAA)
+- Accent text (#8b9a5b) on dark bg: 5.2:1 (AA)
+- All text meets WCAG AA minimum (4.5:1)
 
-### Deprecations
-- `RetroButtonLink.svelte` - Use `PanelButton.svelte`
-- `TerminalBox.svelte` - Use `PanelBox.svelte`
-- Old retro PNG button assets - Use Portal-styled components
-- Scanline SCSS effects - Replaced with Portal transitions
+### Keyboard Navigation
+
+- Full keyboard support with Tab navigation
+- Visible focus rings on all interactive elements
+- Skip links where appropriate
+
+### Screen Readers
+
+- Semantic HTML (nav, main, section, article)
+- ARIA labels on icon-only buttons
+- Proper heading hierarchy
 
 ---
 
 ## Development Workflow
 
-### Before Starting a Feature
-1. Review design system in this AGENTS.md
-2. Create component sketch if new
-3. Check TypeScript types in `lib/types/`
-4. Use Tailwind for styling, SCSS for animations
+### Before Starting
+
+1. Read this AGENTS.md for design system
+2. Run `npm run dev` to start development
+3. Check component library in `src/lib/components/industrial/`
 
 ### During Development
+
 1. Use `npm run dev` for hot reload
-2. Run `npm run check:watch` in parallel for type safety
-3. Test responsive design at breakpoints
-4. Verify Portal transitions work smoothly
+2. Run `npm run check:watch` for continuous type checking
+3. Test at multiple breakpoints (mobile, tablet, desktop)
+4. Verify bevel effects render correctly
 
 ### Before Committing
+
 1. Run `npm run check` - No TypeScript errors
 2. Run `npm run build` - Production build succeeds
-3. Test in target browsers
-4. Update AGENTS.md if adding new patterns
+3. Test all pages locally
+4. Write descriptive commit message
 
-### Common Tasks
+### Before Production
 
-**Adding a new page:**
-1. Create `/src/routes/[route-name]/+page.svelte`
-2. Import Portal components (PanelBox, PanelNav, etc.)
-3. Use consistent spacing and color tokens
-4. Add navigation link to PanelNav in root layout
+**!!!! CRITICAL !!!!**
 
-**Adding a data-driven component:**
-1. Create `.svelte` file in `lib/components/portal/`
-2. Define prop interface in `lib/types/components.ts`
-3. Use `$props()` for type-safe prop destructuring
-4. Use `$state()` and `$derived()` for reactivity
-
-**Styling a component:**
-1. Prefer Tailwind utility classes for layout/spacing
-2. Use SCSS for complex effects or animations
-3. Reference Portal color tokens via Tailwind classes
-4. Maintain black borders and white backgrounds for consistency
+1. **DO NOT** run `git push` without user approval
+2. Show user the changes via dev server
+3. Get explicit "ok to push" confirmation
+4. Only then deploy to production
 
 ---
 
-## Future Enhancements
+## Common Tasks
 
-- Dark mode toggle (Portal dark aesthetic)
-- Animation preferences (reduced-motion support)
-- Component storybook for design system
-- E2E testing (Playwright/Cypress)
-- Performance monitoring
-- Analytics integration
-- More Portal-themed assets (SVG backgrounds, transitions)
-- About page redesign (Phase 2)
+### Adding a New Page
+
+1. Create `/src/routes/[route-name]/+page.svelte`
+2. Import Industrial components:
+   ```typescript
+   import IndustrialPanel from "$lib/components/industrial/IndustrialPanel.svelte";
+   import IndustrialButton from "$lib/components/industrial/IndustrialButton.svelte";
+   ```
+3. Use consistent spacing and color tokens
+4. Add navigation item to IndustrialMenuBar in layout
+
+### Creating a New Component
+
+1. Create `.svelte` file in `src/lib/components/industrial/`
+2. Define prop interface with TypeScript
+3. Use `$props()` for type-safe prop destructuring
+4. Apply industrial styling (bevels, colors)
+5. Document in this AGENTS.md
+
+### Styling a Component
+
+1. Use CSS custom properties for colors
+2. Apply `.industrial-raised` or `.industrial-sunken` for bevels
+3. Use monospace font for industrial feel
+4. Add `:hover` and `:active` states for buttons
+5. Include `:focus-visible` for accessibility
+
+---
+
+## Migration Notes
+
+### From Portal to Industrial
+
+**What Changed:**
+- White backgrounds -> Dark #1a1a1a backgrounds
+- Blue accents -> Olive green #8b9a5b accents
+- Flat panels -> 3D beveled panels
+- Sans-serif body -> All monospace
+- Portal transitions -> Subtle industrial effects
+
+**What's Preserved:**
+- All functionality (Spotify, Strava integrations)
+- Route structure and navigation
+- TypeScript strict mode
+- Server-side data loading
+- Easter egg route (/layarteb) - keeps retro style
+
+### Deprecated Components
+
+The following are deprecated and should not be used:
+
+```
+src/lib/components/portal/     # All Portal components
+src/lib/components/RetroButtonLink.svelte
+src/lib/components/TerminalBox.svelte
+```
+
+Use Industrial components instead.
 
 ---
 
 ## Useful References
 
-- **Portal Game:** Official aesthetic and UI inspiration
+- **Half-Life 1 UI:** Visual reference for industrial aesthetic
+- **Counter-Strike 1.6 Menu:** Navigation and panel styling
 - **TailwindCSS Docs:** https://tailwindcss.com
 - **SvelteKit Docs:** https://kit.svelte.dev
 - **Svelte 5 Runes:** https://svelte.dev/docs/svelte
-- **Web Accessibility (WCAG):** https://www.w3.org/WAI/WCAG21/quickref/
+- **WCAG Guidelines:** https://www.w3.org/WAI/WCAG21/quickref/
 
 ---
 
 ## Contact & Support
 
 For questions about the design system or implementation, refer to this AGENTS.md or the inline code comments in components.
+
+---
+
+## REMINDER: DO NOT PUSH TO PRODUCTION WITHOUT USER APPROVAL
 
 Last Updated: January 15, 2026

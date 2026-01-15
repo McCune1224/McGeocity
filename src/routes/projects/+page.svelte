@@ -1,153 +1,177 @@
 <script lang="ts">
-	import PanelBox from "$lib/components/portal/PanelBox.svelte";
-	import PanelButton from "$lib/components/portal/PanelButton.svelte";
-	import PanelContainer from "$lib/components/portal/PanelContainer.svelte";
-	import PortalTransition from "$lib/components/portal/PortalTransition.svelte";
-	import TablePanel from "$lib/components/portal/TablePanel.svelte";
+	import IndustrialPanel from "$lib/components/industrial/IndustrialPanel.svelte";
+	import IndustrialTable from "$lib/components/industrial/IndustrialTable.svelte";
+	import IndustrialButton from "$lib/components/industrial/IndustrialButton.svelte";
+	import IndustrialDivider from "$lib/components/industrial/IndustrialDivider.svelte";
+	import Socials from "$lib/components/Socials.svelte";
 
 	const projects = [
 		{
-			title: "Matrix Miles",
-			body: "An IoT project that bridges fitness data with embedded hardware. Features a Go backend server handling Strava OAuth 2.0 authentication with automatic token refresh, PostgreSQL database, and REST API with API key authentication. The embedded client runs on a MatrixPortal M4 with CircuitPython, displaying running stats like calendar views, weekly/monthly totals, and best performances on an LED matrix. Deployed on Railway with Docker.",
-			tags: "GO, CIRCUITPYTHON, POSTGRESQL, DOCKER, IOT, STRAVA_API, RAILWAY",
-			demo: "https://matrix-miles-production.up.railway.app",
-			url: "https://github.com/McCune1224/matrix-miles",
+			name: "Gather",
+			description: "All in one productivity app for scheduling, todos, and note taking",
+			tech: "Go, HTMX, SQLite, TailwindCSS",
+			demo: "https://github.com/mccune1224/Gather",
+			code: "https://github.com/mccune1224/Gather"
 		},
 		{
-			title: "Betrayal Discord Bot",
-			body: "A comprehensive Discord bot for managing Betrayal, a battle royale social deduction game where players have unique roles and abilities. Built with Go and featuring production-grade structured logging with zerolog, async PostgreSQL batch writes, command audit trails, and automatic 90-day log retention with CSV archival. Handles game events like inventory management, alliance creation, timed events, and dynamic channel management.",
-			tags: "GO, POSTGRESQL, DOCKER, DISCORD_API, ZEROLOG, TEMPL",
-			demo: "https://github.com/McCune1224/betrayal",
-			url: "https://github.com/McCune1224/betrayal",
+			name: "Betrayal",
+			description: "Discord bot for Mafia-style game with complex role management",
+			tech: "Go, PostgreSQL, Discord API",
+			demo: "https://github.com/mccune1224/betrayal",
+			code: "https://github.com/mccune1224/betrayal"
 		},
 		{
-			title: "Eggbert",
-			body: "Eggbert is a RPG game made in the Godot Game Engine where you are an egg named Eggbert who is falsely accused of a crime you did not commit. You journey through the prison system as you attempt to escape and uncover the secrets within the prison along the way",
-			tags: "GODOT, C#, PIXEL_ART, RPG, TOP-DOWN_SHOOTER",
-			demo: "https://github.com/McCune1224/eggbert",
-			url: "https://github.com/McCune1224/eggbert",
+			name: "Gamba",
+			description: "Twitch stream viewer points gambling system",
+			tech: "TypeScript, Node.js, Twitch API",
+			demo: "https://github.com/mccune1224/gamba",
+			code: "https://github.com/mccune1224/gamba"
 		},
 		{
-			title: "Twitter Bot Little_T",
-			body: "A Machine Learning Model built with Markov Chains, written in Python, and deployed via AWS Lambda functions to give real time interaction with Twitter users thanks to the Twitter Account Activity API. It uses Twitter's General API for tweet data collection and the popular Python Tweepy library for interaction with Twitter's API.",
-			tags: "PYTHON, AWS, MONGO_DB, MACHINE LEARNING, TWITTER_REST_API",
-			demo: "https://x.com/little_t_bot",
-			url: "https://github.com/McCune1224/little-t",
+			name: "Resume Tailor",
+			description: "AI-powered resume customization tool for job applications",
+			tech: "Python, OpenAI API, FastAPI",
+			demo: "https://github.com/mccune1224/resume-tailor",
+			code: "https://github.com/mccune1224/resume-tailor"
 		},
 		{
-			title: "Kusa Data",
-			body: "Kusa Data is a web app that utilizes the Start.gg GraphQL API to quickly find Smash Bros Ultimate Tournaments. It provides utilizes Redis to cache often searched results to minimize wait time and allow for optimal response times. This web app also allows to view player profiles to quickly see their tournament history and placements.",
-			tags: "TYPESCRIPT, REDIS, GRAPH-QL, START_GG_REST_API",
-			demo: "https://kusa-data.vercel.app/",
-			url: "https://github.com/McCune1224/kusa-data",
-		},
+			name: "McGeocity",
+			description: "This website! Personal portfolio with Half-Life industrial aesthetic",
+			tech: "SvelteKit, TypeScript, TailwindCSS",
+			demo: "https://mcgeocity.vercel.app",
+			code: "https://github.com/mccune1224/McGeocity"
+		}
 	];
+
+	const tableHeaders = ["Project", "Description", "Tech Stack"];
+	const tableRows = projects.map((p) => [p.name, p.description, p.tech]);
 </script>
 
-<PortalTransition>
-	<div class="space-y-8">
-		<!-- Header -->
-		<PanelBox title="PROJECTS" variant="interactive">
-			<p class="text-gray-700">
-				A curated collection of projects spanning IoT, game development, 
-				machine learning, and web applications.
-			</p>
-		</PanelBox>
+<div class="projects-page">
+	<!-- Header Panel -->
+	<IndustrialPanel title="PROJECTS">
+		<p class="intro-text">
+			A collection of personal projects and experiments. Each project represents a learning
+			journey and an attempt to solve real problems.
+		</p>
+	</IndustrialPanel>
 
-		<!-- Desktop Table View -->
-		<div class="hidden md:block">
-			<TablePanel
-				headers={["PROJECT", "DESCRIPTION", "TECH STACK", "LINKS"]}
-				rows={projects.map((p) => [
-					p.title,
-					p.body.substring(0, 100) + "...",
-					p.tags,
-					"Demo / Repo",
-				])}
-			/>
-		</div>
+	<IndustrialDivider />
 
-		<!-- Mobile Card View -->
-		<div class="md:hidden space-y-4">
-			{#each projects as project, i}
-				<PanelBox title="{i + 1}. {project.title}" variant="default">
-					<div class="space-y-3">
-						<div>
-							<h4 class="font-mono text-xs font-bold text-gray-600 uppercase mb-1">
-								Description
-							</h4>
-							<p class="text-sm text-gray-700">{project.body}</p>
-						</div>
-
-						<div>
-							<h4 class="font-mono text-xs font-bold text-gray-600 uppercase mb-1">
-								Tech Stack
-							</h4>
-							<p class="text-xs font-mono text-blue-600">
-								{project.tags}
-							</p>
-						</div>
-
-						<div class="flex gap-2 pt-2">
-							<a
-								href={project.demo}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="flex-1 px-3 py-2 text-sm border-2 border-black bg-white text-black hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-smooth text-center font-mono font-bold"
-							>
-								DEMO
-							</a>
-							<a
-								href={project.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="flex-1 px-3 py-2 text-sm border-2 border-black bg-white text-black hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-smooth text-center font-mono font-bold"
-							>
-								CODE
-							</a>
-						</div>
-					</div>
-				</PanelBox>
-			{/each}
-		</div>
-
-		<!-- Desktop Detailed Card View (Alternative) -->
-		<div class="hidden md:block lg:hidden space-y-4">
-			{#each projects as project, i}
-				<PanelBox title="{i + 1}. {project.title}" variant="default">
-					<div class="space-y-3">
-						<p class="text-sm text-gray-700">{project.body}</p>
-
-						<div>
-							<h4 class="font-mono text-xs font-bold text-gray-600 uppercase mb-1">
-								Tech Stack
-							</h4>
-							<p class="text-xs font-mono text-blue-600">
-								{project.tags}
-							</p>
-						</div>
-
-						<div class="flex gap-2 pt-2">
-							<a
-								href={project.demo}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="flex-1 px-3 py-2 text-sm border-2 border-black bg-white text-black hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-smooth text-center font-mono font-bold"
-							>
-								DEMO
-							</a>
-							<a
-								href={project.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="flex-1 px-3 py-2 text-sm border-2 border-black bg-white text-black hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-smooth text-center font-mono font-bold"
-							>
-								CODE
-							</a>
-						</div>
-					</div>
-				</PanelBox>
-			{/each}
-		</div>
+	<!-- Projects Table (Desktop) -->
+	<div class="table-view">
+		<IndustrialTable title="PROJECT MANIFEST" headers={tableHeaders} rows={tableRows} />
 	</div>
-</PortalTransition>
+
+	<IndustrialDivider />
+
+	<!-- Project Cards (All Views) -->
+	<IndustrialPanel title="PROJECT DETAILS">
+		<div class="projects-grid">
+			{#each projects as project}
+				<div class="project-card">
+					<div class="project-header">
+						<span class="project-name">{project.name}</span>
+					</div>
+					<p class="project-desc">{project.description}</p>
+					<div class="project-tech">
+						<span class="tech-label">TECH:</span>
+						<span class="tech-value">{project.tech}</span>
+					</div>
+					<div class="project-links">
+						{#if project.demo}
+							<IndustrialButton label="[ DEMO ]" href={project.demo} />
+						{/if}
+						{#if project.code}
+							<IndustrialButton label="[ CODE ]" href={project.code} />
+						{/if}
+					</div>
+				</div>
+			{/each}
+		</div>
+	</IndustrialPanel>
+
+	<IndustrialDivider />
+
+	<div class="socials-section">
+		<Socials />
+	</div>
+</div>
+
+<style lang="scss">
+	.projects-page {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.intro-text {
+		color: #c9c9c9;
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.table-view {
+		@media (max-width: 768px) {
+			display: none;
+		}
+	}
+
+	.projects-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.project-card {
+		padding: 1rem;
+		border: 2px solid;
+		border-color: #1a1a1a #4a4a4a #4a4a4a #1a1a1a;
+		background: #252525;
+	}
+
+	.project-header {
+		margin-bottom: 0.75rem;
+	}
+
+	.project-name {
+		font-weight: bold;
+		font-size: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: #8b9a5b;
+	}
+
+	.project-desc {
+		color: #c9c9c9;
+		font-size: 0.875rem;
+		line-height: 1.6;
+		margin: 0 0 0.75rem 0;
+	}
+
+	.project-tech {
+		display: flex;
+		gap: 0.5rem;
+		font-size: 0.75rem;
+		margin-bottom: 1rem;
+	}
+
+	.tech-label {
+		color: #888888;
+	}
+
+	.tech-value {
+		color: #d4a55b;
+	}
+
+	.project-links {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.socials-section {
+		display: flex;
+		justify-content: center;
+		padding: 1rem 0;
+	}
+</style>

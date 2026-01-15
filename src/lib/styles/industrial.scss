@@ -1,0 +1,260 @@
+/* Half-Life 1 / CS 1.6 Industrial Design System */
+
+// =============================================================================
+// COLOR PALETTE
+// =============================================================================
+
+// Background Colors
+$bg-main: #1a1a1a;
+$bg-panel: #2d2d2d;
+$bg-sunken: #252525;
+$bg-raised: #3a3a3a;
+
+// Border Colors (3D Bevel Effect)
+$border-light: #4a4a4a;
+$border-dark: #1a1a1a;
+
+// Accent Colors
+$accent-green: #8b9a5b;  // HL1 Olive Green
+$accent-orange: #d4a55b; // Amber/Warning
+$accent-red: #aa5555;    // Danger/Error
+
+// Text Colors
+$text-primary: #c9c9c9;
+$text-secondary: #888888;
+$text-accent: #8b9a5b;
+
+// =============================================================================
+// CSS CUSTOM PROPERTIES (for runtime theming)
+// =============================================================================
+
+:root {
+	// Backgrounds
+	--bg-main: #{$bg-main};
+	--bg-panel: #{$bg-panel};
+	--bg-sunken: #{$bg-sunken};
+	--bg-raised: #{$bg-raised};
+
+	// Borders
+	--border-light: #{$border-light};
+	--border-dark: #{$border-dark};
+
+	// Accents
+	--accent-green: #{$accent-green};
+	--accent-orange: #{$accent-orange};
+	--accent-red: #{$accent-red};
+
+	// Text
+	--text-primary: #{$text-primary};
+	--text-secondary: #{$text-secondary};
+	--text-accent: #{$text-accent};
+
+	// Typography
+	--font-mono: "Courier New", Consolas, "Liberation Mono", monospace;
+}
+
+// =============================================================================
+// BEVEL MIXINS
+// =============================================================================
+
+// Raised panel effect (default state)
+@mixin industrial-raised {
+	border: 2px solid;
+	border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
+	background: linear-gradient(180deg, var(--bg-raised) 0%, var(--bg-panel) 100%);
+}
+
+// Sunken panel effect (pressed/input state)
+@mixin industrial-sunken {
+	border: 2px solid;
+	border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
+	background: var(--bg-sunken);
+}
+
+// Flat panel (no bevel)
+@mixin industrial-flat {
+	border: 2px solid var(--border-light);
+	background: var(--bg-panel);
+}
+
+// =============================================================================
+// UTILITY CLASSES
+// =============================================================================
+
+.industrial-raised {
+	@include industrial-raised;
+}
+
+.industrial-sunken {
+	@include industrial-sunken;
+}
+
+.industrial-flat {
+	@include industrial-flat;
+}
+
+// =============================================================================
+// BUTTON STATES
+// =============================================================================
+
+.btn-industrial {
+	@include industrial-raised;
+	padding: 0.5rem 1rem;
+	font-family: var(--font-mono);
+	font-weight: bold;
+	color: var(--text-primary);
+	cursor: pointer;
+	transition: all 0.1s ease;
+
+	&:hover {
+		border-color: #5a5a5a #2a2a2a #2a2a2a #5a5a5a;
+		background: linear-gradient(180deg, #454545 0%, #3a3a3a 100%);
+		color: var(--accent-green);
+	}
+
+	&:active {
+		@include industrial-sunken;
+		transform: translateY(1px);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--accent-green);
+		outline-offset: 2px;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	&.active {
+		@include industrial-sunken;
+		color: var(--accent-green);
+	}
+}
+
+// =============================================================================
+// TEXT UTILITIES
+// =============================================================================
+
+.text-industrial {
+	font-family: var(--font-mono);
+	color: var(--text-primary);
+}
+
+.text-industrial-accent {
+	color: var(--accent-green);
+}
+
+.text-industrial-secondary {
+	color: var(--text-secondary);
+}
+
+.text-industrial-warning {
+	color: var(--accent-orange);
+}
+
+.text-industrial-danger {
+	color: var(--accent-red);
+}
+
+// =============================================================================
+// FOCUS STATES (Accessibility)
+// =============================================================================
+
+.focus-industrial:focus-visible {
+	outline: 2px solid var(--accent-green);
+	outline-offset: 2px;
+}
+
+// =============================================================================
+// ANIMATIONS
+// =============================================================================
+
+@keyframes industrial-fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes industrial-slide-down {
+	0% {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes industrial-pulse {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+}
+
+.animate-industrial-fade {
+	animation: industrial-fade-in 0.2s ease-out;
+}
+
+.animate-industrial-slide {
+	animation: industrial-slide-down 0.2s ease-out;
+}
+
+.animate-industrial-pulse {
+	animation: industrial-pulse 1.5s ease-in-out infinite;
+}
+
+// =============================================================================
+// REDUCED MOTION SUPPORT
+// =============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-industrial-fade,
+	.animate-industrial-slide,
+	.animate-industrial-pulse {
+		animation: none;
+	}
+
+	.btn-industrial {
+		transition: none;
+	}
+}
+
+// =============================================================================
+// SCROLLBAR STYLING
+// =============================================================================
+
+::-webkit-scrollbar {
+	width: 12px;
+	height: 12px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--bg-sunken);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--border-light);
+	border: 2px solid var(--bg-sunken);
+
+	&:hover {
+		background: var(--accent-green);
+	}
+}
+
+// =============================================================================
+// SELECTION STYLING
+// =============================================================================
+
+::selection {
+	background: rgba($accent-green, 0.3);
+	color: var(--text-primary);
+}
