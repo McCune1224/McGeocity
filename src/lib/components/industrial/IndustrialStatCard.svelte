@@ -29,7 +29,7 @@
 
 <style lang="scss">
 	.industrial-stat-card {
-		padding: 1rem;
+		padding: 1.5rem;
 		border: 2px solid;
 		border-color: #4a4a4a #1a1a1a #1a1a1a #4a4a4a;
 		background: linear-gradient(180deg, #3a3a3a 0%, #2d2d2d 100%);
@@ -38,34 +38,44 @@
 	}
 
 	.stat-label {
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		font-weight: bold;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		color: #888888;
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.75rem;
+		line-height: 1.4;
 	}
 
 	.stat-value {
-		font-size: 1.5rem;
+		font-size: 2rem;
 		font-weight: bold;
 		line-height: 1.2;
 	}
 
 	.stat-unit {
-		font-size: 0.875rem;
+		font-size: 1rem;
 		font-weight: normal;
 		color: #888888;
-		margin-left: 0.25rem;
+		margin-left: 0.375rem;
 	}
 
 	@media (max-width: 640px) {
+		.industrial-stat-card {
+			padding: 1rem;
+		}
+
 		.stat-value {
-			font-size: 1.25rem;
+			font-size: 1.5rem;
 		}
 
 		.stat-label {
-			font-size: 0.625rem;
+			font-size: 0.8125rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.stat-unit {
+			font-size: 0.875rem;
 		}
 	}
 </style>

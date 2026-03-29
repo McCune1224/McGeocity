@@ -4,6 +4,12 @@
 	const {data}: {data: PageServerData} = $props();
 </script>
 
+<svelte:head>
+	<title>?? | Alex McCune</title>
+	<meta name="description" content="A mysterious page on alexmccune.dev" />
+	<meta name="robots" content="noindex, nofollow" />
+</svelte:head>
+
 <section class="flex flex-col gap-2">
 	<p>
 		Ah I see you were able to stumble upon this page. Thought it would be fun to

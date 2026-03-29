@@ -6,6 +6,7 @@
 		variant?: "default" | "active";
 		disabled?: boolean;
 		type?: "button" | "submit" | "reset";
+		download?: boolean | string;
 	}
 
 	const {
@@ -14,7 +15,8 @@
 		href,
 		variant = "default",
 		disabled = false,
-		type = "button"
+		type = "button",
+		download = false
 	}: Props = $props();
 
 	const isActive = variant === "active";
@@ -23,6 +25,7 @@
 {#if href}
 	<a
 		{href}
+		{download}
 		class="industrial-btn {isActive ? 'active' : ''} {disabled ? 'disabled' : ''}"
 		aria-disabled={disabled}
 	>
@@ -43,17 +46,18 @@
 	.industrial-btn {
 		display: block;
 		width: 100%;
-		padding: 0.75rem 1.5rem;
+		min-height: 48px;
+		padding: 0.875rem 1.5rem;
 		font-family: var(--font-mono, "Courier New", monospace);
 		font-weight: bold;
-		font-size: 0.875rem;
+		font-size: 0.9375rem;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 		text-align: center;
 		text-decoration: none;
 		color: #c9c9c9;
 		cursor: pointer;
-		transition: all 0.1s ease;
+		transition: all 0.15s ease;
 
 		// Raised state (default)
 		border: 2px solid;

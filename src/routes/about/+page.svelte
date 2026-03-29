@@ -1,103 +1,152 @@
 <script lang="ts">
 	import IndustrialPanel from "$lib/components/industrial/IndustrialPanel.svelte";
-	import IndustrialButton from "$lib/components/industrial/IndustrialButton.svelte";
 	import IndustrialDivider from "$lib/components/industrial/IndustrialDivider.svelte";
 
-	const blogEntries = [
+	interface TimelineEntry {
+		period: string;
+		role: string;
+		focus: string;
+	}
+
+	interface DriveItem {
+		title: string;
+		description: string;
+	}
+
+	const timeline: TimelineEntry[] = [
 		{
-			id: "intro",
-			date: "02/04/2025",
-			title: "Introduction",
-			content:
-				"Well to go into more detail about myself then... Hi! I've been in Rochester since May 2023 but I grew up most of my life on the West Coast in Carlsbad California (life is rad in Carlsbad). It's been a bit of an interesting experience so far living in Rochester as it is such a different lifestyle for me. For one, \"Cold\" for me used to be 60, and a brief 2 minutes of wind at most for the day. Moving to Rochester, you'd be lucky to see 60 on a day that wasn't in Summer.",
+			period: "2024 - Present",
+			role: "Application Administrator",
+			focus: "Healthcare systems, security tooling, automation",
 		},
 		{
-			id: "the-move",
-			date: "02/04/2025",
-			title: "The Big Move",
-			content:
-				"I didn't have any intentions of moving out of California, however I was struggling to find work after my undergrad and my old roommates who moved out here and mentioned they had a room available if I ever wanted. Pondering on it for a bit, I decided to pack my things and fly across to country to a State I've never been to, let alone the city I would be living in.",
+			period: "2023 - 2024",
+			role: "IT Support Specialist",
+			focus: "Help desk operations, system troubleshooting",
 		},
 		{
-			id: "tough-times",
-			date: "02/04/2025",
-			title: "Tough Times",
-			content:
-				"So far it has been a mixed bag I'd say, on one hand I got to reconnect with two very close friends to me who I have known for 6+ years now, but on the other life for me was stagnant pretty much up until I got my most recent job in late 2024. Before my current job I was working a help-desk / call center IT job that was miserable. It ate up a lot of my day, the commute was generally an hour at minimum due to me not having a car and public transit being a coin flip if things were going to be on time or not, plus there was no clear path ahead to know when it would end which did not help. Slap on some cold weather and gray skies for half of the year and thats a nice little recipie to get someone feeling down for a long while...",
+			period: "2023",
+			role: "Relocation",
+			focus: "Moved to Rochester, NY for tech opportunities",
 		},
 		{
-			id: "brighter-outlook",
-			date: "02/04/2025",
-			title: "A Brighter Outlook",
-			content:
-				"Thankfully I have escaped that pit I was in and life has taken a positive turn. The end of Winter is (hopefully) near and with that I want to jumpstart my life again now that I have a lot more time, money, and energy back on my side. I want to get really into running this year, as well as hopefully travel more now that this is an actual a job where I'm not being worked like a horse 24/7.\n\nAnywho, I'll add more of these entries as time goes on (hopefully), until then take care :)",
+			period: "2020 - 2023",
+			role: "Self-Directed Learning",
+			focus: "Programming, infrastructure, security fundamentals",
 		},
 	];
 
-	let expandedEntry: string | null = $state(null);
-
-	function toggleEntry(id: string) {
-		expandedEntry = expandedEntry === id ? null : id;
-	}
+	const motivations: DriveItem[] = [
+		{
+			title: "Impact",
+			description: "Building systems that protect real people's data and privacy",
+		},
+		{
+			title: "Challenge",
+			description: "The ever-evolving threat landscape keeps the work engaging",
+		},
+		{
+			title: "Community",
+			description: "Contributing to open source and sharing knowledge",
+		},
+	];
 </script>
 
+<svelte:head>
+	<title>About | Alex McCune - Healthcare IT Security Specialist</title>
+	<meta name="description" content="Learn about Alex McCune's journey into cybersecurity and healthcare IT infrastructure. Discover what drives his passion for protecting critical systems and patient data." />
+	<meta name="keywords" content="Alex McCune, Cybersecurity Professional, Healthcare IT Security, Rochester NY, Infrastructure Security, HIPAA Compliance" />
+	<meta name="robots" content="index, follow" />
+	<link rel="canonical" href="https://alexmccune.dev/about" />
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="About | Alex McCune" />
+	<meta property="og:description" content="Learn about Alex McCune's journey into cybersecurity and healthcare IT infrastructure." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://alexmccune.dev/about" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="About | Alex McCune" />
+	<meta name="twitter:description" content="Learn about Alex McCune's journey into cybersecurity and healthcare IT infrastructure." />
+</svelte:head>
+
 <div class="about-page">
-	<!-- Header Panel -->
-	<IndustrialPanel title="ABOUT ME">
-		<p class="intro-text">
-			My journey from California to Rochester, and the lessons I've learned along the way.
-			Select a log entry below to read more.
-		</p>
+	<!-- Professional Bio -->
+	<IndustrialPanel title="PROFESSIONAL PROFILE">
+		<div class="bio-content">
+			<p>
+				My path into cybersecurity began with a foundation in IT support and a growing
+				fascination with how systems can be both powerful and vulnerable. What started as
+				troubleshooting user issues evolved into a deeper interest in securing the
+				infrastructure behind those systems—particularly in healthcare, where the stakes
+				couldn't be higher.
+			</p>
+			<p>
+				Relocating from California to New York in 2023 pushed me to adapt quickly and
+				build my career in a new environment. I progressed from help desk operations to
+				application administration, where I now work directly with healthcare systems,
+				implementing security controls and automating processes to reduce risk. This
+				hands-on experience has solidified my focus on defensive security and operational
+				excellence.
+			</p>
+			<p>
+				I'm currently pursuing Security+ certification and actively building projects that
+				demonstrate my capabilities in vulnerability assessment, log analysis, and security
+				automation. My goal is to contribute to a security team where I can grow while
+				helping protect critical systems from evolving threats.
+			</p>
+		</div>
 	</IndustrialPanel>
 
 	<IndustrialDivider />
 
-	<!-- Log Entry Navigation -->
-	<IndustrialPanel title="LOG ENTRIES">
-		<div class="entry-grid">
-			{#each blogEntries as entry}
-				<IndustrialButton
-					label="[{entry.date}] {entry.title}"
-					onClick={() => toggleEntry(entry.id)}
-					variant={expandedEntry === entry.id ? "active" : "default"}
-				/>
+	<!-- Career Timeline -->
+	<IndustrialPanel title="CAREER TIMELINE">
+		<div class="timeline">
+			{#each timeline as entry, i}
+				<div class="timeline-entry">
+					<div class="timeline-marker">[{i + 1}]</div>
+					<div class="timeline-content">
+						<div class="timeline-period">{entry.period}</div>
+						<div class="timeline-role">{entry.role}</div>
+						<div class="timeline-focus">{entry.focus}</div>
+					</div>
+				</div>
 			{/each}
 		</div>
 	</IndustrialPanel>
 
-	<!-- Expanded Entry Content -->
-	{#each blogEntries as entry}
-		{#if expandedEntry === entry.id}
-			<IndustrialDivider />
-			<IndustrialPanel title={entry.title}>
-				<div class="entry-content">
-					<div class="entry-date">{entry.date}</div>
-					<p class="entry-text">{entry.content}</p>
+	<IndustrialDivider />
+
+	<!-- What Drives Me -->
+	<IndustrialPanel title="WHAT DRIVES ME">
+		<div class="motivations">
+			{#each motivations as item}
+				<div class="motivation-item">
+					<div class="motivation-title">{item.title}</div>
+					<p class="motivation-text">{item.description}</p>
 				</div>
-			</IndustrialPanel>
-		{/if}
-	{/each}
+			{/each}
+		</div>
+	</IndustrialPanel>
 
 	<IndustrialDivider />
 
-	<!-- Quick Stats -->
-	<IndustrialPanel title="PERSONNEL FILE">
-		<div class="stats-grid">
-			<div class="stat-row">
-				<span class="stat-label">CURRENT LOCATION:</span>
-				<span class="stat-value">Rochester, NY</span>
+	<!-- Quick Info -->
+	<IndustrialPanel title="CONTACT INFORMATION">
+		<div class="contact-grid">
+			<div class="contact-row">
+				<span class="contact-label">LOCATION:</span>
+				<span class="contact-value">Rochester, NY</span>
 			</div>
-			<div class="stat-row">
-				<span class="stat-label">ORIGIN:</span>
-				<span class="stat-value">Carlsbad, California</span>
+			<div class="contact-row">
+				<span class="contact-label">FOCUS:</span>
+				<span class="contact-value">Defensive Security / Healthcare IT</span>
 			</div>
-			<div class="stat-row">
-				<span class="stat-label">RELOCATED:</span>
-				<span class="stat-value">May 2023</span>
-			</div>
-			<div class="stat-row">
-				<span class="stat-label">INTERESTS:</span>
-				<span class="stat-value">Running, Music, Software Engineering, Exploring</span>
+			<div class="contact-row">
+				<span class="contact-label">STATUS:</span>
+				<span class="contact-value accent-green">Open to Opportunities</span>
 			</div>
 		</div>
 	</IndustrialPanel>
@@ -110,45 +159,104 @@
 		gap: 0;
 	}
 
-	.intro-text {
-		color: #c9c9c9;
-		line-height: 1.6;
-		margin: 0;
-	}
-
-	.entry-grid {
+	.bio-content {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 1.25rem;
+
+		p {
+			color: #c9c9c9;
+			line-height: 1.8;
+			margin: 0;
+		}
 	}
 
-	.entry-content {
+	.timeline {
 		display: flex;
 		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.timeline-entry {
+		display: flex;
 		gap: 1rem;
+		align-items: flex-start;
+
+		&:not(:last-child) {
+			padding-bottom: 1.5rem;
+			border-bottom: 1px solid #3a3a3a;
+		}
 	}
 
-	.entry-date {
-		font-size: 0.75rem;
+	.timeline-marker {
+		color: #8b9a5b;
+		font-weight: bold;
+		font-size: 0.875rem;
+		flex-shrink: 0;
+		min-width: 3rem;
+	}
+
+	.timeline-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.timeline-period {
 		color: #888888;
+		font-size: 0.75rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 	}
 
-	.entry-text {
+	.timeline-role {
 		color: #c9c9c9;
-		line-height: 1.8;
-		margin: 0;
-		white-space: pre-line;
+		font-weight: bold;
+		font-size: 1rem;
 	}
 
-	.stats-grid {
+	.timeline-focus {
+		color: #8b9a5b;
+		font-size: 0.875rem;
+	}
+
+	.motivations {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.motivation-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+
+		&:not(:last-child) {
+			padding-bottom: 1.5rem;
+			border-bottom: 1px solid #3a3a3a;
+		}
+	}
+
+	.motivation-title {
+		color: #8b9a5b;
+		font-weight: bold;
+		font-size: 0.9375rem;
+	}
+
+	.motivation-text {
+		color: #c9c9c9;
+		line-height: 1.7;
+		margin: 0;
+		font-size: 0.9375rem;
+	}
+
+	.contact-grid {
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
 	}
 
-	.stat-row {
+	.contact-row {
 		display: flex;
 		gap: 1rem;
 		font-size: 0.875rem;
@@ -159,13 +267,17 @@
 		}
 	}
 
-	.stat-label {
+	.contact-label {
 		color: #888888;
-		min-width: 160px;
+		min-width: 100px;
 		flex-shrink: 0;
 	}
 
-	.stat-value {
-		color: #8b9a5b;
+	.contact-value {
+		color: #c9c9c9;
+
+		&.accent-green {
+			color: #8b9a5b;
+		}
 	}
 </style>

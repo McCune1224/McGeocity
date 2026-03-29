@@ -8,9 +8,10 @@
 
 	const navItems = [
 		{ label: "HOME", href: "/" },
-		{ label: "WORKS", href: "/projects" },
+		{ label: "EXPERIENCE", href: "/experience" },
+		{ label: "PROJECTS", href: "/projects" },
 		{ label: "MUSIC", href: "/music" },
-		{ label: "HEALTH", href: "/healthcheck" }
+		{ label: "CONTACT", href: "/contact" }
 	];
 
 	const socialLinks = [

@@ -66,16 +66,6 @@
 					{/each}
 				</nav>
 			{/if}
-			{#if onFullscreen}
-				<button
-					class="control-btn"
-					onclick={onFullscreen}
-					title="Toggle fullscreen"
-					aria-label="Toggle fullscreen"
-				>
-					[ ]
-				</button>
-			{/if}
 		</div>
 	</div>
 </header>
@@ -183,7 +173,7 @@
 	}
 
 	.social-link {
-		font-size: 0.75rem;
+		font-size: 0.8125rem;
 		font-weight: bold;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
@@ -202,7 +192,7 @@
 	}
 
 	.social-divider {
-		font-size: 0.75rem;
+		font-size: 0.8125rem;
 		color: #888888;
 	}
 

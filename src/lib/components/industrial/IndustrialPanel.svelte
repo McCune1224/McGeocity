@@ -42,7 +42,7 @@
 	}
 
 	.panel-header {
-		padding: 0.5rem 1rem;
+		padding: 0.75rem 1.5rem;
 		background: linear-gradient(180deg, #3a3a3a 0%, #2d2d2d 100%);
 		border-bottom: 2px solid;
 		border-color: #1a1a1a #4a4a4a #4a4a4a #1a1a1a;
@@ -53,10 +53,26 @@
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 		color: #8b9a5b;
-		font-size: 0.875rem;
+		font-size: 1rem;
+		line-height: 1.4;
 	}
 
 	.panel-content {
-		padding: 1rem;
+		padding: 1.5rem;
+		line-height: 1.7;
+	}
+
+	@media (max-width: 640px) {
+		.panel-header {
+			padding: 0.625rem 1rem;
+		}
+
+		.panel-content {
+			padding: 1rem;
+		}
+
+		.panel-title {
+			font-size: 0.9375rem;
+		}
 	}
 </style>

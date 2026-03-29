@@ -34,6 +34,25 @@
 	);
 </script>
 
+<svelte:head>
+	<title>Music | Alex McCune - Math Rock & Guitar Instrumental Playlists</title>
+	<meta name="description" content="Discover Alex McCune's Spotify playlists featuring Math Rock, Guitar Instrumental, Indie Rock, and Dream Pop. Always open to music recommendations!" />
+	<meta name="keywords" content="Alex McCune Music, Math Rock Playlists, Guitar Instrumental, Spotify Playlists, Chon, Covet" />
+	<meta name="robots" content="index, follow" />
+	<link rel="canonical" href="https://alexmccune.dev/music" />
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Music | Alex McCune" />
+	<meta property="og:description" content="Discover Alex McCune's Spotify playlists featuring Math Rock and Guitar Instrumental music." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://alexmccune.dev/music" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="Music | Alex McCune" />
+	<meta name="twitter:description" content="Discover Alex McCune's Spotify playlists featuring Math Rock and Guitar Instrumental music." />
+</svelte:head>
+
 <div class="music-page">
 	{#if isLoading}
 		<div class="loader-container">
