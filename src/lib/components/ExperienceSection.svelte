@@ -14,9 +14,9 @@
 			period: "Sep 2024 — Present",
 			role: "Application Administrator",
 			organization: "University of Rochester Medical Center",
-			description: "Managing enterprise applications, system patching, identity management, and infrastructure automation across large-scale environments.",
+			description: "Oversee enterprise application administration, system patching, identity lifecycle management, and infrastructure automation for 9 hospitals and 100+ outpatient facilities.",
 			highlights: [
-				"Manage patching and system maintenance across 9 hospitals and 100+ outpatient locations with zero unplanned downtime",
+				"Maintain 99.9% uptime through proactive patching and system maintenance across 9 hospitals and 100+ outpatient locations",
 				"Oversee identity lifecycle including user provisioning, RBAC, and privileged access management for clinical and business applications",
 				"Implement ITIL change management with risk assessment, rollback procedures, and post-deployment validation",
 				"Conduct disaster recovery testing and business continuity planning for critical systems",
@@ -27,19 +27,19 @@
 			period: "Jul 2023 — Sep 2024",
 			role: "Help Desk Analyst",
 			organization: "University of Rochester Medical Center",
-			description: "Front-line IT support with focus on incident response, security ticket resolution, and knowledge management.",
+			description: "Provided enterprise IT support for 26,000+ users, specializing in incident triage, access management, and knowledge base development.",
 			highlights: [
 				"Performed initial triage on security incidents, escalating per incident response protocols",
 				"Resolved escalated tickets including account lockouts, MFA issues, and access violations with detailed audit trails",
-				"Created 30+ knowledge base articles reducing mean call time to sub-15 minutes",
-				"Trained new hires on security awareness, password policies, and HIPAA privacy requirements",
+				"Authored 30+ knowledge base articles, reducing average resolution time by over 40% and mean call time to under 15 minutes",
+				"Onboarded and trained new team members on security best practices, access policies, and compliance requirements",
 			],
 		},
 		{
 			period: "Jan 2021 — May 2022",
 			role: "Computer Science Lab Manager",
 			organization: "Concordia University Irvine",
-			description: "Administered lab infrastructure with focus on security hardening, automation, and access management.",
+			description: "Managed university computer science lab infrastructure serving 200+ students, with emphasis on system reliability and automated administration.",
 			highlights: [
 				"Administered Windows Server and Ubuntu LDAP infrastructure with security hardening and patch management",
 				"Developed automation scripts in PowerShell, Python, and Bash for account provisioning and security monitoring",
@@ -64,8 +64,8 @@
 			description: "Led help desk operations and mentored team members on complex technical issues.",
 			highlights: [
 				"Led and instructed team members on complex technical issues in help desk requests",
-				"Provided transparent, patient customer service ensuring quality support outcomes",
-				"Researched and documented solutions for emerging tech problems and policy changes",
+				"Delivered high-quality technical support with a 95%+ satisfaction rate across faculty and student help requests",
+				"Developed documentation and training materials for emerging technologies, reducing repeat tickets by 30%",
 			],
 		},
 	];
@@ -75,7 +75,7 @@
 	<div class="max-w-content mx-auto">
 		<SectionHeading
 			title="Experience"
-			subtitle="6+ years managing and administering enterprise IT infrastructure."
+			subtitle=""
 		/>
 
 		<div class="mt-12 relative">

@@ -50,7 +50,7 @@
 	<div class="max-w-content mx-auto">
 		<SectionHeading
 			title="Projects"
-			subtitle="Hands-on work spanning automation, IoT, web development, and systems integration."
+			subtitle=""
 		/>
 
 		<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">

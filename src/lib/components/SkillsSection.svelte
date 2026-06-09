@@ -30,7 +30,7 @@
 	<div class="max-w-content mx-auto">
 		<SectionHeading
 			title="Skills & Technologies"
-			subtitle="The tools and platforms I use to administer and maintain enterprise infrastructure."
+			subtitle=""
 		/>
 
 		<div class="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">

@@ -10,21 +10,21 @@
 
 <svelte:head>
 	<title>Alex McCune | IT Systems Administrator</title>
-	<meta name="description" content="Alex McCune - IT Systems Administrator with 6+ years managing enterprise infrastructure. Server administration, automation, identity management. Based in Rochester, NY." />
+	<meta name="description" content="Alex McCune — IT Systems Administrator with 3+ years of experience managing enterprise infrastructure, automating IT operations, and securing systems. Based in Rochester, NY." />
 	<meta name="keywords" content="Alex McCune, IT Systems Administrator, Infrastructure, Server Administration, Automation, Rochester NY" />
 	<meta name="author" content="Alex McCune" />
 	<meta name="robots" content="index, follow" />
 	<link rel="canonical" href="https://alexmccune.dev/" />
 
 	<meta property="og:title" content="Alex McCune | IT Systems Administrator" />
-	<meta property="og:description" content="IT Systems Administrator with 6+ years managing enterprise infrastructure. Based in Rochester, NY." />
+	<meta property="og:description" content="IT Systems Administrator | 3+ years managing enterprise infrastructure, automation, and IT operations at scale." />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://alexmccune.dev/" />
 	<meta property="og:site_name" content="Alex McCune" />
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content="Alex McCune | IT Systems Administrator" />
-	<meta name="twitter:description" content="IT Systems Administrator with 6+ years managing enterprise infrastructure." />
+	<meta name="twitter:description" content="IT Systems Administrator | 3+ years managing enterprise infrastructure, automation, and IT operations at scale." />
 
 	{@html `<script type="application/ld+json">${JSON.stringify({
 		"@context": "https://schema.org",
@@ -36,7 +36,7 @@
 			"https://linkedin.com/in/mccune1224",
 			"https://github.com/mccune1224"
 		],
-		"knowsAbout": ["IT Systems Administration", "Infrastructure Management", "Server Administration", "Automation", "Cybersecurity"],
+		"knowsAbout": ["IT Systems Administration", "Infrastructure Management", "Server Administration", "Enterprise Automation", "Identity & Access Management", "Disaster Recovery"],
 		"alumniOf": { "@type": "CollegeOrUniversity", "name": "Concordia University Irvine" },
 		"address": { "@type": "PostalAddress", "addressLocality": "Rochester", "addressRegion": "NY" }
 	})}</script>`}

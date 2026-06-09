@@ -31,7 +31,7 @@
 	<div class="max-w-content mx-auto">
 		<SectionHeading
 			title="Certifications"
-			subtitle="Industry credentials validating expertise in IT service management and systems administration."
+			subtitle="Vendor and industry certifications in security, service management, and compliance."
 		/>
 
 		<div class="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

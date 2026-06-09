@@ -67,7 +67,7 @@ npm run check:watch  # Continuous type checking during development
 
 ### Bio Summary (from current About page — to be repurposed)
 
-Alex's path began in IT support and evolved into systems administration, where he now manages enterprise infrastructure, automates operational processes, and implements security controls. Currently pursuing advanced skills in automation and infrastructure management. Focus: operational excellence and systems reliability.
+Alex McCune is an IT Systems Administrator with 3+ years of experience managing enterprise infrastructure, automating operations, and ensuring system reliability at scale. He currently administers applications and identity systems for a major healthcare network. His expertise spans Windows Server, Active Directory, automation (PowerShell, Python, Bash), ITIL change management, and disaster recovery planning.
 
 ---
 

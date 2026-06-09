@@ -36,39 +36,44 @@
 		</div>
 
 		<!-- Text content -->
-		<div class="max-w-xl">
-			<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text-primary">
+		<div class="max-w-2xl">
+			<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary leading-tight">
 				Alex McCune
 			</h1>
 
-			<p class="mt-3 text-lg sm:text-xl text-accent-primary font-medium">
+			<p class="mt-4 text-xl sm:text-2xl text-accent-primary font-medium">
 				IT Systems Administrator
 			</p>
 
-			<div class="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-text-tertiary">
+			<!-- Focus areas tagline -->
+			<p class="mt-4 text-base sm:text-lg text-text-tertiary font-medium tracking-wide">
+				Enterprise IT Infrastructure &middot; Automation &middot; Identity &amp; Access Management &middot; Security
+			</p>
+
+			<div class="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-base sm:text-lg text-text-tertiary">
 				<span class="inline-flex items-center gap-1.5">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
 						<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
 					</svg>
 					Rochester, NY
 				</span>
-				<span class="text-border-secondary hidden sm:inline">·</span>
+				<span class="text-border-secondary hidden sm:inline">&middot;</span>
 				<a href="mailto:alexmccune1224@gmail.com" class="inline-flex items-center gap-1.5 hover:text-accent-primary transition-colors">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
 					</svg>
 					alexmccune1224@gmail.com
 				</a>
 			</div>
 
-			<p class="mt-5 text-base text-text-secondary leading-relaxed">
-				Hi, I specealize in enterprise IT infrastructure, server administration, automation, identity management, and system security across large-scale environments.
+			<p class="mt-6 text-lg sm:text-xl text-text-secondary leading-relaxed max-w-xl mx-auto">
+				IT Systems Administrator with 3+ years of experience managing enterprise infrastructure, automating operations, and securing systems across large-scale healthcare environments. Currently at the University of Rochester Medical Center, I oversee application administration, identity lifecycle management, and infrastructure automation across 9 hospitals and 100+ outpatient facilities.
 			</p>
 
-			<div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 				<a
 					href="#contact"
-					class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent-primary text-white text-sm font-medium hover:bg-accent-hover transition-colors shadow-sm"
+					class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-primary text-white text-base font-medium hover:bg-accent-hover transition-colors shadow-sm"
 				>
 					Get in Touch
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -79,7 +84,7 @@
 					href="/resume.pdf"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border-secondary text-text-secondary hover:text-accent-primary hover:border-accent-primary text-sm font-medium transition-colors"
+					class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border-secondary text-text-secondary hover:text-accent-primary hover:border-accent-primary text-base font-medium transition-colors"
 				>
 					Resume
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

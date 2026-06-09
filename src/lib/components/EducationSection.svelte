@@ -15,7 +15,7 @@
 			period: "2017 — 2022",
 			details: [
 				"Computer Science Student of the Year — Graduating Class of 2022",
-				"Focus on systems programming, networking, and software engineering",
+				"Coursework in systems programming, network administration, database management, and software engineering",
 			],
 		},
 	];
@@ -25,7 +25,7 @@
 	<div class="max-w-content mx-auto">
 		<SectionHeading
 			title="Education"
-			subtitle="Academic foundation in computer science and systems administration."
+			subtitle=""
 		/>
 
 		<div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
