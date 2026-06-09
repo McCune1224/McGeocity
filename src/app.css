@@ -1,123 +1,112 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import './lib/styles/industrial.scss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Half-Life 1 / CS 1.6 Industrial Design System - Global Styles */
+/* ========================================
+   Theme: Ember Light (warm off-white + coral)
+   ======================================== */
+:root,
+[data-theme="light"] {
+	--color-bg-primary: 250 246 240;
+	--color-bg-secondary: 240 234 221;
+	--color-bg-tertiary: 229 220 200;
+	--color-text-primary: 44 40 34;
+	--color-text-secondary: 92 84 72;
+	--color-text-tertiary: 140 132 120;
+	--color-accent-primary: 208 112 80;
+	--color-accent-hover: 184 92 60;
+	--color-accent-secondary: 139 122 64;
+	--color-border-primary: 224 214 196;
+	--color-border-secondary: 204 192 168;
+	--color-success: 107 120 72;
+	--color-warning: 139 122 64;
+	--color-danger: 192 96 96;
+}
+
+/* ========================================
+   Theme: Ember Dark (warm graphite + coral)
+   ======================================== */
+[data-theme="dark"] {
+	--color-bg-primary: 28 27 25;
+	--color-bg-secondary: 42 40 38;
+	--color-bg-tertiary: 62 60 56;
+	--color-text-primary: 216 208 192;
+	--color-text-secondary: 176 168 152;
+	--color-text-tertiary: 120 112 104;
+	--color-accent-primary: 224 128 96;
+	--color-accent-hover: 208 112 80;
+	--color-accent-secondary: 200 180 104;
+	--color-border-primary: 62 60 56;
+	--color-border-secondary: 74 72 68;
+	--color-success: 138 152 104;
+	--color-warning: 200 180 104;
+	--color-danger: 176 120 120;
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
 
 * {
 	box-sizing: border-box;
 }
 
 html {
-	font-size: 18px;
+	scroll-behavior: smooth;
+	font-size: 16px;
 }
 
 body {
-	background-color: #1a1a1a;
-	color: #e0e0e0;
-	font-family: "Courier New", Consolas, "Liberation Mono", monospace;
-	font-size: 1.1875rem;
-	line-height: 1.75;
-	min-height: 100vh;
-}
-
-/* Links */
-a {
-	color: #8b9a5b;
-	text-decoration: none;
-	transition: color 0.15s ease;
-
-	&:hover {
-		color: #a5b56f;
-		text-decoration: underline;
-	}
-
-	&:focus-visible {
-		outline: 2px solid #8b9a5b;
-		outline-offset: 3px;
-	}
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-	font-family: "Courier New", Consolas, "Liberation Mono", monospace;
-	font-weight: bold;
-	color: #f0f0f0;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	line-height: 1.3;
-	margin-bottom: 1rem;
-}
-
-h1 { font-size: 2rem; }
-h2 { font-size: 1.75rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.125rem; }
-h6 { font-size: 1rem; }
-
-/* Paragraphs */
-p {
-	font-size: 1.1875rem;
-	line-height: 1.75;
-	margin-bottom: 1rem;
-	max-width: 70ch;
-	color: #e0e0e0;
-}
-
-/* Skill Badges - Pill style with industrial theme */
-.skill-badge {
-	display: inline-flex;
-	align-items: center;
-	padding: 0.625rem 1.125rem;
-	font-family: var(--font-mono, "Courier New", monospace);
+	background-color: rgb(var(--color-bg-primary));
+	color: rgb(var(--color-text-primary));
+	font-family: "Inter", system-ui, -apple-system, sans-serif;
 	font-size: 1rem;
+	line-height: 1.6;
+	min-height: 100vh;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body,
+section,
+nav,
+a,
+button,
+.card,
+.badge {
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Inter", system-ui, sans-serif;
 	font-weight: 600;
-	color: #e0e0e0;
-	background: linear-gradient(180deg, #3a3a3a 0%, #2d2d2d 100%);
-	border: 2px solid;
-	border-color: #4a4a4a #1a1a1a #1a1a1a #4a4a4a;
-	border-radius: 9999px;
-	cursor: default;
-	transition: all 0.15s ease;
-	white-space: nowrap;
-
-	&:hover {
-		border-color: #8b9a5b #5a6a3b #5a6a3b #8b9a5b;
-		background: linear-gradient(180deg, #454545 0%, #3a3a3a 100%);
-		color: #8b9a5b;
-	}
-
-	&:focus-visible {
-		outline: 2px solid #8b9a5b;
-		outline-offset: 2px;
-	}
+	line-height: 1.3;
 }
 
-.skill-badge-small {
-	padding: 0.5rem 0.875rem;
-	font-size: 0.9375rem;
+h1 { font-size: 3rem; letter-spacing: -0.025em; }
+h2 { font-size: 1.5rem; letter-spacing: -0.015em; }
+h3 { font-size: 1.125rem; }
+h4 { font-size: 1rem; }
+
+p {
+	line-height: 1.7;
+	max-width: 70ch;
 }
 
-.skill-badge-large {
-	padding: 0.75rem 1.375rem;
-	font-size: 1.125rem;
+a {
+	text-decoration: none;
+	transition: color 0.2s ease;
 }
 
-/* Focus states for accessibility */
 *:focus-visible {
-	outline: 2px solid #8b9a5b;
+	outline: 2px solid rgb(var(--color-accent-primary));
 	outline-offset: 2px;
 }
 
-/* Selection styling */
 ::selection {
-	background-color: #8b9a5b;
-	color: #1a1a1a;
+	background-color: rgb(var(--color-accent-primary));
+	color: #ffffff;
 }
 
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
@@ -125,5 +114,9 @@ p {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
+	}
+
+	html {
+		scroll-behavior: auto;
 	}
 }
