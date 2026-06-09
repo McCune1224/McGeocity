@@ -1,4 +1,4 @@
-# AGENTS.md - McGeocity Industrial UI Portfolio
+# AGENTS.md — Alex McCune Professional Portfolio
 
 ---
 
@@ -14,11 +14,15 @@
 
 ## Overview
 
-McGeocity is a personal portfolio website featuring a **Half-Life 1 / Counter-Strike 1.6 industrial UI aesthetic**. The site showcases projects, music playlists, running activities, and includes interactive elements inspired by classic Valve game menus with beveled panels, dark backgrounds, and olive green accents.
+Professional portfolio for **Alex McCune**, an **IT System Administrator & Cybersecurity Analyst** based in Rochester, NY. This is a complete redesign from the previous Half-Life 1 / CS 1.6 industrial UI into a clean, corporate-modern professional portfolio targeting enterprise IT and cybersecurity roles.
 
-**Live Site:** https://mcgeocity.vercel.app (DO NOT PUSH without approval)
+**Live Site:** https://alexmccune.dev (DO NOT PUSH without approval)
 
-**Design Era:** Half-Life 1 / CS 1.6 industrial aesthetic (dark panels, beveled edges, monospace fonts, olive green accents)
+**Design Direction:** Clean / Corporate Modern with Ember theme — a warm, hand-crafted color system featuring graphite backgrounds, muted olive/gold tones, and a vivid coral accent. Single-page scroll layout optimized for recruiter scanning.
+
+**Reference Sites (for layout/UX inspiration):**
+- https://auspham.dev/ — clean single-page structure, GitHub integration, tech stack grid
+- https://jasoncameron.dev/ — directory-tree-style navigation breadcrumbs, theme system
 
 ---
 
@@ -31,451 +35,314 @@ npm run check        # Run TypeScript/Svelte type checking (strict mode)
 npm run check:watch  # Continuous type checking during development
 ```
 
-**No test framework configured**
+**No test framework configured.**
 
 ---
 
 ## Tech Stack
 
-- **Framework:** SvelteKit 2 + Svelte 5 (latest runes API)
+- **Framework:** SvelteKit 2 + Svelte 5 (runes API)
 - **Language:** TypeScript 5 (strict mode enabled)
 - **Styling:** TailwindCSS 3 + SCSS (via sass-embedded)
-- **UI Library:** Tailwind Forms + Typography plugins
+- **Font:** Inter (self-hosted or via Google Fonts / @fontsource)
 - **Deployment:** Vercel (@sveltejs/adapter-vercel)
 - **Build Tool:** Vite 5.4
 - **CSS Processing:** PostCSS + Autoprefixer
 
 ---
 
-## Code Style Guidelines
+## Personal Brand
 
-### TypeScript & Svelte
+| Field | Value |
+|-------|-------|
+| **Full Name** | Alex McCune |
+| **Title** | IT Systems Administrator |
+| **Location** | Rochester, NY |
+| **Domain** | alexmccune.dev |
+| **GitHub** | github.com/mccune1224 |
+| **LinkedIn** | linkedin.com/in/mccune1224 |
+| **Bluesky** | bsky.app/profile/mckusa.bsky.social |
+| **Substack** | mccune1224.substack.com |
+| **Status** | Open to Opportunities |
 
-- Use `lang="ts"` in all `<script>` blocks
-- Enable strict mode TypeScript (strictNullChecks, noImplicitAny)
-- Use Svelte 5 runes exclusively:
-  - `$props()` for component props with inline type annotations
-  - `$state()` for reactive state
-  - `$derived()` for computed values
-  - `$effect()` for side effects and lifecycle
+### Bio Summary (from current About page — to be repurposed)
 
-### Imports & Structure
-
-- Import components from `$lib/` alias (e.g., `import IndustrialPanel from "$lib/components/industrial/IndustrialPanel.svelte"`)
-- Use double quotes for all imports and string literals in TS/JS
-- Organize imports: Svelte -> external libs -> internal modules -> types
-- Prefer named exports for components
-
-### Indentation & Formatting
-
-- Use **tabs** (not spaces) for indentation throughout
-- Component props: destructure with `$props()` on single line when possible
-- Maintain semantic HTML with accessibility in mind
-
-### Component Naming
-
-- **Components:** PascalCase (e.g., `IndustrialPanel.svelte`, `IndustrialButton.svelte`)
-- **Routes:** Use +page.svelte, +layout.svelte, +page.server.ts conventions
-- **Types:** PascalCase (e.g., `Project`, `SpotifyPlaylist`)
-- **Variables:** camelCase (e.g., `isLoading`, `panelHeight`)
-
-### Styling Approach
-
-- **Tailwind:** Primary styling with utility classes
-- **Responsive:** Use Tailwind breakpoints (sm:, md:, lg:) for mobile-first design
-- **SCSS:** Use `<style lang="scss">` for complex effects (bevels, gradients)
-- **No CSS Modules:** Global styles via app.css, scoped styles in components
+Alex's path began in IT support and evolved into systems administration, where he now manages enterprise infrastructure, automates operational processes, and implements security controls. Currently pursuing advanced skills in automation and infrastructure management. Focus: operational excellence and systems reliability.
 
 ---
 
-## Design System: Half-Life 1 / CS 1.6 Industrial
+## Site Structure — Single Page
 
-### Color Palette
+All content lives on a single page (`/` — `src/routes/+page.svelte`) with these sections, scroll-linked via the navbar:
 
-#### Background Colors
-| Name | Hex | Usage |
-|------|-----|-------|
-| Main Background | `#1a1a1a` | Page background (near-black) |
-| Panel Background | `#2d2d2d` | Panel/card backgrounds |
-| Sunken Background | `#252525` | Pressed buttons, inputs |
-| Raised Highlight | `#3a3a3a` | Raised panel gradient top |
+| # | Section ID | Content |
+|---|-----------|---------|
+| 1 | `#hero` | Name, title, tagline, location, status badge, CTA buttons (Resume, Contact) |
+| 2 | `#experience` | Career timeline — roles, dates, key achievements |
+| 3 | `#skills` | Skills grid — categorized by domain (OS, Cloud, Security Tools, Languages, etc.) |
+| 4 | `#certifications` | Cert badges/cards — current + in-progress |
+| 5 | `#projects` | Pinned projects — GitHub repos and personal projects with descriptions |
+| 6 | `#contact` | Contact info, social links, public key (optional), direct email |
 
-#### Border Colors (3D Bevel Effect)
-| Name | Hex | Usage |
-|------|-----|-------|
-| Light Edge | `#4a4a4a` | Top/left border (raised) |
-| Dark Edge | `#1a1a1a` | Bottom/right border (raised) |
+### Pages to Remove
+- `/about` — content absorbed into hero + experience sections
+- `/projects` — becomes the `#projects` section
+- `/music` — removed (not relevant to professional portfolio)
+- `/healthcheck` — removed (Strava integration not relevant)
+- `/layarteb` — removed (easter egg page)
 
-#### Accent Colors
-| Name | Hex | Usage |
-|------|-----|-------|
-| HL1 Olive Green | `#8b9a5b` | Primary accent, active states |
-| Amber/Orange | `#d4a55b` | Warnings, highlights |
-| Danger Red | `#aa5555` | Errors, destructive actions |
+---
 
-#### Text Colors
-| Name | Hex | Usage |
-|------|-----|-------|
-| Primary Text | `#c9c9c9` | Main body text |
-| Secondary Text | `#888888` | Muted/helper text |
-| Accent Text | `#8b9a5b` | Highlighted text (olive) |
+## Navigation Design — Split Layout
 
-### CSS Custom Properties
+Clean, minimal navbar:
 
-```css
-:root {
-  /* Backgrounds */
-  --bg-main: #1a1a1a;
-  --bg-panel: #2d2d2d;
-  --bg-sunken: #252525;
-  --bg-raised: #3a3a3a;
-  
-  /* Borders */
-  --border-light: #4a4a4a;
-  --border-dark: #1a1a1a;
-  
-  /* Accents */
-  --accent-green: #8b9a5b;
-  --accent-orange: #d4a55b;
-  --accent-red: #aa5555;
-  
-  /* Text */
-  --text-primary: #c9c9c9;
-  --text-secondary: #888888;
-  --text-accent: #8b9a5b;
-}
+```
+┌─────────────────────────────────────────────────────────┐
+│  [AM]    Experience  Skills  Certs  Projects  Contact  ↓  ☀│
+└─────────────────────────────────────────────────────────┘
 ```
 
-### Typography
+- **Left side:** "AM" monogram in accent-colored rounded square — links to top of page
+- **Right side:** Section links, GitHub/LinkedIn/Substack social icons, resume download icon, dark mode toggle
+- **Active section:** Subtle underline accent bar beneath active link
+- **Sticky:** Navbar stays fixed at top, backdrop blur on scroll
+- **Mobile:** Hamburger icon → full-width slide-down menu
 
-#### Font Stack
-- **Monospace (primary):** `"Courier New", Consolas, "Liberation Mono", monospace`
-  - Used for: All text (industrial/terminal feel)
-- **System fallback:** `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`
-  - Used for: Fallback only
+---
 
-#### Font Sizes
-| Name | Size | Usage |
-|------|------|-------|
-| XL | 1.5rem (24px) | Page titles |
-| LG | 1.25rem (20px) | Section headers |
-| MD | 1rem (16px) | Body text |
-| SM | 0.875rem (14px) | Secondary text |
-| XS | 0.75rem (12px) | Captions, metadata |
+## Design System: Ember Theme
 
-#### Text Styles
-- **Headers:** Uppercase, bold, letter-spacing: 0.05em
-- **Body:** Regular weight, line-height: 1.6
-- **Labels:** Uppercase, small, muted color
+### Theme Strategy — Dual Mode
 
-### Border & Bevel Effects
+The site supports light and dark modes via a toggle, using CSS custom properties. Tailwind's `dark:` variant is driven by a `data-theme` attribute on `<html>`.
 
-#### Raised Panel (Default State)
-```scss
-.industrial-raised {
-  border: 2px solid;
-  border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
-  background: linear-gradient(180deg, var(--bg-raised) 0%, var(--bg-panel) 100%);
-}
+```html
+<html data-theme="light">  <!-- or data-theme="dark" -->
 ```
 
-#### Sunken Panel (Pressed/Input State)
-```scss
-.industrial-sunken {
-  border: 2px solid;
-  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
-  background: var(--bg-sunken);
-}
-```
+### Light Mode — Ember Light (Warm Off-White + Coral)
 
-#### Button States
-```scss
-.btn-industrial {
-  // Default: raised
-  @extend .industrial-raised;
-  
-  &:hover {
-    border-color: #5a5a5a #2a2a2a #2a2a2a #5a5a5a;
-    background: linear-gradient(180deg, #454545 0%, #3a3a3a 100%);
-  }
-  
-  &:active {
-    // Pressed: sunken
-    @extend .industrial-sunken;
-    transform: translateY(1px);
-  }
-}
-```
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--bg-primary` | `#faf6f0` | Page background (warm cream) |
+| `--bg-secondary` | `#f0eadd` | Section/card background |
+| `--bg-tertiary` | `#e5dcc8` | Hover states, subtle highlights |
+| `--text-primary` | `#2c2822` | Headings, body text |
+| `--text-secondary` | `#5c5448` | Muted text, captions |
+| `--text-tertiary` | `#8c8478` | Very muted, metadata |
+| `--accent-primary` | `#d07050` | Links, buttons, active states (coral) |
+| `--accent-hover` | `#b85c3c` | Hover state for accent elements |
+| `--accent-secondary` | `#8b7a40` | Secondary accent (gold) |
+| `--border-primary` | `#e0d6c4` | Card/section borders |
+| `--border-secondary` | `#ccc0a8` | Stronger borders |
+| `--success` | `#6b7848` | Positive indicators (olive) |
+| `--warning` | `#8b7a40` | Warnings (gold) |
+| `--danger` | `#c06060` | Errors (rose) |
+
+### Dark Mode — Ember Dark (Warm Graphite + Coral)
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--bg-primary` | `#1c1b19` | Page background (warm graphite) |
+| `--bg-secondary` | `#2a2826` | Section/card background |
+| `--bg-tertiary` | `#3e3c38` | Hover states, subtle highlights |
+| `--text-primary` | `#d8d0c0` | Headings, body text (warm ivory) |
+| `--text-secondary` | `#b0a898` | Muted text, captions |
+| `--text-tertiary` | `#787068` | Very muted, metadata |
+| `--accent-primary` | `#e08060` | Links, buttons, active states (coral ember) |
+| `--accent-hover` | `#d07050` | Hover state for accent elements |
+| `--accent-secondary` | `#c8b468` | Secondary accent (warm gold) |
+| `--border-primary` | `#3e3c38` | Card/section borders |
+| `--border-secondary` | `#4a4844` | Stronger borders |
+| `--success` | `#8a9868` | Positive indicators (olive) |
+| `--warning` | `#c8b468` | Warnings (gold) |
+| `--danger` | `#b07878` | Errors (dried rose) |
+
+### Typography — Inter
+
+| Role | Weight | Size | Line Height |
+|------|--------|------|-------------|
+| Hero Name | 700 (Bold) | 3rem (48px) / 2.25rem mobile | 1.1 |
+| Hero Title | 400 (Regular) | 1.25rem (20px) | 1.5 |
+| Section Headers | 600 (Semi-Bold) | 1.5rem (24px) | 1.3 |
+| Sub-headers | 600 | 1.125rem (18px) | 1.4 |
+| Body | 400 | 1rem (16px) | 1.6 |
+| Body Small | 400 | 0.875rem (14px) | 1.5 |
+| Caption/Label | 500 (Medium) | 0.75rem (12px) | 1.4 |
+| Nav Items | 500 | 0.875rem (14px) | 1.0 |
+
+- **Font import:** `@fontsource/inter` (npm package) or Google Fonts CDN
+- **Monospace fallback** (for code/technical snippets): `"JetBrains Mono", "Fira Code", "Cascadia Code", monospace`
 
 ### Spacing Scale
 
-| Name | Size | Tailwind | Usage |
-|------|------|----------|-------|
-| xs | 0.25rem (4px) | `p-1` | Micro spacing |
-| sm | 0.5rem (8px) | `p-2` | Tight grouping |
-| md | 1rem (16px) | `p-4` | Standard spacing |
-| lg | 1.5rem (24px) | `p-6` | Section spacing |
-| xl | 2rem (32px) | `p-8` | Major section gaps |
+| Token | Size | Tailwind | Usage |
+|-------|------|----------|-------|
+| Section gap | 5rem (80px) | `py-20` | Between major sections |
+| Content gap | 2rem (32px) | `gap-8` | Between content blocks |
+| Card padding | 1.5rem (24px) | `p-6` | Inside cards |
+| Element gap | 1rem (16px) | `gap-4` | Between related elements |
+| Tight gap | 0.5rem (8px) | `gap-2` | Tight groupings |
 
 ### Responsive Breakpoints
 
 - **Mobile first:** Default styles for mobile
-- **sm:** 640px - Tablets
-- **md:** 768px - Small desktops
-- **lg:** 1024px - Standard desktops
-- **xl:** 1280px - Large displays
+- **sm:** 640px — Large phones / small tablets
+- **md:** 768px — Tablets
+- **lg:** 1024px — Small desktops
+- **xl:** 1280px — Standard desktops
+
+Max content width: `max-w-5xl` (1024px) or `max-w-6xl` (1152px) centered.
 
 ---
 
-## Component Library: Industrial
+## Component Library
 
 ### Directory Structure
 
 ```
-src/lib/components/industrial/
-├── IndustrialPanel.svelte      # Main content container
-├── IndustrialButton.svelte     # Interactive button with bevel
-├── IndustrialMenuBar.svelte    # CS1.6 style navigation header
-├── IndustrialTable.svelte      # Data table with grid lines
-├── IndustrialStatCard.svelte   # Metric display card
-├── IndustrialLoader.svelte     # Loading state with progress
-└── IndustrialDivider.svelte    # Horizontal separator
+src/lib/components/
+├── Navbar.svelte              # Directory-tree style nav with dark mode toggle
+├── HeroSection.svelte         # Landing section with name/title/CTAs
+├── ExperienceSection.svelte   # Career timeline
+├── SkillsSection.svelte       # Skills grid by category
+├── CertificationsSection.svelte # Cert badges/cards
+├── ProjectsSection.svelte     # Project cards from GitHub + personal
+├── ContactSection.svelte      # Contact info and social links
+├── SectionHeading.svelte      # Reusable section header component
+├── SkillBadge.svelte          # Individual skill tag/badge
+├── TimelineItem.svelte        # Single career timeline entry
+├── ProjectCard.svelte         # Individual project display card
+├── CertCard.svelte            # Individual certification display
+├── ThemeToggle.svelte         # Dark/light mode toggle button
+├── Footer.svelte              # Page footer
+└── SEO.svelte                 # Reusable SEO head component
 ```
 
-### Component Documentation
+### Component Specs
 
-#### IndustrialPanel
+#### Navbar
+- Fixed/sticky at top, `z-50`
+- Left: "AM" monogram button (coral accent background, white text, rounded square)
+- Right: section links, GitHub/LinkedIn/Substack social icons, resume download icon, theme toggle
+- Active section: subtle underline bar beneath active link
+- Pipe divider between social icons and actions
+- Mobile: hamburger icon → full-width slide-down menu with social links + resume
+- Backdrop blur on scroll (`backdrop-blur-md bg-ember-light/85 dark:bg-ember-dark/85`)
 
-Main container for content sections with beveled edges.
+#### HeroSection
+- Full viewport height minus navbar (`min-h-[calc(100vh-4rem)]`)
+- Large name in bold Inter
+- Title/subtitle below name
+- Location with small map pin icon
+- Status badge: "Open to Opportunities" with green dot
+- Two CTA buttons: "Download Resume" (outline) + "Get in Touch" (filled accent)
+- Subtle background geometric pattern or gradient (optional, keep clean)
 
-```svelte
-<IndustrialPanel title="Section Title" variant="default">
-  <p>Content goes here</p>
-</IndustrialPanel>
-```
+#### ExperienceSection
+- Vertical timeline with entries from About page data:
+  - 2024-Present: Application Administrator — Healthcare systems, security tooling, automation
+  - 2023-2024: IT Support Specialist — Help desk, system troubleshooting
+  - 2023: Relocation — Moved to Rochester, NY
+  - 2020-2023: Self-Directed Learning — Programming, infrastructure, security
+- Timeline marker: accent-colored dot or vertical line
+- Each entry: period (muted), role (bold), description (body)
+- Expandable: show key achievements/bullets on click (optional)
 
-**Props:**
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| title | string | undefined | Optional header title |
-| variant | "default" \| "sunken" | "default" | Panel style |
-| children | Snippet | required | Panel content |
+#### SkillsSection
+- Skills grouped by category:
+  - **Operating Systems:** Linux (Ubuntu, CentOS, Kali), Windows Server, macOS
+  - **Security Tools:** Wireshark, Nmap, Metasploit, Burp Suite, Splunk, ELK Stack
+  - **Cloud & Infrastructure:** AWS, Docker, Terraform (basics), VMware
+  - **Networking:** TCP/IP, DNS, DHCP, VPN, Firewalls (pfSense, iptables)
+  - **Scripting & Automation:** Python, Bash, PowerShell
+  - **Compliance:** HIPAA, NIST CSF, OWASP Top 10
+- Grid layout: 2-3 columns on desktop, 1 on mobile
+- Each category: header + horizontal list of skill badges
 
-#### IndustrialButton
+#### CertificationsSection
+- Card grid: 2-3 columns
+- Each card: cert name, issuing org, badge/logo, status (earned vs. in-progress)
+- In-progress certs have a distinct visual treatment (dashed border, progress indicator)
+- Certifications to display (confirm with Alex):
+  - Security+ (in progress)
+  - Network+ (if applicable)
+  - Any other earned certs
 
-Interactive button with 3D bevel effect.
+#### ProjectsSection
+- Grid of project cards (1-3 columns responsive)
+- Each card: project name, description, tech tags, GitHub link
+- Pull from current project data / pinned GitHub repos
+- "View on GitHub" link on each card
+- Option for personal/homelab projects not on GitHub
 
-```svelte
-<IndustrialButton label="Click Me" onClick={handleClick} />
-<IndustrialButton label="Go to Page" href="/page" />
-```
-
-**Props:**
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| label | string | required | Button text |
-| onClick | () => void | undefined | Click handler |
-| href | string | undefined | Link destination |
-| variant | "default" \| "active" | "default" | Button style |
-| disabled | boolean | false | Disabled state |
-
-#### IndustrialMenuBar
-
-CS1.6 style horizontal navigation with tabs.
-
-```svelte
-<IndustrialMenuBar 
-  title="MCGEOCITY" 
-  items={[
-    { label: "HOME", href: "/" },
-    { label: "ABOUT", href: "/about" }
-  ]}
-  currentPath={$page.url.pathname}
-/>
-```
-
-**Props:**
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| title | string | required | Site title/logo text |
-| items | NavItem[] | required | Navigation items |
-| currentPath | string | "/" | Current route path |
-| onFullscreen | () => void | undefined | Fullscreen toggle |
-
-#### IndustrialTable
-
-Console-style data table.
-
-```svelte
-<IndustrialTable 
-  headers={["Name", "Value"]}
-  rows={[
-    ["Item 1", "100"],
-    ["Item 2", "200"]
-  ]}
-/>
-```
-
-**Props:**
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| headers | string[] | required | Column headers |
-| rows | string[][] | required | Table data rows |
-
-#### IndustrialStatCard
-
-Metric display with industrial styling.
-
-```svelte
-<IndustrialStatCard 
-  label="DISTANCE"
-  value="42.5"
-  unit="km"
-  accent="green"
-/>
-```
-
-**Props:**
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| label | string | required | Stat label |
-| value | string \| number | required | Stat value |
-| unit | string | undefined | Unit suffix |
-| accent | "green" \| "orange" \| "red" | "green" | Accent color |
-
-#### IndustrialLoader
-
-Loading state with Half-Life style progress bar.
-
-```svelte
-<IndustrialLoader message="Loading data..." />
-```
-
-**Props:**
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| message | string | "Loading..." | Loading message |
-
-#### IndustrialDivider
-
-Horizontal separator with industrial styling.
-
-```svelte
-<IndustrialDivider />
-```
-
-No props required.
+#### ContactSection
+- Clean, minimal section
+- Email link (with copy-to-clipboard option)
+- Social links row: GitHub, LinkedIn, Bluesky, Substack
+- Optional: PGP public key link (if relevant for security roles)
+- Location line: Rochester, NY
 
 ---
 
-## Directory Structure
+## Dark Mode Implementation
 
-```
-/home/mckusa/Code/McGeocity/
-├── src/
-│   ├── routes/
-│   │   ├── +page.svelte              # Home page
-│   │   ├── +layout.svelte            # Root layout with menu bar
-│   │   ├── +layout.server.ts         # Layout server logic
-│   │   ├── about/
-│   │   │   └── +page.svelte          # About/blog section
-│   │   ├── projects/
-│   │   │   └── +page.svelte          # Projects showcase
-│   │   ├── music/
-│   │   │   ├── +page.svelte          # Spotify playlists
-│   │   │   └── +page.server.ts       # Spotify API integration
-│   │   ├── healthcheck/
-│   │   │   ├── +page.svelte          # Strava stats
-│   │   │   └── +page.server.ts       # Strava API integration
-│   │   └── layarteb/                 # Easter egg (keep retro style)
-│   │       ├── +page.svelte
-│   │       ├── +page.server.ts
-│   │       └── Terminal.svelte
-│   │
-│   ├── lib/
-│   │   ├── components/
-│   │   │   ├── industrial/           # Industrial design components
-│   │   │   │   ├── IndustrialPanel.svelte
-│   │   │   │   ├── IndustrialButton.svelte
-│   │   │   │   ├── IndustrialMenuBar.svelte
-│   │   │   │   ├── IndustrialTable.svelte
-│   │   │   │   ├── IndustrialStatCard.svelte
-│   │   │   │   ├── IndustrialLoader.svelte
-│   │   │   │   └── IndustrialDivider.svelte
-│   │   │   ├── portal/               # OLD: Portal components (deprecated)
-│   │   │   ├── Socials.svelte        # Social media links
-│   │   │   └── TerminalLine.svelte   # Deprecated
-│   │   │
-│   │   ├── styles/
-│   │   │   ├── industrial.scss       # Industrial design tokens
-│   │   │   └── animations.scss       # Animations & transitions
-│   │   │
-│   │   └── types/
-│   │       └── index.ts              # Shared TypeScript types
-│   │
-│   ├── app.css                       # Global Tailwind + Industrial styles
-│   └── app.d.ts                      # TypeScript declarations
-│
-├── static/
-│   └── favicon.png
-│
-├── tailwind.config.ts
-├── svelte.config.js
-├── tsconfig.json
-├── vite.config.ts
-├── postcss.config.js
-├── package.json
-├── AGENTS.md                         # This file
-└── README.md
-```
+### Approach
+Use a `data-theme` attribute on `<html>` toggled by a Svelte store. Tailwind's `darkMode: "selector"` config maps to `data-theme="dark"`.
 
----
+### Theme Toggle
+- Icon button in navbar (sun in dark mode, moon in light mode)
+- Smooth transition on color properties (`transition-colors duration-300`)
+- Respects `prefers-color-scheme` on first visit, then stores preference in `localStorage`
+- No flash of wrong theme (use a blocking `<script>` in `<head>` or SvelteKit's `app.html`)
 
-## API Integrations
+### Tailwind Config Addition
 
-### Spotify Integration (`/music`)
-
-- **Auth:** Client credentials flow (stored securely in env)
-- **Endpoint:** `/playlists` from Spotify API
-- **Data Loading:** Server-side in `+page.server.ts`
-- **Functionality:** Fetches user's playlists, paginated display
-
-### Strava Integration (`/healthcheck`)
-
-- **Auth:** OAuth token with refresh mechanism
-- **Endpoints:** `/athlete/stats`, `/activities`
-- **Data Processing:**
-  - Fetches activities from Jan 1 to current date
-  - Groups by month
-  - Calculates YTD totals, personal records
-- **Features:**
-  - Unit conversion (miles/km) toggle
-  - Pace calculations
-  - Time-based activity filtering
-
-### Environment Variables Required
-
-```
-SPOTIFY_CLIENT_ID
-SPOTIFY_CLIENT_SECRET
-STRAVA_CLIENT_ID
-STRAVA_CLIENT_SECRET
-STRAVA_REFRESH_TOKEN
+```typescript
+// tailwind.config.ts
+export default {
+  darkMode: ["selector", '[data-theme="dark"]'],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+        mono: ['"JetBrains Mono"', '"Fira Code"', "monospace"],
+      },
+      colors: {
+        // Custom accent colors for consistency
+        brand: {
+          light: "#d07050",  // coral
+          dark: "#e08060",   // coral ember
+        },
+      },
+    },
+  },
+};
 ```
 
 ---
 
 ## Animations & Effects
 
-### Reduced Motion Support
+### Principles
+- **Subtle, not flashy** — this is a professional portfolio, not a gaming site
+- **Purpose-driven** — animations guide attention, not distract
+- **Respect reduced motion** — all animations disabled for `prefers-reduced-motion`
 
-All animations respect `prefers-reduced-motion`:
+### Specific Effects
+- **Section entrance:** Fade-up on scroll into view (`opacity 0→1, translateY 20px→0`), once only
+- **Navbar:** Subtle shadow + backdrop blur on scroll
+- **Skill badges:** Subtle scale on hover (`scale-105`)
+- **Project cards:** Subtle border color shift on hover
+- **Theme toggle:** Smooth color transitions across all themed elements
+- **Smooth scroll:** `scroll-behavior: smooth` on `<html>`
 
-```scss
+### Reduced Motion
+
+```css
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -483,77 +350,137 @@ All animations respect `prefers-reduced-motion`:
 }
 ```
 
-### Button Interactions
+---
 
-```scss
-// Press effect
-.btn-industrial:active {
-  transform: translateY(1px);
-  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
-}
-```
+## Accessibility (WCAG AA Minimum)
 
-### Focus States
+### Color Contrast
+- Light mode: #0f172a text on #ffffff = 15.2:1 (AAA) ✓
+- Dark mode: #f1f5f9 text on #0f172a = 13.8:1 (AAA) ✓
+- Accent links: Verify #2563eb on white (6.1:1, AA) and #14b8a6 on charcoal (5.0:1, AA)
 
-All interactive elements have visible focus:
+### Keyboard Navigation
+- Full tab order through all interactive elements
+- Visible focus rings (`outline-2 outline-offset-2`)
+- Skip-to-content link (visually hidden, focusable)
+- Nav links work with Enter key
 
-```scss
-.focus-industrial:focus-visible {
-  outline: 2px solid var(--accent-green);
-  outline-offset: 2px;
-}
-```
+### Screen Readers
+- Semantic HTML: `<nav>`, `<main>`, `<section>`, `<footer>`
+- `aria-label` on icon-only buttons (theme toggle)
+- Proper heading hierarchy (h1 → h2 → h3)
+- `aria-current="true"` on active nav item
+- Alt text on any images (cert badges, project screenshots)
 
 ---
 
-## Accessibility
+## Code Style Guidelines
 
-### Color Contrast
+### TypeScript & Svelte 5
 
-- Primary text (#c9c9c9) on dark bg (#1a1a1a): 11.5:1 (AAA)
-- Accent text (#8b9a5b) on dark bg: 5.2:1 (AA)
-- All text meets WCAG AA minimum (4.5:1)
+- Use `lang="ts"` in all `<script>` blocks
+- Strict TypeScript (strictNullChecks, noImplicitAny)
+- Use Svelte 5 runes exclusively:
+  - `$props()` for component props with inline type annotations
+  - `$state()` for reactive state
+  - `$derived()` for computed values
+  - `$effect()` for side effects and lifecycle
+- No `$:` reactive statements (Svelte 4 legacy syntax)
 
-### Keyboard Navigation
+### Imports & Structure
 
-- Full keyboard support with Tab navigation
-- Visible focus rings on all interactive elements
-- Skip links where appropriate
+- Import from `$lib/` alias
+- Use double quotes for all string literals
+- Organize imports: Svelte → external libs → internal modules → types
+- Prefer named exports for components
 
-### Screen Readers
+### Indentation & Formatting
 
-- Semantic HTML (nav, main, section, article)
-- ARIA labels on icon-only buttons
-- Proper heading hierarchy
+- Use **tabs** (not spaces) for indentation
+- Single-line props when feasible, multi-line for 3+ props
+- Semantic HTML with accessibility attributes
+
+### Component Naming
+
+| Type | Convention | Example |
+|------|-----------|---------|
+| Components | PascalCase | `HeroSection.svelte` |
+| Routes | +page.svelte, +layout.svelte | File convention |
+| Stores | camelCase | `themeStore.ts` |
+| Types | PascalCase | `Project`, `TimelineEntry` |
+| Variables | camelCase | `isDarkMode`, `activeSection` |
+
+### Styling Approach
+
+- **Tailwind first** — utility classes for layout, spacing, colors
+- **SCSS for complex** — animations, keyframes, complex selectors
+- **CSS custom properties** — theme colors via `:root` / `[data-theme="dark"]`
+- **No inline styles** — use Tailwind classes or `<style>` block
+- **Dark mode:** Use Tailwind `dark:` prefix for all themed properties
+
+---
+
+## Content Migration Guide
+
+### What to Keep (from current site)
+
+1. **About page data** → Migrate into `HeroSection` (bio) + `ExperienceSection` (timeline)
+   - File: `src/routes/about/+page.svelte` (read-only reference)
+   - Timeline entries, bio text, motivations, contact info
+2. **Projects data** → Migrate into `ProjectsSection`
+   - File: `src/routes/projects/+page.svelte` (read-only reference)
+   - Project names, descriptions, tech tags, GitHub links
+
+### What to Remove
+
+| Route | Reason |
+|-------|--------|
+| `/about` | Content absorbed into single-page sections |
+| `/projects` | Content absorbed into single-page sections |
+| `/music` | Not professional portfolio material |
+| `/healthcheck` | Strava integration not relevant |
+| `/layarteb` | Easter egg not relevant |
+| `/experience` | Content merged into `#experience` section |
+| `/contact` | Content merged into `#contact` section |
+
+### Deprecated Components (Delete All)
+
+```
+src/lib/components/industrial/   # All industrial components
+src/lib/components/portal/       # All portal components
+src/lib/components/Socials.svelte
+src/lib/components/TerminalLine.svelte
+src/lib/components/RetroButtonLink.svelte
+src/lib/styles/industrial.scss   # Old theme styles
+src/lib/styles/animations.scss   # Replace with new animations
+```
 
 ---
 
 ## Development Workflow
 
 ### Before Starting
-
 1. Read this AGENTS.md for design system
 2. Run `npm run dev` to start development
-3. Check component library in `src/lib/components/industrial/`
+3. Read reference files (about page, projects page) for content to migrate
 
 ### During Development
-
 1. Use `npm run dev` for hot reload
 2. Run `npm run check:watch` for continuous type checking
 3. Test at multiple breakpoints (mobile, tablet, desktop)
-4. Verify bevel effects render correctly
+4. Test both light and dark modes
+5. Verify all sections scroll-link correctly
+6. Check keyboard navigation and screen reader accessibility
 
 ### Before Committing
-
-1. Run `npm run check` - No TypeScript errors
-2. Run `npm run build` - Production build succeeds
-3. Test all pages locally
-4. Write descriptive commit message
+1. Run `npm run check` — no TypeScript errors
+2. Run `npm run build` — production build succeeds
+3. Test all sections locally in both themes
+4. Verify dark mode toggle persists across page reloads
+5. Write descriptive commit message
 
 ### Before Production
-
 **!!!! CRITICAL !!!!**
-
 1. **DO NOT** run `git push` without user approval
 2. Show user the changes via dev server
 3. Get explicit "ok to push" confirmation
@@ -561,86 +488,35 @@ All interactive elements have visible focus:
 
 ---
 
-## Common Tasks
+## Environment Variables
 
-### Adding a New Page
-
-1. Create `/src/routes/[route-name]/+page.svelte`
-2. Import Industrial components:
-   ```typescript
-   import IndustrialPanel from "$lib/components/industrial/IndustrialPanel.svelte";
-   import IndustrialButton from "$lib/components/industrial/IndustrialButton.svelte";
-   ```
-3. Use consistent spacing and color tokens
-4. Add navigation item to IndustrialMenuBar in layout
-
-### Creating a New Component
-
-1. Create `.svelte` file in `src/lib/components/industrial/`
-2. Define prop interface with TypeScript
-3. Use `$props()` for type-safe prop destructuring
-4. Apply industrial styling (bevels, colors)
-5. Document in this AGENTS.md
-
-### Styling a Component
-
-1. Use CSS custom properties for colors
-2. Apply `.industrial-raised` or `.industrial-sunken` for bevels
-3. Use monospace font for industrial feel
-4. Add `:hover` and `:active` states for buttons
-5. Include `:focus-visible` for accessibility
-
----
-
-## Migration Notes
-
-### From Portal to Industrial
-
-**What Changed:**
-- White backgrounds -> Dark #1a1a1a backgrounds
-- Blue accents -> Olive green #8b9a5b accents
-- Flat panels -> 3D beveled panels
-- Sans-serif body -> All monospace
-- Portal transitions -> Subtle industrial effects
-
-**What's Preserved:**
-- All functionality (Spotify, Strava integrations)
-- Route structure and navigation
-- TypeScript strict mode
-- Server-side data loading
-- Easter egg route (/layarteb) - keeps retro style
-
-### Deprecated Components
-
-The following are deprecated and should not be used:
+The redesign likely does not need API integrations (Strava, Spotify are removed). Keep the `.env` file intact but these will no longer be used:
 
 ```
-src/lib/components/portal/     # All Portal components
-src/lib/components/RetroButtonLink.svelte
-src/lib/components/TerminalBox.svelte
+SPOTIFY_CLIENT_ID        # (no longer used)
+SPOTIFY_CLIENT_SECRET    # (no longer used)
+STRAVA_CLIENT_ID         # (no longer used)
+STRAVA_CLIENT_SECRET     # (no longer used)
+STRAVA_REFRESH_TOKEN     # (no longer used)
 ```
 
-Use Industrial components instead.
+If GitHub API is used to fetch live project data, a `GITHUB_TOKEN` may be needed (rate limits). Otherwise, projects are hardcoded/static.
 
 ---
 
 ## Useful References
 
-- **Half-Life 1 UI:** Visual reference for industrial aesthetic
-- **Counter-Strike 1.6 Menu:** Navigation and panel styling
-- **TailwindCSS Docs:** https://tailwindcss.com
 - **SvelteKit Docs:** https://kit.svelte.dev
 - **Svelte 5 Runes:** https://svelte.dev/docs/svelte
+- **TailwindCSS Docs:** https://tailwindcss.com
+- **Tailwind Dark Mode:** https://tailwindcss.com/docs/dark-mode
+- **Inter Font:** https://rsms.me/inter/ or `@fontsource/inter` on npm
 - **WCAG Guidelines:** https://www.w3.org/WAI/WCAG21/quickref/
-
----
-
-## Contact & Support
-
-For questions about the design system or implementation, refer to this AGENTS.md or the inline code comments in components.
+- **auspham.dev:** Reference for clean single-page structure
+- **jasoncameron.dev:** Reference for directory-tree navbar style
 
 ---
 
 ## REMINDER: DO NOT PUSH TO PRODUCTION WITHOUT USER APPROVAL
 
-Last Updated: January 15, 2026
+Last Updated: June 9, 2026
