@@ -57,7 +57,7 @@
 				</a>
 
 				<a
-					href="https://linkedin.com/in/mccune1224"
+					href="https://linkedin.com/in/alexander-mccune"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="p-3 rounded-lg border border-border-primary hover:border-accent-primary hover:bg-bg-tertiary transition-all"

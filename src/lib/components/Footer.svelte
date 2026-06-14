@@ -25,7 +25,7 @@
 				</a>
 
 				<a
-					href="https://linkedin.com/in/mccune1224"
+					href="https://linkedin.com/in/alexander-mccune"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-text-tertiary hover:text-accent-primary transition-colors"

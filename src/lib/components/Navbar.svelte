@@ -24,7 +24,7 @@
 		},
 		{
 			label: "LinkedIn",
-			href: "https://linkedin.com/in/mccune1224",
+			href: "https://linkedin.com/in/alexander-mccune",
 			icon: "linkedin",
 		},
 		{

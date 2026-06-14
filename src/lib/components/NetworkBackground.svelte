@@ -25,8 +25,8 @@
 
 	// ---- Constants --------------------------------------------------------
 
-	const NODE_COUNT = 30;
-	const CONNECTION_DIST = 200;
+	const NODE_COUNT = 35;
+	const CONNECTION_DIST = 260;
 	const MAX_CONNECTIONS = 4;
 	const SPEED = 0.18;
 	const FRAME_MS = 33; // ~30 fps
@@ -97,9 +97,9 @@
 			const top = neighbors.slice(0, MAX_CONNECTIONS);
 
 			for (const { index: j, dist } of top) {
-				const alpha = (1 - Math.sqrt(dist) / CONNECTION_DIST) * 0.15;
+				const alpha = (1 - Math.sqrt(dist) / CONNECTION_DIST) * 0.25;
 				ctx.strokeStyle = `rgb(${r} ${g} ${b} / ${alpha})`;
-				ctx.lineWidth = 0.5;
+				ctx.lineWidth = 0.8;
 				ctx.beginPath();
 				ctx.moveTo(a.x, a.y);
 				ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -109,9 +109,9 @@
 
 		// Draw nodes
 		for (const n of nodes) {
-			ctx.fillStyle = `rgb(${r} ${g} ${b} / 0.55)`;
+			ctx.fillStyle = `rgb(${r} ${g} ${b} / 0.7)`;
 			ctx.beginPath();
-			ctx.arc(n.x, n.y, 2, 0, Math.PI * 2);
+			ctx.arc(n.x, n.y, 3, 0, Math.PI * 2);
 			ctx.fill();
 		}
 	}

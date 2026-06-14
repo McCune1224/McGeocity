@@ -12,7 +12,7 @@
 		{
 			degree: "Bachelor of Science, Computer Science",
 			school: "Concordia University Irvine",
-			period: "2017 — 2022",
+			period: "Aug 2017 — May 2022",
 			details: [
 				"Computer Science Student of the Year — Graduating Class of 2022",
 				"Coursework in systems programming, network administration, database management, and software engineering",

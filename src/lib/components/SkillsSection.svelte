@@ -9,19 +9,23 @@
 	const categories: SkillCategory[] = [
 		{
 			name: "Systems & Infrastructure",
-			skills: ["Windows Server", "Active Directory", "Azure AD", "LDAP", "VMware", "O365", "ServiceNow", "ITIL"],
+			skills: ["Windows Server 2016–2022", "Linux (Ubuntu)", "Active Directory / Group Policy", "LDAP", "VMware", "Office 365", "Endpoint Management", "ServiceNow (ITSM & Ticketing)"],
 		},
 		{
-			name: "Scripting & Automation",
-			skills: ["PowerShell", "Python", "Bash", "Go", "PostgreSQL", "SQL", "REST APIs", "Git"],
+			name: "Cloud & DevOps",
+			skills: ["AWS (EC2, S3, Lambda)", "Azure DevOps", "Docker", "Git", "CI/CD Pipelines"],
 		},
 		{
-			name: "Networking & Cloud",
-			skills: ["TCP/IP", "DNS", "DHCP", "VLANs", "Firewalls", "AWS (Lambda, EC2, S3)", "Docker"],
+			name: "Scripting, Automation & Databases",
+			skills: ["PowerShell", "Python", "Bash", "Go", "SQL", "PostgreSQL", "REST API Integration"],
 		},
 		{
 			name: "Security & Compliance",
-			skills: ["Vulnerability Mgmt", "IAM / RBAC / PAM", "Risk Assessment", "SIEM", "Incident Response", "Disaster Recovery", "NIST CSF"],
+			skills: ["HIPAA Security Rule", "Vulnerability & Patch Management", "IAM / RBAC / PAM", "Security Auditing", "Incident Response", "NIST CSF", "ITIL Change Management", "Disaster Recovery Planning", "MFA"],
+		},
+		{
+			name: "Core Competencies",
+			skills: ["IT Environment Management", "Technology Procurement & Vendor Management", "Personnel Lifecycle (Onboarding / Offboarding)", "SOP Development", "Stakeholder Communication & End-User Training"],
 		},
 	];
 </script>

@@ -1,19 +1,12 @@
 <script lang="ts">
-	let visible = $state(false);
 	let photoLoaded = $state(false);
-
-	$effect(() => {
-		visible = true;
-	});
 </script>
 
 <section
 	id="hero"
 	class="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24"
-	class:opacity-0={!visible}
-	class:animate-fade-up={visible}
 >
-	<div class="max-w-content mx-auto flex flex-col items-center text-center gap-8">
+	<div class="max-w-content mx-auto flex flex-col items-center text-center gap-8 bg-bg-primary/85 backdrop-blur-sm rounded-2xl px-6 py-10 sm:px-10 sm:py-12 border border-border-primary">
 		<!-- Avatar -->
 		<div class="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-bg-tertiary border border-border-primary overflow-hidden flex-shrink-0">
 			<img
@@ -67,7 +60,7 @@
 			</div>
 
 			<p class="mt-6 text-lg sm:text-xl text-text-secondary leading-relaxed max-w-xl mx-auto">
-				IT Systems Administrator with 3+ years of experience managing enterprise infrastructure, automating operations, and securing systems across large-scale healthcare environments. Currently at the University of Rochester Medical Center, I oversee application administration, identity lifecycle management, and infrastructure automation across 9 hospitals and 100+ outpatient facilities.
+				IT Systems Administrator with 3+ years of experience managing enterprise infrastructure, automating IT operations, and enforcing security compliance across large-scale healthcare environments. Currently at the University of Rochester Medical Center, I orchestrate security patching, system migrations, and full-scope identity lifecycle management — achieving zero unscheduled downtime and zero clinical impact across 9 hospitals and 100+ outpatient facilities.
 			</p>
 
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">

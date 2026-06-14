@@ -16,11 +16,12 @@
 			organization: "University of Rochester Medical Center",
 			description: "Oversee enterprise application administration, system patching, identity lifecycle management, and infrastructure automation for 9 hospitals and 100+ outpatient facilities.",
 			highlights: [
-				"Maintain 99.9% uptime through proactive patching and system maintenance across 9 hospitals and 100+ outpatient locations",
-				"Oversee identity lifecycle including user provisioning, RBAC, and privileged access management for clinical and business applications",
-				"Implement ITIL change management with risk assessment, rollback procedures, and post-deployment validation",
-				"Conduct disaster recovery testing and business continuity planning for critical systems",
-				"Coordinate with third-party vendors for security assessments and service integrations",
+				"Orchestrated security patching, system upgrades, and server migrations for clinical applications across 9 hospitals and 100+ outpatient locations on Linux and Windows Server, achieving zero unscheduled downtime and zero clinical impact",
+				"Instituted ITIL Change Management framework encompassing risk assessment, security impact analysis, and documented rollback procedures for all production changes, reducing deployment incidents and ensuring audit-ready change records",
+				"Directed full-scope Identity and Access Management (IAM) lifecycle—user provisioning, Role-Based Access Control (RBAC), and Privileged Access Management (PAM)—for clinical applications supporting thousands of healthcare end users",
+				"Engineered PostgreSQL queries and Power Platform dashboards to analyze system performance metrics, surfacing optimization opportunities that improved application reliability and end-user experience",
+				"Drove cross-functional system integrations with IT engineering teams, clinical stakeholders, and third-party vendors to resolve complex technical issues and deploy new features across the healthcare network",
+				"Enforced HIPAA Security Rule compliance through security audits, vulnerability assessments, and remediation; strengthened data protection and access control standards across all managed applications",
 			],
 		},
 		{
@@ -29,10 +30,9 @@
 			organization: "University of Rochester Medical Center",
 			description: "Provided enterprise IT support for 26,000+ users, specializing in incident triage, access management, and knowledge base development.",
 			highlights: [
-				"Performed initial triage on security incidents, escalating per incident response protocols",
-				"Resolved escalated tickets including account lockouts, MFA issues, and access violations with detailed audit trails",
-				"Authored 30+ knowledge base articles, reducing average resolution time by over 40% and mean call time to under 15 minutes",
-				"Onboarded and trained new team members on security best practices, access policies, and compliance requirements",
+				"Onboarded and trained incoming help desk agents on ITIL incident management, ServiceNow ticketing, HIPAA privacy requirements, and troubleshooting workflows, accelerating agent readiness and service quality",
+				"Resolved escalated Tier 2 incidents including network outages, Active Directory authentication failures, system-wide application errors, and undocumented software defects, maintaining sub-15-minute average resolution time",
+				"Authored 30+ ServiceNow knowledge base articles on system architectures, troubleshooting procedures, and escalation protocols; reduced repeat incident volume and improved first-call resolution rates",
 			],
 		},
 		{
@@ -41,20 +41,18 @@
 			organization: "Concordia University Irvine",
 			description: "Managed university computer science lab infrastructure serving 200+ students, with emphasis on system reliability and automated administration.",
 			highlights: [
-				"Administered Windows Server and Ubuntu LDAP infrastructure with security hardening and patch management",
-				"Developed automation scripts in PowerShell, Python, and Bash for account provisioning and security monitoring",
-				"Managed Active Directory security policies, GPOs, and authentication mechanisms across lab environments",
+				"Architected and maintained Windows Server and Ubuntu LDAP infrastructure across 50+ lab workstations serving 200+ users; managed security patching, Group Policy Objects (GPOs), access controls, and endpoint protection",
+				"Developed PowerShell, Python, and Bash automation scripts for secure account provisioning, software deployment, device configuration, and security monitoring, eliminating manual administrative overhead",
 			],
 		},
 		{
 			period: "Dec 2020 — May 2021",
 			role: "Software Engineer Intern",
-			organization: "Collectors Universe",
+			organization: "Collectors",
 			description: "Developed computer vision software for trading card identification and maintained CI/CD pipelines.",
 			highlights: [
-				"Built Python OpenCV software for automated trading card identification and classification",
-				"Maintained and streamlined deployment pipelines via Azure DevOps",
-				"Collaborated across teams to ensure code transparency and product scalability",
+				"Engineered a Python/OpenCV computer vision application to detect and classify damage on 3,000+ collectible trading cards, automating quality assessment and replacing error-prone manual inspection processes",
+				"Managed source control and CI/CD pipelines through Azure DevOps; designed a PostgreSQL relational database of trading card metadata to support automated identification and classification at scale",
 			],
 		},
 		{
@@ -63,9 +61,8 @@
 			organization: "Concordia University Irvine IT Department",
 			description: "Led help desk operations and mentored team members on complex technical issues.",
 			highlights: [
-				"Led and instructed team members on complex technical issues in help desk requests",
-				"Delivered high-quality technical support with a 95%+ satisfaction rate across faculty and student help requests",
-				"Developed documentation and training materials for emerging technologies, reducing repeat tickets by 30%",
+				"Led and mentored a team of technicians supporting 4,000+ students and faculty; triaged escalated help desk tickets, enforced service quality standards, and reduced average resolution time through coaching and process improvement",
+				"Performed classroom hardware repairs, network connectivity troubleshooting and resolution, and audio-visual support for university events and fundraisers, ensuring reliable technology operations across campus",
 			],
 		},
 	];

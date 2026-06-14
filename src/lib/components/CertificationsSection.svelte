@@ -17,8 +17,8 @@
 			issuer: "AXELOS",
 		},
 		{
-			name: "HIPAA Privacy & Security",
-			issuer: "Annual Training",
+			name: "HIPAA Privacy & Security Training",
+			issuer: "URMC (Annual)",
 		},
 	];
 </script>

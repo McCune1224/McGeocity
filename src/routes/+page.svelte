@@ -33,7 +33,7 @@
 		"jobTitle": "IT Systems Administrator",
 		"url": "https://alexmccune.dev",
 		"sameAs": [
-			"https://linkedin.com/in/mccune1224",
+			"https://linkedin.com/in/alexander-mccune",
 			"https://github.com/mccune1224"
 		],
 		"knowsAbout": ["IT Systems Administration", "Infrastructure Management", "Server Administration", "Enterprise Automation", "Identity & Access Management", "Disaster Recovery"],

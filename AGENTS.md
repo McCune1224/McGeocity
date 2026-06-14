@@ -60,7 +60,7 @@ npm run check:watch  # Continuous type checking during development
 | **Location** | Rochester, NY |
 | **Domain** | alexmccune.dev |
 | **GitHub** | github.com/mccune1224 |
-| **LinkedIn** | linkedin.com/in/mccune1224 |
+| **LinkedIn** | linkedin.com/in/alexander-mccune |
 | **Bluesky** | bsky.app/profile/mckusa.bsky.social |
 | **Substack** | mccune1224.substack.com |
 | **Status** | Open to Opportunities |
