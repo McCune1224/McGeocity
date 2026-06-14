@@ -4,7 +4,6 @@
 	interface Certification {
 		name: string;
 		issuer: string;
-		status: "earned" | "in-progress";
 		date?: string;
 	}
 
@@ -12,17 +11,14 @@
 		{
 			name: "CompTIA Security+",
 			issuer: "CompTIA",
-			status: "earned",
 		},
 		{
 			name: "ITIL v4 Foundation",
 			issuer: "AXELOS",
-			status: "earned",
 		},
 		{
 			name: "HIPAA Privacy & Security",
 			issuer: "Annual Training",
-			status: "earned",
 		},
 	];
 </script>
@@ -38,22 +34,9 @@
 			{#each certifications as cert}
 				<div
 					class="relative p-4 sm:p-6 rounded-lg border-2 bg-bg-primary transition-colors duration-200"
-					class:border-dashed={cert.status === "in-progress"}
-					class:border-border-primary={cert.status === "earned"}
-					class:border-warning={cert.status === "in-progress"}
-					class:hover:border-accent-primary={cert.status === "earned"}
 				>
 					<!-- Status badge -->
 					<div class="absolute top-3 right-3 sm:top-4 sm:right-4">
-						{#if cert.status === "earned"}
-							<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-success/10 text-success">
-								Earned
-							</span>
-						{:else}
-							<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-warning/10 text-warning">
-								In Progress
-							</span>
-						{/if}
 					</div>
 
 					<!-- Cert icon -->
@@ -69,16 +52,6 @@
 					<p class="text-sm text-text-secondary mb-3">
 						{cert.issuer}
 					</p>
-
-					{#if cert.status === "in-progress"}
-						<div class="mt-3">
-							<div class="h-1.5 w-full bg-bg-tertiary rounded-full overflow-hidden">
-								<div class="h-full bg-warning rounded-full w-[40%]"></div>
-							</div>
-							<p class="mt-2 text-xs text-text-tertiary">Studying — 40% through coursework</p>
-						</div>
-					{/if}
-
 					{#if cert.date}
 						<p class="mt-3 text-xs text-text-tertiary">{cert.date}</p>
 					{/if}
