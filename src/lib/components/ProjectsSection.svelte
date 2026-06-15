@@ -21,7 +21,6 @@
 			name: "Betrayal Discord Bot",
 			description: "Feature-rich Discord bot for a battle royale social deduction game. Structured logging, async PostgreSQL batch writes, command audit trails, and dynamic channel management.",
 			tech: ["Go", "PostgreSQL", "Docker", "Discord API"],
-			demo: "https://github.com/McCune1224/betrayal",
 			code: "https://github.com/McCune1224/betrayal",
 		},
 		{
