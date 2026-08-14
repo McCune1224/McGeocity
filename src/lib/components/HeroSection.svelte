@@ -10,8 +10,11 @@
 		<!-- Avatar -->
 		<div class="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-bg-tertiary border border-border-primary overflow-hidden flex-shrink-0">
 			<img
-				src="/avatar.png"
+				src="/avatar.webp"
 				alt="Alex McCune"
+				width="640"
+				height="524"
+				decoding="async"
 				class="absolute inset-0 w-full h-full object-cover"
 				class:hidden={!photoLoaded}
 				onload={() => photoLoaded = true}

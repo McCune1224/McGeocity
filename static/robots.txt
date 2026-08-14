@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /layarteb
 
-Sitemap: https://alexmccune.dev/sitemap.xml
+Sitemap: https://www.alexmccune.com/sitemap.xml
