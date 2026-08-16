@@ -24,6 +24,7 @@ export const themeStore = {
 		if (browser) {
 			document.documentElement.setAttribute("data-theme", currentTheme);
 			localStorage.setItem("theme", currentTheme);
+			applyThemeColor(currentTheme);
 		}
 	},
 
@@ -32,6 +33,7 @@ export const themeStore = {
 		if (browser) {
 			document.documentElement.setAttribute("data-theme", currentTheme);
 			localStorage.setItem("theme", currentTheme);
+			applyThemeColor(currentTheme);
 		}
 	},
 
@@ -39,3 +41,10 @@ export const themeStore = {
 		return currentTheme === "dark";
 	}
 };
+
+function applyThemeColor(theme: Theme): void {
+	const meta = document.querySelector('meta[name="theme-color"]');
+	if (meta) {
+		meta.setAttribute("content", theme === "dark" ? "#1c1b19" : "#faf6f0");
+	}
+}

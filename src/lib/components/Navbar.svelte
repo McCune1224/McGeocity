@@ -82,21 +82,35 @@
 	class:scrolled={isScrolled}
 >
 	<div class="max-w-content mx-auto flex items-center justify-between h-14 sm:h-16">
-		<!-- Nav Links (desktop) -->
-		<div class="hidden sm:flex items-center gap-0.5">
-			{#each sections as section}
-				<button
-					onclick={() => scrollTo(section.id)}
-					class="relative px-2.5 py-2 text-sm font-medium transition-colors duration-200 rounded-md
-						text-text-secondary hover:text-text-primary
-						hover:bg-bg-tertiary"
-				>
-					{section.label}
-					{#if activeSection === section.id}
-						<span class="absolute bottom-1.5 left-2.5 right-2.5 h-0.5 rounded-full bg-accent-primary"></span>
-					{/if}
-				</button>
-			{/each}
+		<!-- Left: monogram + nav links -->
+		<div class="flex items-center gap-3 sm:gap-4 min-w-0">
+			<!-- AM monogram -->
+			<button
+				onclick={scrollToHero}
+				aria-label="Back to top of page"
+				title="Back to top"
+				class="flex items-center justify-center w-9 h-9 rounded-lg bg-accent-primary text-white font-bold text-sm select-none transition-colors duration-200 hover:bg-accent-hover shadow-sm flex-shrink-0"
+			>
+				AM
+			</button>
+
+			<!-- Nav Links (desktop) -->
+			<div class="hidden sm:flex items-center gap-0.5">
+				{#each sections as section}
+					<button
+						onclick={() => scrollTo(section.id)}
+						class="relative px-2.5 py-2 text-sm font-medium transition-colors duration-200 rounded-md
+							text-text-secondary hover:text-text-primary
+							hover:bg-bg-tertiary"
+						aria-current={activeSection === section.id ? "true" : undefined}
+					>
+						{section.label}
+						{#if activeSection === section.id}
+							<span class="absolute bottom-1.5 left-2.5 right-2.5 h-0.5 rounded-full bg-accent-primary"></span>
+						{/if}
+					</button>
+				{/each}
+			</div>
 		</div>
 
 		<!-- Right: Actions -->

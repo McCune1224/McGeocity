@@ -1,19 +1,31 @@
 # McGeocity
 
-My personal portfolio website with a retro terminal / 90s hacker aesthetic. Green-on-black CRT vibes with scanlines, ASCII art, and typewriter effects.
+Personal portfolio for **Alex McCune — IT Systems Administrator & Cybersecurity Analyst**, based in Rochester, NY.
 
-## Check it out
+## Live Site
 
-Visit the live site at [mcgeocity.vercel.app](https://mcgeocity.vercel.app)
+https://alexmccune.dev
 
 ## Features
 
-- **Retro Terminal UI** - Green monospace text, dashed borders, CRT scanline effects
-- **About** - Personal blog about me
-- **Projects** - Showcase of my projects and repos
-- **Music** - My Spotify playlists
-- **Healthcheck** - My Strava running/activity stats
+- **Single-page layout** — hero, experience, education, skills, certifications, projects, and contact all scroll-linked from the navbar
+- **Ember theme** — warm, hand-crafted color system with full light / dark mode (persisted, respects `prefers-color-scheme`)
+- **Projects** — pinned personal projects with live demos, tech tags, and source links
+- **Accessible** — keyboard navigable, skip-to-content, `prefers-reduced-motion` support, WCAG AA contrast
+- **SEO-ready** — Open Graph, Twitter cards, JSON-LD Person schema, sitemap, robots.txt
+- **Deployed on Vercel** with continuous deployment
 
 ## Tech Stack
 
-SvelteKit 2, Svelte 5, TypeScript, TailwindCSS, SCSS, Vercel
+SvelteKit 2, Svelte 5 (runes), TypeScript (strict), TailwindCSS 3, SCSS, Vercel
+
+## Development
+
+```bash
+npm run dev          # Start development server with hot reload
+npm run build        # Build for production (Vercel adapter)
+npm run preview      # Preview the production build locally
+npm run check        # TypeScript/Svelte type checking (strict mode)
+```
+
+> **Note:** Changes require review before deploying. `npm run dev` to test locally, and never push to `main` without approval.
