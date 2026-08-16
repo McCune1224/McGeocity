@@ -13,6 +13,13 @@
 
 	const projects: Project[] = [
 		{
+			name: "CompTIA Security+ Prep",
+			description: "Offline-first, Blackboard-style learning system for the CompTIA Security+ (SY0-701) exam. Structured course plan with adaptive practice, PBQs, timed exams, spaced repetition, and a weighted gradebook backed by SQLite.",
+			tech: ["SvelteKit", "SQLite", "Tailwind CSS", "Obsidian"],
+			code: "https://github.com/McCune1224/comptia-security",
+			image: "/projects/comptia.png",
+		},
+		{
 			name: "Matrix Miles",
 			description: "IoT fitness dashboard that bridges Strava running data with embedded hardware. Go backend with PostgreSQL, REST API, and a CircuitPython-powered LED matrix display.",
 			tech: ["Go", "CircuitPython", "PostgreSQL", "Docker", "Strava API"],
