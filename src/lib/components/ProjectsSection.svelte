@@ -42,11 +42,17 @@
 		},
 		{
 			name: "Kusa Data",
-			description: "Tournament finder for Smash Bros Ultimate using the Start.gg GraphQL API. Redis caching for fast response times, player profile viewing with tournament history.",
-			tech: ["TypeScript", "Redis", "GraphQL", "Start.gg API"],
-			demo: "https://kusa-data.vercel.app/",
+			description: "Competitive Melee tournament dashboard powered by the Start.gg GraphQL API. Browse upcoming events, dig into seeds and results, and get per-player match analytics — all cached in Redis.",
+			tech: ["Elixir", "Phoenix LiveView", "Tailwind CSS", "Redis", "Start.gg API"],
 			code: "https://github.com/McCune1224/kusa-data",
 			image: "/projects/kusa-data.png",
+		},
+		{
+			name: "Eggbert",
+			description: "RPG game in Godot where you play as Eggbert, an egg falsely accused of a crime. Journey through a prison system to escape and uncover secrets.",
+			tech: ["Godot", "C#", "GDScript"],
+			code: "https://github.com/McCune1224/eggbert",
+			image: "/projects/eggbert.jpg",
 		},
 	];
 </script>
@@ -55,7 +61,7 @@
 	<div class="max-w-content mx-auto">
 		<SectionHeading
 			title="Projects"
-			subtitle="Selected systems, tooling, and experiments I've designed and shipped."
+			subtitle=""
 		/>
 
 		<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
