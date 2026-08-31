@@ -6,13 +6,40 @@
 		demo?: string;
 		code?: string;
 		image?: string;
+		problem?: string;
+		constraints?: string;
+		decision?: string;
+		result?: string;
+		lessons?: string;
+		compact?: boolean;
 	}
 
-	let { name, description, tech, demo, code, image }: Props = $props();
+	let {
+		name,
+		description,
+		tech,
+		demo,
+		code,
+		image,
+		problem,
+		constraints,
+		decision,
+		result,
+		lessons,
+		compact = false,
+	}: Props = $props();
 
 	let imageFailed = $state(false);
+	let expanded = $state(false);
 
 	const showImage = $derived(image !== undefined && !imageFailed);
+	const hasDetails = $derived(
+		problem !== undefined ||
+			constraints !== undefined ||
+			decision !== undefined ||
+			result !== undefined ||
+			lessons !== undefined
+	);
 
 	const monogram = $derived(
 		name
@@ -25,9 +52,8 @@
 <article
 	class="group rounded-lg border border-border-primary bg-bg-secondary hover:border-accent-primary hover:shadow-sm transition-all duration-200 overflow-hidden flex flex-col"
 >
-	<!-- Screenshot -->
-	<div class="relative aspect-[16/9] bg-bg-tertiary border-b border-border-primary overflow-hidden">
-		{#if showImage}
+	{#if !compact && showImage}
+		<div class="relative aspect-[16/9] bg-bg-tertiary border-b border-border-primary overflow-hidden">
 			<img
 				src={image}
 				alt={`${name} screenshot`}
@@ -38,12 +64,12 @@
 				class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
 				onerror={() => (imageFailed = true)}
 			/>
-		{:else}
-			<div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-bg-tertiary to-bg-secondary">
-				<span class="text-4xl font-bold tracking-wide text-accent-primary/50 select-none">{monogram}</span>
-			</div>
-		{/if}
-	</div>
+		</div>
+	{:else if !compact}
+		<div class="relative aspect-[16/9] bg-gradient-to-br from-bg-tertiary to-bg-secondary border-b border-border-primary overflow-hidden flex items-center justify-center">
+			<span class="text-4xl font-bold tracking-wide text-accent-primary/50 select-none">{monogram}</span>
+		</div>
+	{/if}
 
 	<!-- Content -->
 	<div class="p-6 flex flex-col flex-1">
@@ -55,6 +81,15 @@
 			{description}
 		</p>
 
+		{#if result}
+			<p class="mb-4 inline-flex items-start gap-2 text-sm text-text-primary">
+				<svg class="h-4 w-4 mt-0.5 text-success flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M20 6 9 17l-5-5" />
+				</svg>
+				<span><span class="font-medium">Outcome:</span> {result}</span>
+			</p>
+		{/if}
+
 		<div class="flex flex-wrap gap-1.5 mb-4">
 			{#each tech as item}
 				<span class="inline-flex px-2 py-0.5 rounded text-xs font-medium bg-bg-tertiary text-text-secondary font-mono">
@@ -63,7 +98,52 @@
 			{/each}
 		</div>
 
-		<div class="flex items-center gap-3 pt-3 border-t border-border-primary">
+		{#if hasDetails && !compact}
+			<div class="pt-3">
+				<button
+					type="button"
+					class="inline-flex items-center gap-1.5 text-sm font-medium text-accent-primary hover:text-accent-hover transition-colors"
+					aria-expanded={expanded}
+					onclick={() => (expanded = !expanded)}
+				>
+					{expanded ? "Hide project details" : "Show project details"}
+					<svg class="h-4 w-4 transition-transform duration-200" class:rotate-180={expanded} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="m6 9 6 6 6-6" />
+					</svg>
+				</button>
+
+				{#if expanded}
+					<div class="mt-4 space-y-3 text-sm animate-fade-up">
+						{#if problem}
+							<div>
+								<h4 class="font-semibold text-text-primary">Problem</h4>
+								<p class="text-text-secondary leading-relaxed">{problem}</p>
+							</div>
+						{/if}
+						{#if constraints}
+							<div>
+								<h4 class="font-semibold text-text-primary">Constraints</h4>
+								<p class="text-text-secondary leading-relaxed">{constraints}</p>
+							</div>
+						{/if}
+						{#if decision}
+							<div>
+								<h4 class="font-semibold text-text-primary">What I decided</h4>
+								<p class="text-text-secondary leading-relaxed">{decision}</p>
+							</div>
+						{/if}
+						{#if lessons}
+							<div>
+								<h4 class="font-semibold text-text-primary">What I'd change</h4>
+								<p class="text-text-secondary leading-relaxed">{lessons}</p>
+							</div>
+						{/if}
+					</div>
+				{/if}
+			</div>
+		{/if}
+
+		<div class="flex items-center gap-3 pt-3 border-t border-border-primary mt-auto">
 			{#if code}
 				<a
 					href={code}

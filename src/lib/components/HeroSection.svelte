@@ -33,6 +33,15 @@
 
 		<!-- Text content -->
 		<div class="max-w-2xl">
+			<!-- Availability / networking status -->
+			<span class="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full border border-border-primary bg-bg-secondary text-sm font-medium text-text-secondary">
+				<span class="relative flex h-2.5 w-2.5">
+					<span class="absolute inline-flex h-full w-full rounded-full bg-success opacity-75 animate-ping"></span>
+					<span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-success"></span>
+				</span>
+				Open to networking
+			</span>
+
 			<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary leading-tight">
 				Alex McCune
 			</h1>
