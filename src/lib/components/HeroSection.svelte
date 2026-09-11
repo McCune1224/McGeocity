@@ -6,7 +6,7 @@
 	id="hero"
 	class="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24"
 >
-	<div class="max-w-content mx-auto flex flex-col items-center text-center gap-8 bg-bg-primary/85 backdrop-blur-sm rounded-2xl px-6 py-10 sm:px-10 sm:py-12 border border-border-primary">
+	<div class="max-w-content mx-auto flex flex-col items-center text-center gap-8 bg-bg-primary rounded-2xl px-6 py-10 sm:px-10 sm:py-12 border border-border-primary">
 		<!-- Avatar -->
 		<div class="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-bg-tertiary border border-border-primary overflow-hidden flex-shrink-0">
 			<img

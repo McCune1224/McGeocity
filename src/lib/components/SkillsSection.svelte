@@ -30,7 +30,7 @@
 	];
 </script>
 
-<section id="skills" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+<section id="skills" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-bg-primary">
 	<div class="max-w-content mx-auto">
 		<SectionHeading
 			title="Skills & Technologies"

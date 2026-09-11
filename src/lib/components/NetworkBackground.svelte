@@ -22,15 +22,14 @@
 	let staticFrameDrawn = $state(false);
 	let frameId = $state(0);
 	let lastDraw = $state(0);
-	let heroVisible = $state(true);
 
 	// ---- Constants --------------------------------------------------------
 
 	const NODE_COUNT = 35;
 	const CONNECTION_DIST = 260;
 	const MAX_CONNECTIONS = 4;
-	const SPEED = 0.18;
-	const FRAME_MS = 33; // ~30 fps
+	const SPEED = 0.45;
+	const FRAME_MS = 18; // ~55 fps
 
 	// ---- Helpers ----------------------------------------------------------
 
@@ -132,11 +131,7 @@
 		const ctx = canvasEl.getContext("2d");
 		if (!ctx) return;
 
-		// Pause entirely when the hero is scrolled out of view
-		if (!heroVisible) {
-			ctx.clearRect(0, 0, width, height);
-			return;
-		}
+
 
 		// Throttle to ~30 fps
 		if (timestamp - lastDraw < FRAME_MS) {
@@ -189,23 +184,6 @@
 		});
 		ro.observe(document.documentElement);
 
-		// Stop animating once the hero scrolls out of view
-		const heroEl = document.getElementById("hero");
-		let io: IntersectionObserver | undefined;
-		if (heroEl && "IntersectionObserver" in window) {
-			io = new IntersectionObserver((entries) => {
-				const visible = entries[0]?.isIntersecting ?? false;
-				if (heroVisible === visible) return;
-				heroVisible = visible;
-				if (visible && !reducedMotion) {
-					staticFrameDrawn = false;
-					lastDraw = 0;
-					frameId = requestAnimationFrame(animate);
-				}
-			});
-			io.observe(heroEl);
-		}
-
 		const visHandler = () => {
 			if (document.hidden) {
 				cancelAnimationFrame(frameId);
@@ -227,7 +205,6 @@
 			cancelAnimationFrame(frameId);
 			mq.removeEventListener("change", mqHandler);
 			ro.disconnect();
-			io?.disconnect();
 			document.removeEventListener("visibilitychange", visHandler);
 		};
 	});

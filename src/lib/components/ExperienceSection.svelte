@@ -68,7 +68,7 @@
 	];
 </script>
 
-<section id="experience" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+<section id="experience" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-bg-primary">
 	<div class="max-w-content mx-auto">
 		<SectionHeading
 			title="Experience"
