@@ -10,7 +10,6 @@
 		constraints?: string;
 		decision?: string;
 		result?: string;
-		lessons?: string;
 		compact?: boolean;
 	}
 
@@ -25,7 +24,6 @@
 		constraints,
 		decision,
 		result,
-		lessons,
 		compact = false,
 	}: Props = $props();
 
@@ -37,8 +35,7 @@
 		problem !== undefined ||
 			constraints !== undefined ||
 			decision !== undefined ||
-			result !== undefined ||
-			lessons !== undefined
+			result !== undefined
 	);
 
 	const monogram = $derived(
@@ -130,12 +127,6 @@
 							<div>
 								<h4 class="font-semibold text-text-primary">What I decided</h4>
 								<p class="text-text-secondary leading-relaxed">{decision}</p>
-							</div>
-						{/if}
-						{#if lessons}
-							<div>
-								<h4 class="font-semibold text-text-primary">What I'd change</h4>
-								<p class="text-text-secondary leading-relaxed">{lessons}</p>
 							</div>
 						{/if}
 					</div>
