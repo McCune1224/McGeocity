@@ -17,6 +17,18 @@
 
 	const featured: Project[] = [
 		{
+			name: "Aegis",
+			description:
+				"Network-wide DNS sinkhole that doubles as a productivity tool. Blocks ads, trackers, and whole services like social media at the resolver, with per-client policy, schedules, and a node graph of live network traffic.",
+			tech: ["Go", "Solid", "SQLite", "Docker", "WebGL"],
+			code: "https://github.com/McCune1224/aegis",
+			image: "/projects/aegis.png",
+			problem: "Browser extensions only protect browsers. Phones, TVs, and everything else on the network still pulled ads and trackers, and I wanted a single enforcement point for focus and privacy instead of a per-device install.",
+			constraints: "It runs 24/7 as the network's resolver, so it cannot be the slowest hop, and blocklists with 400k+ rules keep churning underneath it. Everything stays configurable from the web console instead of a config file, and it has to survive restarts without losing state.",
+			decision: "Shipped it as one static Go binary: DNS server, HTTP API, and the Solid web console embedded in the same artifact, with SQLite for config and query history, blocklists held in memory behind per-client and per-profile policy, and multi-arch Docker images from CI. The console draws every client, profile, and upstream as a node graph so you can watch traffic flow across the network, while a live query stream makes each block traceable and beaconing plus DGA detection flag traffic that looks wrong.",
+			result: "Runs the whole network's DNS from a single binary: about 6% of live queries blocked as ads, trackers, and telemetry, while everything else still resolves normally.",
+		},
+		{
 			name: "Matrix Miles",
 			description: "IoT dashboard that pulls Strava data to a physical LED matrix. Go backend, PostgreSQL, and CircuitPython on a Pi.",
 			tech: ["Go", "CircuitPython", "PostgreSQL", "Docker", "Strava API"],
@@ -87,7 +99,8 @@
 			subtitle="Selected work — built to solve real problems, not just to demo a stack."
 		/>
 
-		<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+		<!-- First featured card is the flagship and runs full width on desktop. -->
+		<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:[&>*:first-child]:col-span-2">
 			{#each featured as project}
 				<ProjectCard {...project} />
 			{/each}
