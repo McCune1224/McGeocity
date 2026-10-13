@@ -45,6 +45,6 @@ export const themeStore = {
 function applyThemeColor(theme: Theme): void {
 	const meta = document.querySelector('meta[name="theme-color"]');
 	if (meta) {
-		meta.setAttribute("content", theme === "dark" ? "#1c1b19" : "#faf6f0");
+		meta.setAttribute("content", theme === "dark" ? "#231310" : "#f1e9e1");
 	}
 }

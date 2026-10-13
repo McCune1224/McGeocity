@@ -21,6 +21,7 @@ export default {
 				"text-tertiary": "rgb(var(--color-text-tertiary) / <alpha-value>)",
 				"accent-primary": "rgb(var(--color-accent-primary) / <alpha-value>)",
 				"accent-hover": "rgb(var(--color-accent-hover) / <alpha-value>)",
+				"accent-ink": "rgb(var(--color-accent-ink) / <alpha-value>)",
 				"accent-secondary": "rgb(var(--color-accent-secondary) / <alpha-value>)",
 				"border-primary": "rgb(var(--color-border-primary) / <alpha-value>)",
 				"border-secondary": "rgb(var(--color-border-secondary) / <alpha-value>)",
@@ -28,8 +29,8 @@ export default {
 				warning: "rgb(var(--color-warning) / <alpha-value>)",
 				danger: "rgb(var(--color-danger) / <alpha-value>)",
 				brand: {
-					light: "#d07050",
-					dark: "#e08060",
+					light: "#7a2e2e",
+					dark: "#c9a45e",
 				},
 			},
 			maxWidth: {

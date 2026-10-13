@@ -6,40 +6,41 @@
 	import CertificationsSection from "$lib/components/CertificationsSection.svelte";
 	import ProjectsSection from "$lib/components/ProjectsSection.svelte";
 	import ContactSection from "$lib/components/ContactSection.svelte";
+	import { SITE_URL } from "$lib/site";
 </script>
 
 <svelte:head>
-	<title>Alex McCune | IT Systems Administrator</title>
-	<meta name="description" content="Alex McCune — IT Systems Administrator with 3+ years of experience managing enterprise infrastructure, automating IT operations, and securing systems. CompTIA Security+ certified. Based in Rochester, NY." />
-	<meta name="keywords" content="Alex McCune, IT Systems Administrator, Cybersecurity, CompTIA Security+, Infrastructure, Server Administration, Automation, Identity and Access Management, Rochester NY" />
+	<title>Alex McCune | IT Systems Administrator in Rochester, NY</title>
+	<meta name="description" content="IT systems administrator in Rochester, NY focused on healthcare infrastructure, identity and access management, Windows and Linux systems, security, and automation." />
 	<meta name="author" content="Alex McCune" />
 	<meta name="robots" content="index, follow" />
-	<link rel="canonical" href="https://www.alexmccune.com/" />
+	<link rel="canonical" href={`${SITE_URL}/`} />
 
-	<meta property="og:title" content="Alex McCune | IT Systems Administrator" />
-	<meta property="og:description" content="IT Systems Administrator | 3+ years managing enterprise infrastructure, automation, identity & access management, and security at scale." />
+	<meta property="og:title" content="Alex McCune | IT Systems Administrator in Rochester, NY" />
+	<meta property="og:description" content="IT systems administrator in Rochester, NY focused on healthcare infrastructure, identity and access management, Windows and Linux systems, security, and automation." />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://www.alexmccune.com/" />
+	<meta property="og:url" content={`${SITE_URL}/`} />
 	<meta property="og:site_name" content="Alex McCune" />
 	<meta property="og:locale" content="en_US" />
-	<meta property="og:image" content="https://www.alexmccune.com/og.png" />
+	<meta property="og:image" content={`${SITE_URL}/og.png`} />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<meta property="og:image:alt" content="Alex McCune — IT Systems Administrator" />
 
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Alex McCune | IT Systems Administrator" />
-	<meta name="twitter:description" content="IT Systems Administrator | 3+ years managing enterprise infrastructure, automation, identity & access management, and security at scale." />
-	<meta name="twitter:image" content="https://www.alexmccune.com/og.png" />
-	<meta name="twitter:url" content="https://www.alexmccune.com/" />
+	<meta name="twitter:title" content="Alex McCune | IT Systems Administrator in Rochester, NY" />
+	<meta name="twitter:description" content="IT systems administrator in Rochester, NY focused on healthcare infrastructure, identity and access management, Windows and Linux systems, security, and automation." />
+	<meta name="twitter:image" content={`${SITE_URL}/og.png`} />
+	<meta name="twitter:url" content={`${SITE_URL}/`} />
 
 	{@html `<script type="application/ld+json">${JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "Person",
 		"name": "Alex McCune",
 		"jobTitle": "IT Systems Administrator",
-		"url": "https://www.alexmccune.com",
-		"image": "https://www.alexmccune.com/avatar.webp",
+		"@id": `${SITE_URL}/#person`,
+		"url": SITE_URL,
+		"image": `${SITE_URL}/avatar.webp`,
 		"sameAs": [
 			"https://linkedin.com/in/alexander-mccune",
 			"https://github.com/mccune1224",
@@ -52,8 +53,7 @@
 		"alumniOf": { "@type": "CollegeOrUniversity", "name": "Concordia University Irvine" },
 		"address": { "@type": "PostalAddress", "addressLocality": "Rochester", "addressRegion": "NY" },
 		"hasCredential": [
-			{ "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "CompTIA Security+" },
-			{ "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "ITIL v4 Foundation", "recognizedBy": { "@type": "Organization", "name": "AXELOS" } }
+			{ "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "CompTIA Security+" }
 		]
 	})}</script>`}
 </svelte:head>

@@ -14,6 +14,7 @@
 				alt="Alex McCune"
 				width="640"
 				height="524"
+				fetchpriority="high"
 				decoding="async"
 				class="absolute inset-0 w-full h-full object-cover"
 				class:hidden={!photoLoaded}
@@ -63,7 +64,7 @@
 					Rochester, NY
 				</span>
 				<span class="text-border-secondary hidden sm:inline">&middot;</span>
-				<a href="mailto:alexmccune1224@gmail.com" class="inline-flex items-center gap-1.5 hover:text-accent-primary transition-colors">
+				<a href="mailto:alexmccune1224@gmail.com" class="inline-flex min-h-11 items-center gap-1.5 transition-colors hover:text-accent-primary">
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
 					</svg>
@@ -71,14 +72,10 @@
 				</a>
 			</div>
 
-			<p class="mt-6 text-lg sm:text-xl text-text-secondary leading-relaxed max-w-xl mx-auto">
-				IT Systems Administrator with 3+ years of experience managing enterprise infrastructure, automating IT operations, and enforcing security compliance across large-scale healthcare environments. Currently at the University of Rochester Medical Center, I orchestrate security patching, system migrations, and full-scope identity lifecycle management — achieving zero unscheduled downtime and zero clinical impact across 9 hospitals and 100+ outpatient facilities.
-			</p>
-
-			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+			<div class="mt-7 flex flex-wrap items-center justify-center gap-4">
 				<a
 					href="#contact"
-					class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-primary text-white text-base font-medium hover:bg-accent-hover transition-colors shadow-sm"
+					class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-primary text-accent-ink text-base font-medium hover:bg-accent-hover transition-colors shadow-sm"
 				>
 					Get in Touch
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -97,6 +94,10 @@
 					</svg>
 				</a>
 			</div>
+
+			<p class="mt-6 text-base sm:text-lg text-text-secondary leading-relaxed max-w-xl mx-auto">
+				I administer critical applications and identity systems across 9 hospitals and 100+ outpatient facilities, with a track record of zero unscheduled downtime during major patching, migrations, and upgrades.
+			</p>
 		</div>
 	</div>
 </section>

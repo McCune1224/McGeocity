@@ -15,11 +15,6 @@
 			status: "earned",
 		},
 		{
-			name: "ITIL v4 Foundation",
-			issuer: "AXELOS",
-			status: "earned",
-		},
-		{
 			name: "HIPAA Privacy & Security Training",
 			issuer: "URMC (Annual)",
 			status: "earned",
@@ -31,7 +26,7 @@
 	<div class="max-w-content mx-auto">
 		<SectionHeading
 			title="Certifications"
-			subtitle="Vendor and industry certifications in security, service management, and compliance."
+			subtitle="Security certification and current compliance training."
 		/>
 
 		<div class="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

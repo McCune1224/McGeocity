@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.alexmccune.com/sitemap.xml
+Sitemap: https://www.alexmccune.dev/sitemap.xml

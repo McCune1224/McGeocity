@@ -28,7 +28,6 @@
 	}: Props = $props();
 
 	let imageFailed = $state(false);
-	let expanded = $state(false);
 
 	const showImage = $derived(image !== undefined && !imageFailed);
 	const hasDetails = $derived(
@@ -96,42 +95,34 @@
 		</div>
 
 		{#if hasDetails && !compact}
-			<div class="pt-3">
-				<button
-					type="button"
-					class="inline-flex items-center gap-1.5 text-sm font-medium text-accent-primary hover:text-accent-hover transition-colors"
-					aria-expanded={expanded}
-					onclick={() => (expanded = !expanded)}
-				>
-					{expanded ? "Hide project details" : "Show project details"}
-					<svg class="h-4 w-4 transition-transform duration-200" class:rotate-180={expanded} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<details class="group pt-3">
+				<summary class="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 text-sm font-medium text-accent-primary transition-colors hover:text-accent-hover [&::-webkit-details-marker]:hidden">
+					Project details
+					<svg class="h-4 w-4 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<path d="m6 9 6 6 6-6" />
 					</svg>
-				</button>
-
-				{#if expanded}
-					<div class="mt-4 space-y-3 text-sm animate-fade-up">
-						{#if problem}
-							<div>
-								<h4 class="font-semibold text-text-primary">Problem</h4>
-								<p class="text-text-secondary leading-relaxed">{problem}</p>
-							</div>
-						{/if}
-						{#if constraints}
-							<div>
-								<h4 class="font-semibold text-text-primary">Constraints</h4>
-								<p class="text-text-secondary leading-relaxed">{constraints}</p>
-							</div>
-						{/if}
-						{#if decision}
-							<div>
-								<h4 class="font-semibold text-text-primary">What I decided</h4>
-								<p class="text-text-secondary leading-relaxed">{decision}</p>
-							</div>
-						{/if}
+			</summary>
+			<div class="mt-4 space-y-3 text-sm">
+				{#if problem}
+					<div>
+						<h4 class="font-semibold text-text-primary">Problem</h4>
+						<p class="text-text-secondary leading-relaxed">{problem}</p>
+					</div>
+				{/if}
+				{#if constraints}
+					<div>
+						<h4 class="font-semibold text-text-primary">Constraints</h4>
+						<p class="text-text-secondary leading-relaxed">{constraints}</p>
+					</div>
+				{/if}
+				{#if decision}
+					<div>
+						<h4 class="font-semibold text-text-primary">What I decided</h4>
+						<p class="text-text-secondary leading-relaxed">{decision}</p>
 					</div>
 				{/if}
 			</div>
+			</details>
 		{/if}
 
 		<div class="flex items-center gap-3 pt-3 border-t border-border-primary mt-auto">

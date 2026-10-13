@@ -9,7 +9,7 @@ https://alexmccune.dev
 ## Features
 
 - **Single-page layout** — hero, experience, education, skills, certifications, projects, and contact all scroll-linked from the navbar
-- **Ember theme** — warm, hand-crafted color system with full light / dark mode (persisted, respects `prefers-color-scheme`)
+- **Oxblood Ledger theme** — warm, hand-crafted color system (aged paper / deep leather with an oxblood and clay accent) with full light / dark mode (persisted, respects `prefers-color-scheme`)
 - **Projects** — pinned personal projects with live demos, tech tags, and source links
 - **Accessible** — keyboard navigable, skip-to-content, `prefers-reduced-motion` support, WCAG AA contrast
 - **SEO-ready** — Open Graph, Twitter cards, JSON-LD Person schema, sitemap, robots.txt

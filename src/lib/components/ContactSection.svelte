@@ -16,6 +16,10 @@
 
 <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-bg-secondary ">
 	<div class="max-w-content mx-auto text-center">
+		<SectionHeading
+			title="Contact"
+			subtitle="Get in touch about IT systems administration, infrastructure, and cybersecurity opportunities."
+		/>
 		<div class="mt-12 max-w-lg mx-auto space-y-8">
 			<!-- Email -->
 			<div class="p-6 rounded-lg border border-border-primary bg-bg-primary ">
@@ -32,7 +36,7 @@
 				</div>
 				<button
 					onclick={copyEmail}
-					class="text-sm font-medium text-text-tertiary hover:text-accent-primary transition-colors"
+					class="inline-flex min-h-11 items-center justify-center text-sm font-medium text-text-tertiary transition-colors hover:text-accent-primary"
 				>
 					{#if copied}
 						Copied to clipboard!

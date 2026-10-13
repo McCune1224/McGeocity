@@ -2,7 +2,7 @@
 	const currentYear = new Date().getFullYear();
 </script>
 
-<footer class="bg-bg-secondary border-t border-border-primary ">
+<footer class="relative z-[1] bg-bg-secondary border-t border-border-primary">
 	<div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8">
 		<div class="flex flex-col sm:flex-row items-center justify-between gap-4">
 			<!-- Left: Copyright -->
@@ -16,7 +16,7 @@
 					href="https://github.com/mccune1224"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-text-tertiary hover:text-accent-primary transition-colors"
+					class="inline-flex min-h-11 min-w-11 items-center justify-center text-text-tertiary transition-colors hover:text-accent-primary"
 					aria-label="GitHub"
 				>
 					<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -28,7 +28,7 @@
 					href="https://linkedin.com/in/alexander-mccune"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-text-tertiary hover:text-accent-primary transition-colors"
+					class="inline-flex min-h-11 min-w-11 items-center justify-center text-text-tertiary transition-colors hover:text-accent-primary"
 					aria-label="LinkedIn"
 				>
 					<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -40,7 +40,7 @@
 					href="https://bsky.app/profile/mckusa.bsky.social"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-text-tertiary hover:text-accent-primary transition-colors"
+					class="inline-flex min-h-11 min-w-11 items-center justify-center text-text-tertiary transition-colors hover:text-accent-primary"
 					aria-label="Bluesky"
 				>
 					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
@@ -52,7 +52,7 @@
 					href="https://mccune1224.substack.com/"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-text-tertiary hover:text-accent-primary transition-colors"
+					class="inline-flex min-h-11 min-w-11 items-center justify-center text-text-tertiary transition-colors hover:text-accent-primary"
 					aria-label="Substack"
 				>
 					<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" role="img">

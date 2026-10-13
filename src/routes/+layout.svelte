@@ -18,7 +18,7 @@
 
 <Navbar />
 
-<main id="main-content" class="relative z-[1]">
+<main id="main-content" tabindex="-1" class="relative z-[1]">
 	{@render children()}
 </main>
 

@@ -3,44 +3,46 @@
 @tailwind utilities;
 
 /* ========================================
-   Theme: Ember Light (warm off-white + coral)
+   Theme: Oxblood Light (aged paper + oxblood)
    ======================================== */
 :root,
 [data-theme="light"] {
-	--color-bg-primary: 250 246 240;
-	--color-bg-secondary: 240 234 221;
-	--color-bg-tertiary: 229 220 200;
-	--color-text-primary: 44 40 34;
-	--color-text-secondary: 92 84 72;
-	--color-text-tertiary: 140 132 120;
-	--color-accent-primary: 208 112 80;
-	--color-accent-hover: 184 92 60;
-	--color-accent-secondary: 139 122 64;
-	--color-border-primary: 224 214 196;
-	--color-border-secondary: 204 192 168;
-	--color-success: 107 120 72;
-	--color-warning: 139 122 64;
-	--color-danger: 192 96 96;
+	--color-bg-primary: 241 233 225;
+	--color-bg-secondary: 231 220 209;
+	--color-bg-tertiary: 220 207 195;
+	--color-text-primary: 59 35 32;
+	--color-text-secondary: 110 79 69;
+	--color-text-tertiary: 116 89 74;
+	--color-accent-primary: 122 46 46;
+	--color-accent-hover: 99 35 35;
+	--color-accent-ink: 255 249 246;
+	--color-accent-secondary: 122 90 46;
+	--color-border-primary: 216 201 187;
+	--color-border-secondary: 201 182 165;
+	--color-success: 90 107 60;
+	--color-warning: 122 90 46;
+	--color-danger: 176 64 46;
 }
 
 /* ========================================
-   Theme: Ember Dark (warm graphite + coral)
+   Theme: Oxblood Dark (deep leather + clay)
    ======================================== */
 [data-theme="dark"] {
-	--color-bg-primary: 28 27 25;
-	--color-bg-secondary: 42 40 38;
-	--color-bg-tertiary: 62 60 56;
-	--color-text-primary: 216 208 192;
-	--color-text-secondary: 176 168 152;
-	--color-text-tertiary: 120 112 104;
-	--color-accent-primary: 224 128 96;
-	--color-accent-hover: 208 112 80;
-	--color-accent-secondary: 200 180 104;
-	--color-border-primary: 62 60 56;
-	--color-border-secondary: 74 72 68;
-	--color-success: 138 152 104;
-	--color-warning: 200 180 104;
-	--color-danger: 176 120 120;
+	--color-bg-primary: 35 19 16;
+	--color-bg-secondary: 46 26 22;
+	--color-bg-tertiary: 61 36 30;
+	--color-text-primary: 240 226 219;
+	--color-text-secondary: 201 171 158;
+	--color-text-tertiary: 164 134 122;
+	--color-accent-primary: 201 164 94;
+	--color-accent-hover: 216 181 112;
+	--color-accent-ink: 35 19 16;
+	--color-accent-secondary: 217 143 122;
+	--color-border-primary: 62 38 32;
+	--color-border-secondary: 82 50 41;
+	--color-success: 143 160 106;
+	--color-warning: 201 164 94;
+	--color-danger: 224 106 106;
 }
 
 /* ========================================
@@ -54,6 +56,10 @@
 html {
 	scroll-behavior: smooth;
 	font-size: 16px;
+}
+
+section[id] {
+	scroll-margin-top: 5rem;
 }
 
 /* Respect users who prefer reduced motion */
@@ -79,6 +85,19 @@ body {
 	line-height: 1.6;
 	min-height: 100vh;
 	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Let the fixed constellation show through section bands while cards stay opaque. */
+main#main-content > section.bg-bg-primary {
+	background-color: rgb(var(--color-bg-primary) / 0.86);
+}
+
+main#main-content > section.bg-bg-secondary {
+	background-color: rgb(var(--color-bg-secondary) / 0.86);
+}
+
+footer.bg-bg-secondary {
+	background-color: rgb(var(--color-bg-secondary) / 0.86);
 }
 
 body,
@@ -119,7 +138,7 @@ a {
 
 ::selection {
 	background-color: rgb(var(--color-accent-primary));
-	color: #ffffff;
+	color: rgb(var(--color-accent-ink));
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -18,7 +18,7 @@ Professional portfolio for **Alex McCune**, an **IT System Administrator & Cyber
 
 **Live Site:** https://alexmccune.dev (DO NOT PUSH without approval)
 
-**Design Direction:** Clean / Corporate Modern with Ember theme — a warm, hand-crafted color system featuring graphite backgrounds, muted olive/gold tones, and a vivid coral accent. Single-page scroll layout optimized for recruiter scanning.
+**Design Direction:** Clean / Corporate Modern with the Oxblood Ledger theme — a warm, hand-crafted color system featuring deep leather backgrounds, aged paper, muted umber and moss tones, and an oxblood accent. Single-page scroll layout optimized for recruiter scanning.
 
 **Reference Sites (for layout/UX inspiration):**
 - https://auspham.dev/ — clean single-page structure, GitHub integration, tech stack grid
@@ -111,7 +111,7 @@ Clean, minimal navbar:
 
 ---
 
-## Design System: Ember Theme
+## Design System: Oxblood Ledger Theme
 
 ### Theme Strategy — Dual Mode
 
@@ -121,43 +121,49 @@ The site supports light and dark modes via a toggle, using CSS custom properties
 <html data-theme="light">  <!-- or data-theme="dark" -->
 ```
 
-### Light Mode — Ember Light (Warm Off-White + Coral)
+### Light Mode — Oxblood Light (Aged Paper + Oxblood)
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--bg-primary` | `#faf6f0` | Page background (warm cream) |
-| `--bg-secondary` | `#f0eadd` | Section/card background |
-| `--bg-tertiary` | `#e5dcc8` | Hover states, subtle highlights |
-| `--text-primary` | `#2c2822` | Headings, body text |
-| `--text-secondary` | `#5c5448` | Muted text, captions |
-| `--text-tertiary` | `#8c8478` | Very muted, metadata |
-| `--accent-primary` | `#d07050` | Links, buttons, active states (coral) |
-| `--accent-hover` | `#b85c3c` | Hover state for accent elements |
-| `--accent-secondary` | `#8b7a40` | Secondary accent (gold) |
-| `--border-primary` | `#e0d6c4` | Card/section borders |
-| `--border-secondary` | `#ccc0a8` | Stronger borders |
-| `--success` | `#6b7848` | Positive indicators (olive) |
-| `--warning` | `#8b7a40` | Warnings (gold) |
-| `--danger` | `#c06060` | Errors (rose) |
+| `--bg-primary` | `#f1e9e1` | Page background (aged paper) |
+| `--bg-secondary` | `#e7dcd1` | Section/card background |
+| `--bg-tertiary` | `#dccfc3` | Hover states, subtle highlights |
+| `--text-primary` | `#3b2320` | Headings, body text |
+| `--text-secondary` | `#6e4f45` | Muted text, captions |
+| `--text-tertiary` | `#74594a` | Very muted, metadata |
+| `--accent-primary` | `#7a2e2e` | Links, buttons, active states (oxblood) |
+| `--accent-hover` | `#632323` | Hover state for accent elements |
+| `--accent-ink` | `#fff9f6` | Foreground on accent fills |
+| `--accent-secondary` | `#7a5a2e` | Secondary accent (umber) |
+| `--border-primary` | `#d8c9bb` | Card/section borders |
+| `--border-secondary` | `#c9b6a5` | Stronger borders |
+| `--success` | `#5a6b3c` | Positive indicators (olive) |
+| `--warning` | `#7a5a2e` | Warnings (umber) |
+| `--danger` | `#b0402e` | Errors (brick) |
 
-### Dark Mode — Ember Dark (Warm Graphite + Coral)
+### Dark Mode — Oxblood Dark (Deep Leather + Brass)
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--bg-primary` | `#1c1b19` | Page background (warm graphite) |
-| `--bg-secondary` | `#2a2826` | Section/card background |
-| `--bg-tertiary` | `#3e3c38` | Hover states, subtle highlights |
-| `--text-primary` | `#d8d0c0` | Headings, body text (warm ivory) |
-| `--text-secondary` | `#b0a898` | Muted text, captions |
-| `--text-tertiary` | `#787068` | Very muted, metadata |
-| `--accent-primary` | `#e08060` | Links, buttons, active states (coral ember) |
-| `--accent-hover` | `#d07050` | Hover state for accent elements |
-| `--accent-secondary` | `#c8b468` | Secondary accent (warm gold) |
-| `--border-primary` | `#3e3c38` | Card/section borders |
-| `--border-secondary` | `#4a4844` | Stronger borders |
-| `--success` | `#8a9868` | Positive indicators (olive) |
-| `--warning` | `#c8b468` | Warnings (gold) |
-| `--danger` | `#b07878` | Errors (dried rose) |
+| `--bg-primary` | `#231310` | Page background (wine leather) |
+| `--bg-secondary` | `#2e1a16` | Section/card background |
+| `--bg-tertiary` | `#3d241e` | Hover states, subtle highlights |
+| `--text-primary` | `#f0e2db` | Headings, body text |
+| `--text-secondary` | `#c9ab9e` | Muted text, captions |
+| `--text-tertiary` | `#a4867a` | Very muted, metadata |
+| `--accent-primary` | `#c9a45e` | Links, buttons, active states (brass) |
+| `--accent-hover` | `#d8b570` | Hover state for accent elements |
+| `--accent-ink` | `#231310` | Foreground on accent fills |
+| `--accent-secondary` | `#d98f7a` | Secondary accent (rose) |
+| `--border-primary` | `#3e2620` | Card/section borders |
+| `--border-secondary` | `#523229` | Stronger borders |
+| `--success` | `#8fa06a` | Positive indicators (moss) |
+| `--warning` | `#c9a45e` | Warnings (brass) |
+| `--danger` | `#e06a6a` | Errors (rose) |
+
+Dark mode deliberately uses brass as its primary accent rather than a terracotta. Terracotta at link-safe contrast lands within a few degrees of hue of a coral, which made dark mode read as the previous theme. Brass on wine leather is the leather-and-brass pairing, and it is unmistakably different. Do not "warm up" the dark accent toward orange; it collapses back toward coral.
+
+**Contrast rule:** never put white text on the dark-mode accent. Use `text-accent-ink`, which resolves to dark ink in dark mode. Every token pair above was checked at 4.5:1 for text and 3:1 for non-text.
 
 ### Typography — Inter
 
@@ -229,7 +235,7 @@ src/lib/components/
 - Active section: subtle underline bar beneath active link
 - Pipe divider between social icons and actions
 - Mobile: hamburger icon → full-width slide-down menu with social links + resume
-- Backdrop blur on scroll (`backdrop-blur-md bg-ember-light/85 dark:bg-ember-dark/85`)
+- Backdrop blur on scroll (`backdrop-blur-md` over `bg-bg-primary/88`)
 
 #### HeroSection
 - Full viewport height minus navbar (`min-h-[calc(100vh-4rem)]`)
@@ -312,8 +318,8 @@ export default {
       colors: {
         // Custom accent colors for consistency
         brand: {
-          light: "#d07050",  // coral
-          dark: "#e08060",   // coral ember
+          light: "#7a2e2e",  // oxblood
+          dark: "#c9a45e",   // brass
         },
       },
     },
@@ -355,9 +361,11 @@ export default {
 ## Accessibility (WCAG AA Minimum)
 
 ### Color Contrast
-- Light mode: #0f172a text on #ffffff = 15.2:1 (AAA) ✓
-- Dark mode: #f1f5f9 text on #0f172a = 13.8:1 (AAA) ✓
-- Accent links: Verify #2563eb on white (6.1:1, AA) and #14b8a6 on charcoal (5.0:1, AA)
+- Light mode: `#3b2320` text on `#f1e9e1` = 12.1:1 (AAA) ✓
+- Dark mode: `#f0e2db` text on `#231310` = 14.2:1 (AAA) ✓
+- Accent links: `#7a2e2e` on `#f1e9e1` (7.7:1, AAA) and `#c9a45e` on `#231310` (7.6:1, AAA) ✓
+- Button text: use `text-accent-ink` on accent fills. Never `text-white`; it measures 2.8:1 on the dark accent.
+- Muted metadata uses `--text-tertiary`, which is tuned to clear 4.5:1 on both the page and card backgrounds in each mode.
 
 ### Keyboard Navigation
 - Full tab order through all interactive elements
@@ -471,6 +479,7 @@ src/lib/styles/animations.scss   # Replace with new animations
 4. Test both light and dark modes
 5. Verify all sections scroll-link correctly
 6. Check keyboard navigation and screen reader accessibility
+7. **Restart the dev server after editing `tailwind.config.ts`.** Vite reloads the page but does not regenerate Tailwind utilities from a changed config, so new color classes silently render as unstyled. A restart is required, and `npm run build` alone will not reveal it because the production build does pick up the config.
 
 ### Before Committing
 1. Run `npm run check` — no TypeScript errors

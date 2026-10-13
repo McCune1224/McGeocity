@@ -7,6 +7,7 @@
 		organization: string;
 		description: string;
 		highlights: string[];
+		compact?: boolean;
 	}
 
 	const timeline: TimelineEntry[] = [
@@ -44,6 +45,7 @@
 				"Architected and maintained Windows Server and Ubuntu LDAP infrastructure across 50+ lab workstations serving 200+ users; managed security patching, Group Policy Objects (GPOs), access controls, and endpoint protection",
 				"Developed PowerShell, Python, and Bash automation scripts for secure account provisioning, software deployment, device configuration, and security monitoring, eliminating manual administrative overhead",
 			],
+			compact: true,
 		},
 		{
 			period: "Dec 2020 — May 2021",
@@ -54,6 +56,7 @@
 				"Engineered a Python/OpenCV computer vision application to detect and classify damage on 3,000+ collectible trading cards, automating quality assessment and replacing error-prone manual inspection processes",
 				"Managed source control and CI/CD pipelines through Azure DevOps; designed a PostgreSQL relational database of trading card metadata to support automated identification and classification at scale",
 			],
+			compact: true,
 		},
 		{
 			period: "Jan 2018 — May 2022",
@@ -64,6 +67,7 @@
 				"Led and mentored a team of technicians supporting 4,000+ students and faculty; triaged escalated help desk tickets, enforced service quality standards, and reduced average resolution time through coaching and process improvement",
 				"Performed classroom hardware repairs, network connectivity troubleshooting and resolution, and audio-visual support for university events and fundraisers, ensuring reliable technology operations across campus",
 			],
+			compact: true,
 		},
 	];
 </script>
@@ -104,15 +108,32 @@
 							</p>
 
 							<ul class="space-y-1.5">
-								{#each entry.highlights as highlight}
+								{#each (entry.compact ? entry.highlights.slice(0, 1) : entry.highlights) as highlight}
 									<li class="flex items-start gap-2 text-sm text-text-secondary">
-										<svg class="h-4 w-4 mt-0.5 flex-shrink-0 text-accent-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+										<svg class="h-4 w-4 mt-0.5 flex-shrink-0 text-accent-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 											<polyline points="20 6 9 17 4 12" />
 										</svg>
 										{highlight}
 									</li>
 								{/each}
 							</ul>
+							{#if entry.compact && entry.highlights.length > 1}
+								<details class="mt-3 text-sm">
+									<summary class="inline-flex min-h-11 w-fit cursor-pointer items-center font-medium text-accent-primary hover:text-accent-hover">
+										More accomplishments
+									</summary>
+									<ul class="mt-2 space-y-1.5">
+										{#each entry.highlights.slice(1) as highlight}
+											<li class="flex items-start gap-2 text-sm text-text-secondary">
+												<svg class="h-4 w-4 mt-0.5 flex-shrink-0 text-accent-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+													<polyline points="20 6 9 17 4 12" />
+												</svg>
+												{highlight}
+											</li>
+										{/each}
+									</ul>
+								</details>
+							{/if}
 						</div>
 					</div>
 				{/each}
