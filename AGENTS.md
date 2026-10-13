@@ -14,7 +14,7 @@
 
 ## Overview
 
-Professional portfolio for **Alex McCune**, an **IT System Administrator & Cybersecurity Analyst** based in Rochester, NY. This is a complete redesign from the previous Half-Life 1 / CS 1.6 industrial UI into a clean, corporate-modern professional portfolio targeting enterprise IT and cybersecurity roles.
+Professional portfolio for **Alex McCune**, an **IT System Administrator & Cybersecurity Analyst** based in Laurel, MD. This is a complete redesign from the previous Half-Life 1 / CS 1.6 industrial UI into a clean, corporate-modern professional portfolio targeting enterprise IT and cybersecurity roles.
 
 **Live Site:** https://alexmccune.dev (DO NOT PUSH without approval)
 
@@ -57,7 +57,7 @@ npm run check:watch  # Continuous type checking during development
 |-------|-------|
 | **Full Name** | Alex McCune |
 | **Title** | IT Systems Administrator |
-| **Location** | Rochester, NY |
+| **Location** | Laurel, MD |
 | **Domain** | alexmccune.dev |
 | **GitHub** | github.com/mccune1224 |
 | **LinkedIn** | linkedin.com/in/alexander-mccune |
@@ -250,7 +250,7 @@ src/lib/components/
 - Vertical timeline with entries from About page data:
   - 2024-Present: Application Administrator — Healthcare systems, security tooling, automation
   - 2023-2024: IT Support Specialist — Help desk, system troubleshooting
-  - 2023: Relocation — Moved to Rochester, NY
+  - 2023: Relocation — Moved to Laurel, MD
   - 2020-2023: Self-Directed Learning — Programming, infrastructure, security
 - Timeline marker: accent-colored dot or vertical line
 - Each entry: period (muted), role (bold), description (body)
@@ -288,7 +288,7 @@ src/lib/components/
 - Email link (with copy-to-clipboard option)
 - Social links row: GitHub, LinkedIn, Bluesky, Substack
 - Optional: PGP public key link (if relevant for security roles)
-- Location line: Rochester, NY
+- Location line: Laurel, MD
 
 ---
 

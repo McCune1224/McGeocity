@@ -1,6 +1,6 @@
 # McGeocity
 
-Personal portfolio for **Alex McCune — IT Systems Administrator & Cybersecurity Analyst**, based in Rochester, NY.
+Personal portfolio for **Alex McCune — IT Systems Administrator & Cybersecurity Analyst**, based in Laurel, MD.
 
 ## Live Site
 

@@ -10,14 +10,14 @@
 </script>
 
 <svelte:head>
-	<title>Alex McCune | IT Systems Administrator in Rochester, NY</title>
-	<meta name="description" content="IT systems administrator in Rochester, NY focused on healthcare infrastructure, identity and access management, Windows and Linux systems, security, and automation." />
+	<title>Alex McCune | IT Systems Administrator in Laurel, MD</title>
+	<meta name="description" content="IT systems administrator in Laurel, MD focused on healthcare infrastructure, identity and access management, Windows and Linux systems, security, and automation." />
 	<meta name="author" content="Alex McCune" />
 	<meta name="robots" content="index, follow" />
 	<link rel="canonical" href={`${SITE_URL}/`} />
 
-	<meta property="og:title" content="Alex McCune | IT Systems Administrator in Rochester, NY" />
-	<meta property="og:description" content="IT systems administrator in Rochester, NY focused on healthcare infrastructure, identity and access management, Windows and Linux systems, security, and automation." />
+	<meta property="og:title" content="Alex McCune | IT Systems Administrator in Laurel, MD" />
+	<meta property="og:description" content="IT systems administrator in Laurel, MD focused on healthcare infrastructure, identity and access management, Windows and Linux systems, security, and automation." />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`${SITE_URL}/`} />
 	<meta property="og:site_name" content="Alex McCune" />
@@ -28,8 +28,8 @@
 	<meta property="og:image:alt" content="Alex McCune — IT Systems Administrator" />
 
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Alex McCune | IT Systems Administrator in Rochester, NY" />
-	<meta name="twitter:description" content="IT systems administrator in Rochester, NY focused on healthcare infrastructure, identity and access management, Windows and Linux systems, security, and automation." />
+	<meta name="twitter:title" content="Alex McCune | IT Systems Administrator in Laurel, MD" />
+	<meta name="twitter:description" content="IT systems administrator in Laurel, MD focused on healthcare infrastructure, identity and access management, Windows and Linux systems, security, and automation." />
 	<meta name="twitter:image" content={`${SITE_URL}/og.png`} />
 	<meta name="twitter:url" content={`${SITE_URL}/`} />
 
@@ -51,7 +51,7 @@
 		"worksFor": { "@type": "Organization", "name": "University of Rochester Medical Center" },
 		"knowsAbout": ["IT Systems Administration", "Cybersecurity", "Network Security", "Infrastructure Management", "Server Administration", "Enterprise Automation", "Identity & Access Management", "Vulnerability Management", "Disaster Recovery"],
 		"alumniOf": { "@type": "CollegeOrUniversity", "name": "Concordia University Irvine" },
-		"address": { "@type": "PostalAddress", "addressLocality": "Rochester", "addressRegion": "NY" },
+		"address": { "@type": "PostalAddress", "addressLocality": "Laurel", "addressRegion": "MD" },
 		"hasCredential": [
 			{ "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "CompTIA Security+" }
 		]

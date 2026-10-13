@@ -61,7 +61,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
 						<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
 					</svg>
-					Rochester, NY
+					Laurel, MD
 				</span>
 				<span class="text-border-secondary hidden sm:inline">&middot;</span>
 				<a href="mailto:alexmccune1224@gmail.com" class="inline-flex min-h-11 items-center gap-1.5 transition-colors hover:text-accent-primary">

@@ -99,7 +99,7 @@
 
 			<!-- Location -->
 			<p class="text-sm text-text-tertiary">
-				Rochester, NY
+				Laurel, MD
 			</p>
 		</div>
 	</div>
